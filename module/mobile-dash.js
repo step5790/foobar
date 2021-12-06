@@ -17,6 +17,8 @@ function prepareAllData(jsonData) {
 
   displayQues(jsonData);
   displayTapLevels(jsonData);
+  displayKegInventory(jsonData);
+  displayBartenders(jsonData);
 }
 
 function displayQues(queData) {
@@ -36,3 +38,32 @@ function displayTapLevels(tapData) {
     console.log(element.beer + ": " + element.level);
   });
 }
+
+function displayKegInventory(kegData) {
+  console.log(kegData.storage);
+  const allKeg = kegData.storage;
+
+  allKeg.forEach((element) => {
+    console.log(element.name + ": " + element.amount);
+  });
+}
+
+function displayBartenders(bartenderData) {
+  console.log(bartenderData.bartenders);
+
+  const allBartender = bartenderData.bartenders;
+
+  allBartender.forEach((element) => {
+    console.log(
+      element.name +
+        " " +
+        "Status: " +
+        element.statusDetail +
+        " " +
+        "| Serving customer: " +
+        element.servingCustomer
+    );
+  });
+}
+
+// *****for graph*****
