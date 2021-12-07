@@ -8,10 +8,28 @@
   </head>
   <body>
     <h1>Dashboard</h1>
+
+    <div class="dash-orders">
+      <button type="button" class="collapsible">Customers</button>
+
+      <div class="content">
+        <div class="item-1">
+          <h3 class="queText">Que</h3>
+          <h2 class="queNumber">6</h2>
+        </div>
+        <div class="item-2">
+          <h3 class="total">Total</h3>
+          <h2 class="totalNumber">1000</h2>
+        </div>
+      </div>
+    </div>
+
     <div class="chart">
       <canvas id="myChart" width="400" height="400"></canvas>
     </div>
+
     <script type="module" src="/module/mobile-dash.js"></script>
+    <script type="module" src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>

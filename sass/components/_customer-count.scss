@@ -1,0 +1,32 @@
+.dash-orders {
+  color: white;
+}
+
+.collapsible {
+  background-color: #1b0b52;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #1b0b52;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #1b0b52;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.collapsible {
+  border-radius: 10px 10px 10px 10px;
+}
