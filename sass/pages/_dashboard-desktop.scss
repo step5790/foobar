@@ -1,0 +1,14 @@
+.db-desktop {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  background: #6f6593;
+  height: 100vh;
+
+  .db-bar-view {
+    position: relative;
+
+    .svg-container {
+      position: absolute;
+    }
+  }
+}
