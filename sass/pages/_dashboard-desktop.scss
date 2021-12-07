@@ -7,7 +7,17 @@
   .db-bar-view {
     position: relative;
 
-    .svg-container svg {
+    .bartenders {
+      position: absolute;
+      top: 12vw;
+      left: 9vw;
+
+      .bartender-at-counter {
+        width: 11vw;
+      }
+    }
+
+    svg {
       position: absolute;
     }
   }

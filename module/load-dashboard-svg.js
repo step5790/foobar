@@ -7,8 +7,11 @@ export async function loadSvg() {
   const midbackgroundText = await midbackgroundSvg.text();
   const bgSvg = await fetch("assets/bar-background.svg");
   const bgText = await bgSvg.text();
+  const klausLeaningSvg = await fetch("assets/bartenders/klaus-leaning.svg");
+  const klausLeaningText = await klausLeaningSvg.text();
   //import to dom
   document.querySelector(".bar-background").innerHTML = bgText;
   document.querySelector(".bar-midbackground").innerHTML = midbackgroundText;
   document.querySelector(".bar-foreground").innerHTML = foregroundText;
+  document.querySelector("#Klaus").innerHTML = klausLeaningText;
 }
