@@ -1,5 +1,12 @@
-.dash-orders {
+#dash-orders {
   color: white;
+  width: 100%;
+}
+
+.components {
+  -webkit-box-shadow: 4px 4px 8px -1px #4c30b4;
+  box-shadow: 4px 4px 8px -1px #4c30b4;
+  margin-bottom: 25px;
 }
 
 .collapsible {
@@ -11,7 +18,13 @@
   border: none;
   text-align: left;
   outline: none;
-  font-size: 16px;
+  font-size: 22px;
+
+  &::after {
+    content: "";
+    display: block;
+    border-top: 1px solid white;
+  }
 }
 
 .active,
@@ -24,9 +37,45 @@
   display: none;
   overflow: hidden;
   background-color: #1b0b52;
-  border-radius: 0px 0px 10px 10px;
+  //   border-radius: 0px 0px 10px 10px;
+  padding: 50px 0px 50px 0px;
 }
 
-.collapsible {
-  border-radius: 10px 10px 10px 10px;
+// .collapsible {
+//   border-radius: 10px 10px 10px 10px;
+// }
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  gap: 40px;
+  color: black;
+}
+
+.item-1,
+.item-2 {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  & h3,
+  h1 {
+    margin: 0;
+  }
+}
+
+.item-1 {
+  background-color: #aa40f8;
+}
+
+.item-2 {
+  background-color: #c8f42e;
 }
