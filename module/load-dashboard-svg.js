@@ -13,5 +13,8 @@ export async function loadSvg() {
   document.querySelector(".bar-background").innerHTML = bgText;
   document.querySelector(".bar-midbackground").innerHTML = midbackgroundText;
   document.querySelector(".bar-foreground").innerHTML = foregroundText;
-  document.querySelector("#Klaus").innerHTML = klausLeaningText;
+
+  document.querySelectorAll(".bartender-at-counter").forEach((element) => {
+    element.innerHTML = klausLeaningText;
+  });
 }
