@@ -76,41 +76,32 @@ function graphBeer(kegData) {
   if (window.matchMedia("(max-device-width: 414px)").matches) {
     const ctx = document.getElementById("myChart");
     const myChart = new Chart(ctx, {
-      type: "bar",
+      type: "pie",
       data: {
-        labels: [
-          kegData.storage[0].name,
-          kegData.storage[1].name,
-          kegData.storage[2].name,
-          kegData.storage[3].name,
-          kegData.storage[4].name,
-        ],
-
+        labels: ["Red", "Blue", "Yellow"],
         datasets: [
           {
-            label: "Beer Order Sales",
+            label: "My First Dataset",
             data: [
               kegData.storage[0].amount,
               kegData.storage[1].amount,
               kegData.storage[2].amount,
               kegData.storage[3].amount,
               kegData.storage[4].amount,
+              kegData.storage[5].amount,
+              kegData.storage[6].amount,
+              kegData.storage[7].amount,
+              kegData.storage[8].amount,
+              kegData.storage[9].amount,
             ],
             backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(212, 100, 214)",
+              "rgb(100, 209, 214)",
             ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-            ],
-            borderWidth: 1,
+            hoverOffset: 4,
           },
         ],
       },
@@ -118,16 +109,10 @@ function graphBeer(kegData) {
         plugins: {
           legend: {
             labels: {
-              // This more specific font property overrides the global property
               font: {
-                size: 14,
+                size: 0,
               },
             },
-          },
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
           },
         },
       },
@@ -145,3 +130,9 @@ function graphBeer(kegData) {
 // "Ruined Childhood",
 // "Sleighride",
 // "Steampunk",
+
+// kegData.storage[0].name,
+//           kegData.storage[1].name,
+//           kegData.storage[2].name,
+//           kegData.storage[3].name,
+//           kegData.storage[4].name,
