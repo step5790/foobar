@@ -7,20 +7,32 @@
   .db-bar-view {
     position: relative;
 
-    .bartenders {
+    .bartenders-at-counter {
       display: flex;
       position: absolute;
-      top: 14vw;
+      top: 18vw;
       left: 10vw;
       width: 60vw;
       justify-content: space-between;
 
-      .bartender-at-counter {
+      .bt-at-counter {
         position: relative;
-        width: 11vw;
+        width: 8.5vw;
       }
     }
+    .bartenders-at-bar {
+      display: flex;
+      position: absolute;
+      top: 36vw;
+      left: 7vw;
+      width: 61.5vw;
+      justify-content: space-between;
 
+      .bt-pouring {
+        position: relative;
+        width: 12vw;
+      }
+    }
     svg {
       position: absolute;
     }
