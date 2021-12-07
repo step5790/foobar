@@ -1,7 +1,7 @@
 "use strict";
 
 export async function loadSvg() {
-  const foregroundSvg = await fetch("assets/bar-foreground.svg");
+  const foregroundSvg = await fetch("assets/bar-foreground-taps.svg");
   const foregroundText = await foregroundSvg.text();
   const midbackgroundSvg = await fetch("assets/bar-midbackground.svg");
   const midbackgroundText = await midbackgroundSvg.text();
