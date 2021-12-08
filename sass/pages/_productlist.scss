@@ -1,8 +1,13 @@
 /* body */
+html {
+  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 20%);
+  background-repeat: no-repeat;
+}
+
 #productlist {
   margin: 0;
-  background: rgb(76, 48, 180);
-  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 20%, rgba(13, 6, 39, 1) 86%, rgba(255, 255, 255, 0) 100%);
+
+  min-height: 100%;
 }
 
 #heading {
@@ -27,6 +32,10 @@
   position: absolute;
   top: 0;
   z-index: -99;
+}
+
+.beerGlass {
+  width: 100px;
 }
 
 /* MIT License
