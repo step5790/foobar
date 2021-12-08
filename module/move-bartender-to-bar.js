@@ -1,11 +1,11 @@
 "use strict";
 
-import { changeBartenderDisplay } from "./change-bartender-display";
+import { displayFrontBartender, hideBartenderAtBar } from "./change-bartender-display";
 
 export function moveBartenderToBar(bartender) {
   const tap = getTap(bartender.usingTap);
   const bt = getBartender(bartender);
-  changeBartenderDisplay(bartender);
+  displayFrontBartender(bt.element);
   animateToBar(tap.element, tap.position, bt.element, bt.position);
 }
 
@@ -28,6 +28,9 @@ function animateToBar(tapElement, tapPosition, btElement, btPosition) {
       fillMode: "forwards",
     }
   );
+  moveBartenderAnimation.onfinish = () => {
+    hideBartenderAtBar(btElement);
+  };
 }
 
 function getTap(tap) {
