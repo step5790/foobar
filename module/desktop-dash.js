@@ -1,32 +1,32 @@
 "use strict";
 import { loadSvg } from "./load-dashboard-svg";
+import { moveBartenderToBar } from "./move-bartender-to-bar";
 
 window.addEventListener("DOMContentLoaded", start);
 
 let bartenders = [
   {
     btName: "Klaus",
-    btStatus: "",
+    btStatus: "waiting",
   },
   {
     btName: "Jonas",
-    btStatus: "",
+    btStatus: "waiting",
   },
   {
     btName: "Peter",
-    btStatus: "",
+    btStatus: "waiting",
   },
   {
     btName: "Dannie",
-    btStatus: "",
+    btStatus: "waiting",
   },
 ];
 
-function start() {
+async function start() {
   console.log("start");
-  loadSvg();
+  await loadSvg();
   loadDynamicData();
-  setTimeout(loadDynamicData, 1000);
 }
 
 function loadDynamicData() {
@@ -34,25 +34,38 @@ function loadDynamicData() {
   fetch(url)
     .then((res) => res.json())
     .then((data) => getData(data));
-  // setTimeout(loadDynamicData, 2000);
+  setTimeout(loadDynamicData, 1000);
 }
 
 function getData(data) {
   const bartendersData = data.bartenders;
-  bartendersData.forEach((bartender) => {
-    getBartenderStatus(bartender);
-  });
-  // getBartenderStatus(bartendersData[1]);
+  // bartendersData.forEach((bartender) => {
+  //   getBartenderStatus(bartender);
+  // });
+  getBartenderStatus(bartendersData[1]);
   showBartender(bartendersData[1]);
 }
 
 function getBartenderStatus(bartender) {
   const bartenderName = bartender.name;
-  console.log(bartenders);
+  const newStatus = bartender.statusDetail;
+  //match bartender in global variable
   bartenders.forEach((bt) => {
     if (bt.btName === bartenderName) {
-      console.log(bt.btName, "old Status:", bt.btStatus);
-      const newStatus = bartender.statusDetail;
+      const oldStatus = bt.btStatus;
+      console.log(bt.btName, "old Status:", oldStatus);
+
+      if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
+        console.log("bartender needs to go to the bar");
+        moveBartenderToBar(bartender);
+      } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
+        console.log("bartender needs to change a tap");
+        moveBartenderToNewTap();
+      } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
+        console.log("bartender needs go to to the counter");
+        moveBartenderToCounter();
+      }
+
       bt.btStatus = newStatus;
       console.log(bt.btName, "new Status:", bt.btStatus);
     }
@@ -68,3 +81,7 @@ function showBartender(data) {
   const tapCol = document.querySelector(`td[data-bartender=usingTap]`);
   tapCol.textContent = data.usingTap;
 }
+
+function moveBartenderToNewTap() {}
+
+function moveBartenderToCounter() {}
