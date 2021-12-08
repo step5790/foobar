@@ -2,9 +2,13 @@
 
 export function moveBartenderToBar(bartender) {
   console.log(bartender);
-  const tapPosition = getTap(bartender.usingTap);
-  const bartenderElementAndPosition = getBartender(bartender);
-  console.log("tap", tapPosition, "bartender", bartenderElementAndPosition);
+  const tap = getTap(bartender.usingTap);
+  const bt = getBartender(bartender);
+  console.log("tap", tap, "bartender", bt);
+  // animateToBar(bartenderElementAndPosition[0], bartenderElementAndPosition[1], tapPosition)
+}
+
+function animateToBar() {
   //calculate the movement
   const deltaX = tapPosition.left - bartenderElementAndPosition[1].left;
   const deltaY = tapPosition.top - bartenderElementAndPosition[1].top;
@@ -18,7 +22,7 @@ export function moveBartenderToBar(bartender) {
       },
     ],
     {
-      duration: 600,
+      duration: 900,
       easing: "ease-in-out",
       fillMode: "forwards",
     }
@@ -30,11 +34,11 @@ function getTap(tap) {
   const tapNumberAsString = tap.toString();
   const tapInDom = document.querySelector(`#tap_${tapNumberAsString}`);
   const tapPosition = tapInDom.getBoundingClientRect();
-  return tapPosition;
+  return { element: tapInDom, position: tapPosition };
 }
 
 function getBartender(bartender) {
   const bartenderInDom = document.querySelector(`#${bartender.name}`);
   const bartenderPosition = bartenderInDom.getBoundingClientRect();
-  return [bartenderInDom, bartenderPosition];
+  return { element: bartenderInDom, position: bartenderPosition };
 }
