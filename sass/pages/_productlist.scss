@@ -11,7 +11,7 @@ html {
 }
 
 #heading {
-  width: 100vw;
+  width: 100%;
   background-image: linear-gradient(0deg, rgba(13, 6, 39, 1) 10%, rgba(13, 6, 39, 0) 60%), url("assets/home-cover.png");
   background-size: cover;
   background-position-x: center;
@@ -29,19 +29,14 @@ html {
 .normalText {
   margin-left: 5%;
   margin-right: 5%;
-  width: 60%;
-}
-
-.coverImage {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  z-index: -99;
+  width: 40%;
+  font-weight: 300 !important;
 }
 
 #beerList {
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 80px;
 }
 
 .beerGlass {
