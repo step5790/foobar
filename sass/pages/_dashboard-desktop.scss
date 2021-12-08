@@ -1,3 +1,24 @@
+.db-info {
+  /* TABLE */
+  font-size: 0.9rem;
+  .list {
+    border-collapse: collapse;
+  }
+
+  .list tbody tr td {
+    padding: 1px;
+  }
+
+  .list tbody tr:nth-child(odd) td {
+    background-color: lightblue;
+    border-right: rgb(234, 247, 255) 2px dotted;
+  }
+
+  .list tbody tr:nth-child(even) td {
+    border-right: rgb(234, 247, 255) 2px dotted;
+  }
+}
+
 .db-desktop {
   display: grid;
   grid-template-columns: 22% 1fr;

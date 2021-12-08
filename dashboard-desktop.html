@@ -9,7 +9,24 @@
   <body>
     <main>
       <section class="db-desktop">
-        <aside class="db-info"></aside>
+        <aside class="db-info">
+          <table class="list">
+            <thead>
+              <tr id="sorting">
+                <th data-action="sort" data-sort-direction="asc" data-sort="name">Bartender</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="statusDetail">Status detail</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="tap">Tap</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-bartender="name">name</td>
+                <td data-bartender="statusDetail">statusDetail</td>
+                <td data-bartender="usingTap">tap number</td>
+              </tr>
+            </tbody>
+          </table>
+        </aside>
         <section class="db-bar-view">
           <div class="bar-background"></div>
 
