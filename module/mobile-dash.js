@@ -27,3 +27,9 @@ function prepareAllData(jsonData) {
   displayBartenders(jsonData);
   collapsible();
 }
+
+if (window.matchMedia("(max-device-width: 414px)").matches) {
+  document.querySelector("body").style.display = "block";
+} else {
+  document.querySelector("body").style.display = "none";
+}
