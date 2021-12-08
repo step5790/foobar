@@ -3,7 +3,12 @@ import { loadSvg } from "./load-dashboard-svg";
 
 window.addEventListener("DOMContentLoaded", start);
 
-let statusKlaus = "";
+let bartenderStatus = {
+  Klaus: "",
+  Jonas: "",
+  Peter: "",
+  Dannie: "",
+};
 
 function start() {
   console.log("start");
@@ -17,7 +22,7 @@ function loadDynamicData() {
   fetch(url)
     .then((res) => res.json())
     .then((data) => getData(data));
-  setTimeout(loadDynamicData, 2000);
+  // setTimeout(loadDynamicData, 2000);
 }
 
 function getData(data) {
@@ -30,10 +35,11 @@ function getData(data) {
 }
 
 function getBartenderStatus(bartender) {
-  console.log("old status:", statusKlaus);
+  // const bartenderName = bartender.name;
+  console.log("Klaus old Status", bartenderStatus.Klaus);
   const newStatus = bartender.statusDetail;
-  statusKlaus = newStatus;
-  console.log("new Status:", statusKlaus);
+  bartenderStatus.Klaus = newStatus;
+  console.log("new Status:", bartenderStatus.Klaus);
 }
 
 function showBartender(data) {
