@@ -1,13 +1,19 @@
+import {
+  peterCalculate,
+  peterCalculatePost,
+  klausCalculate,
+  klausCalculatePost,
+  jonasCalculate,
+  jonasCalculatePost,
+  dannieCalculate,
+  dannieCalculatePost,
+} from "./peterCalculate";
+
 export function displayBartenders(bartenderData) {
   console.log(bartenderData.bartenders);
 
   document.querySelector("#dash-bartender .content").innerHTML = "";
 
-  let bartenderStatus;
-  let peterCount = 0;
-  let klausCount = 0;
-  let jonasCount = 0;
-  let dannieCount = 0;
   const allBartender = bartenderData.bartenders;
 
   allBartender.forEach((element) => {
@@ -39,24 +45,21 @@ export function displayBartenders(bartenderData) {
 
         switch (element.name) {
           case "Peter":
-            peterCount++;
             clone.querySelector(".bartender-total-order .span").textContent =
-              peterCount;
+              peterCalculate();
             break;
+
           case "Klaus":
-            klausCount++;
             clone.querySelector(".bartender-total-order .span").textContent =
-              klausCount;
+              klausCalculate();
             break;
           case "Jonas":
-            jonasCount++;
             clone.querySelector(".bartender-total-order .span").textContent =
-              jonasCount;
+              jonasCalculate();
             break;
           case "Dannie":
-            dannieCount++;
             clone.querySelector(".bartender-total-order .span").textContent =
-              dannieCount;
+              dannieCalculate();
             break;
         }
         break;
@@ -80,6 +83,25 @@ export function displayBartenders(bartenderData) {
       case "replaceKeg":
         clone.querySelector(".bartender-status .span").textContent =
           "Replacing empty keg";
+        break;
+    }
+
+    switch (element.name) {
+      case "Peter":
+        clone.querySelector(".bartender-total-order .span").textContent =
+          peterCalculatePost();
+        break;
+      case "Klaus":
+        clone.querySelector(".bartender-total-order .span").textContent =
+          klausCalculatePost();
+        break;
+      case "Jonas":
+        clone.querySelector(".bartender-total-order .span").textContent =
+          jonasCalculatePost();
+        break;
+      case "Dannie":
+        clone.querySelector(".bartender-total-order .span").textContent =
+          dannieCalculatePost();
         break;
     }
 
