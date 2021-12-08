@@ -1,6 +1,6 @@
 "use strict";
 import { loadSvg } from "./load-dashboard-svg";
-import { moveBartenderToBar } from "./move-bartender-to-bar";
+import { getBartenderAndTap } from "./move-bartender-to-bar";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -57,7 +57,7 @@ function getBartenderStatus(bartender) {
 
       if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
         console.log("bartender needs to go to the bar");
-        moveBartenderToBar(bartender);
+        getBartenderAndTap(bartender);
       } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
         console.log("bartender needs to change a tap");
         moveBartenderToNewTap();

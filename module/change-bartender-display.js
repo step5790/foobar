@@ -5,6 +5,6 @@ export function displayFrontBartender(btElement) {
   btElement.querySelector(`div.front`).classList.remove("hidden");
 }
 
-export function hideBartenderAtBar(btElement) {
+export function hideBartenderAtCounter(btElement) {
   btElement.classList.add("hidden");
 }

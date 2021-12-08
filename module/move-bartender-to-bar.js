@@ -1,39 +1,13 @@
 "use strict";
-
-import { displayFrontBartender, hideBartenderAtBar } from "./change-bartender-display";
-import { createBartenderAtBar } from "./create-bartender-at-bar";
+import { displayFrontBartender } from "./change-bartender-display";
 import { getTap } from "./get-tap";
+import { animateToTap } from "./move-bartender-to-tap";
 
-export function moveBartenderToBar(bartender) {
+export function getBartenderAndTap(bartender) {
   const tap = getTap(bartender.usingTap);
   const bt = getBartender(bartender);
   displayFrontBartender(bt.element);
-  animateToBar(tap.element, tap.position, bt.element, bt.position, bartender);
-}
-
-function animateToBar(tapElement, tapPosition, btElement, btPosition, bartender) {
-  //calculate the movement
-  const deltaX = tapPosition.left - btPosition.left;
-  const deltaY = tapPosition.top - btPosition.top;
-  //animate movement
-  const moveBartenderAnimation = btElement.animate(
-    [
-      {
-        transformOrigin: "top left",
-        transform: `translateX(${deltaX}px)
-      translateY(${deltaY}px)`,
-      },
-    ],
-    {
-      duration: 1200,
-      easing: "ease-in-out",
-      fillMode: "forwards",
-    }
-  );
-  moveBartenderAnimation.onfinish = () => {
-    hideBartenderAtBar(btElement);
-    createBartenderAtBar(bartender);
-  };
+  animateToTap(tap.element, tap.position, bt.element, bt.position, bartender);
 }
 
 function getBartender(bartender) {
