@@ -1,19 +1,17 @@
 "use strict";
 
 export function moveBartenderToBar(bartender) {
-  console.log(bartender);
   const tap = getTap(bartender.usingTap);
   const bt = getBartender(bartender);
-  console.log("tap", tap, "bartender", bt);
-  // animateToBar(bartenderElementAndPosition[0], bartenderElementAndPosition[1], tapPosition)
+  animateToBar(tap.element, tap.position, bt.element, bt.position);
 }
 
-function animateToBar() {
+function animateToBar(tapElement, tapPosition, btElement, btPosition) {
   //calculate the movement
-  const deltaX = tapPosition.left - bartenderElementAndPosition[1].left;
-  const deltaY = tapPosition.top - bartenderElementAndPosition[1].top;
+  const deltaX = tapPosition.left - btPosition.left;
+  const deltaY = tapPosition.top - btPosition.top;
   //animate movement
-  const moveBartenderAnimation = bartenderElementAndPosition[0].animate(
+  const moveBartenderAnimation = btElement.animate(
     [
       {
         transformOrigin: "top left",
