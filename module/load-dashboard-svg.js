@@ -13,16 +13,21 @@ export async function loadSvg() {
   const klausPouringText = await klausPouringSvg.text();
   const klausFrontSvg = await fetch("assets/bartenders/klaus-front.svg");
   const klausFrontText = await klausFrontSvg.text();
+  const klausBackCarryingSvg = await fetch("assets/bartenders/klaus-back-carrying.svg");
+  const klausBackCarryingText = await klausBackCarryingSvg.text();
   //import to dom
   document.querySelector(".bar-background").innerHTML = bgText;
   document.querySelector(".bar-midbackground").innerHTML = midbackgroundText;
   document.querySelector(".bar-foreground").innerHTML = foregroundText;
   //bartenders
-  document.querySelector(".front").innerHTML = klausFrontText;
-  document.querySelectorAll(".leaning").forEach((element) => {
-    element.innerHTML = klausLeaningText;
-  });
-  document.querySelectorAll(".bt-pouring").forEach((element) => {
-    element.innerHTML = klausPouringText;
-  });
+  document.querySelector("#Klaus .front").innerHTML = klausFrontText;
+  document.querySelector("#Klaus .leaning").innerHTML = klausLeaningText;
+
+  //counter
+  // document.querySelectorAll(".bt-pouring").forEach((element) => {
+  //   element.innerHTML = klausPouringText;
+  // });
+  // document.querySelectorAll(".bt-pouring").forEach((element) => {
+  //   element.innerHTML = klausBackCarryingText;
+  // });
 }
