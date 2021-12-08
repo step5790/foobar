@@ -1,15 +1,16 @@
 "use strict";
 
 import { displayFrontBartender, hideBartenderAtBar } from "./change-bartender-display";
+import { createBartenderAtBar } from "./create-bartender-at-bar";
 
 export function moveBartenderToBar(bartender) {
   const tap = getTap(bartender.usingTap);
   const bt = getBartender(bartender);
   displayFrontBartender(bt.element);
-  animateToBar(tap.element, tap.position, bt.element, bt.position);
+  animateToBar(tap.element, tap.position, bt.element, bt.position, bartender);
 }
 
-function animateToBar(tapElement, tapPosition, btElement, btPosition) {
+function animateToBar(tapElement, tapPosition, btElement, btPosition, bartender) {
   //calculate the movement
   const deltaX = tapPosition.left - btPosition.left;
   const deltaY = tapPosition.top - btPosition.top;
@@ -30,6 +31,7 @@ function animateToBar(tapElement, tapPosition, btElement, btPosition) {
   );
   moveBartenderAnimation.onfinish = () => {
     hideBartenderAtBar(btElement);
+    createBartenderAtBar(bartender);
   };
 }
 
