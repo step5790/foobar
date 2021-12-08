@@ -2,6 +2,9 @@ import { graphBeer } from "./graphBeer";
 
 export function displayKegInventory(kegData) {
   console.log(kegData.storage);
+
+  document.querySelector("#dash-keg .content").innerHTML = "";
+
   const allKeg = kegData.storage;
 
   allKeg.forEach((element) => {
@@ -22,8 +25,8 @@ export function displayKegInventory(kegData) {
       clone.querySelector(".keg-left").style.color = "green";
     }
 
-    document.querySelector("#dash-keg .item-container").appendChild(clone);
+    document.querySelector("#dash-keg .content").appendChild(clone);
   });
 
-  graphBeer(kegData);
+  // graphBeer(kegData);
 }

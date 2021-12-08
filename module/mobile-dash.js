@@ -11,10 +11,13 @@ window.addEventListener("DOMContentLoaded", init);
 async function init() {
   const url = "https://hangover3.herokuapp.com/";
 
+  // console.clear();
+
   fetch(url)
     .then((response) => response.json())
     .then((jsonData) => {
       prepareAllData(jsonData);
+      setTimeout(init, 1000);
     });
 }
 

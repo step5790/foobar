@@ -1,5 +1,8 @@
 export function displayTapLevels(tapData) {
   console.log(tapData.taps);
+
+  document.querySelector("#dash-tap .content").innerHTML = "";
+
   const allTap = tapData.taps;
 
   allTap.forEach((element) => {
@@ -27,6 +30,6 @@ export function displayTapLevels(tapData) {
       clone.querySelector(".tap-icon").src = "/assets/beer/full.svg";
     }
 
-    document.querySelector("#dash-tap .item-container").appendChild(clone);
+    document.querySelector("#dash-tap .content").appendChild(clone);
   });
 }
