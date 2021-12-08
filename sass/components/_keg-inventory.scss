@@ -1,0 +1,37 @@
+#dash-keg {
+  & .item-container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px 0px 20px;
+    gap: 8px;
+  }
+
+  & .keg-name {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  & .item-keg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px 10px;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 6px;
+    gap: 8px;
+    & img {
+      width: 50px;
+    }
+    & p {
+      width: 15%;
+    }
+
+    & .keg-left {
+      font-size: 30px;
+    }
+  }
+}
