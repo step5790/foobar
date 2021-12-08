@@ -1,24 +1,32 @@
-body {
+/* body */
+#productlist {
   margin: 0;
+  background: rgb(76, 48, 180);
+  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 20%, rgba(13, 6, 39, 1) 86%, rgba(255, 255, 255, 0) 100%);
 }
 
 #heading {
   height: 100vw;
-  background-image: url("assets/home-cover.png");
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .mainHeading {
   margin-left: 5%;
   margin-right: 5%;
-  width: 50%;
+  width: 30%;
+  margin-top: 20%;
 }
 
 .normalText {
   margin-left: 5%;
   margin-right: 5%;
   width: 60%;
+}
+
+.coverImage {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -99;
 }
 
 /* MIT License
