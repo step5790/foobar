@@ -11,12 +11,15 @@ export async function loadSvg() {
   const klausLeaningText = await klausLeaningSvg.text();
   const klausPouringSvg = await fetch("assets/bartenders/klaus-pouring.svg");
   const klausPouringText = await klausPouringSvg.text();
+  const klausFrontSvg = await fetch("assets/bartenders/klaus-front.svg");
+  const klausFrontText = await klausFrontSvg.text();
   //import to dom
   document.querySelector(".bar-background").innerHTML = bgText;
   document.querySelector(".bar-midbackground").innerHTML = midbackgroundText;
   document.querySelector(".bar-foreground").innerHTML = foregroundText;
-
-  document.querySelectorAll(".bt-at-counter").forEach((element) => {
+  //bartenders
+  document.querySelector(".front").innerHTML = klausFrontText;
+  document.querySelectorAll(".leaning").forEach((element) => {
     element.innerHTML = klausLeaningText;
   });
   document.querySelectorAll(".bt-pouring").forEach((element) => {
