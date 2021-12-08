@@ -2,6 +2,7 @@
 
 import { displayFrontBartender, hideBartenderAtBar } from "./change-bartender-display";
 import { createBartenderAtBar } from "./create-bartender-at-bar";
+import { getTap } from "./get-tap";
 
 export function moveBartenderToBar(bartender) {
   const tap = getTap(bartender.usingTap);
@@ -33,14 +34,6 @@ function animateToBar(tapElement, tapPosition, btElement, btPosition, bartender)
     hideBartenderAtBar(btElement);
     createBartenderAtBar(bartender);
   };
-}
-
-function getTap(tap) {
-  // const tapAsString = data.usingTap.toString();
-  const tapNumberAsString = tap.toString();
-  const tapInDom = document.querySelector(`#tap_${tapNumberAsString}`);
-  const tapPosition = tapInDom.getBoundingClientRect();
-  return { element: tapInDom, position: tapPosition };
 }
 
 function getBartender(bartender) {
