@@ -24,9 +24,10 @@ export async function loadSvg() {
   document.querySelector("#Klaus .leaning").innerHTML = klausLeaningText;
 
   //counter
-  // document.querySelectorAll(".bt-pouring").forEach((element) => {
-  //   element.innerHTML = klausPouringText;
-  // });
+
+  document.querySelectorAll(".bt-pouring .Klaus").forEach((element) => {
+    element.innerHTML = klausPouringText;
+  });
   // document.querySelectorAll(".bt-pouring").forEach((element) => {
   //   element.innerHTML = klausBackCarryingText;
   // });
