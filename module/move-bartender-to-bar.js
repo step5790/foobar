@@ -1,8 +1,11 @@
 "use strict";
 
+import { changeBartenderDisplay } from "./change-bartender-display";
+
 export function moveBartenderToBar(bartender) {
   const tap = getTap(bartender.usingTap);
   const bt = getBartender(bartender);
+  changeBartenderDisplay(bartender);
   animateToBar(tap.element, tap.position, bt.element, bt.position);
 }
 
