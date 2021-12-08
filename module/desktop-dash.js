@@ -3,12 +3,24 @@ import { loadSvg } from "./load-dashboard-svg";
 
 window.addEventListener("DOMContentLoaded", start);
 
-let bartenderStatus = {
-  Klaus: "",
-  Jonas: "",
-  Peter: "",
-  Dannie: "",
-};
+let bartenders = [
+  {
+    btName: "Klaus",
+    btStatus: "",
+  },
+  {
+    btName: "Jonas",
+    btStatus: "",
+  },
+  {
+    btName: "Peter",
+    btStatus: "",
+  },
+  {
+    btName: "Dannie",
+    btStatus: "",
+  },
+];
 
 function start() {
   console.log("start");
@@ -27,19 +39,24 @@ function loadDynamicData() {
 
 function getData(data) {
   const bartendersData = data.bartenders;
-  // bartendersData.forEach((bartender) => {
-  //   getBartenderStatus(bartender);
-  // });
-  getBartenderStatus(bartendersData[1]);
+  bartendersData.forEach((bartender) => {
+    getBartenderStatus(bartender);
+  });
+  // getBartenderStatus(bartendersData[1]);
   showBartender(bartendersData[1]);
 }
 
 function getBartenderStatus(bartender) {
-  // const bartenderName = bartender.name;
-  console.log("Klaus old Status", bartenderStatus.Klaus);
-  const newStatus = bartender.statusDetail;
-  bartenderStatus.Klaus = newStatus;
-  console.log("new Status:", bartenderStatus.Klaus);
+  const bartenderName = bartender.name;
+  console.log(bartenders);
+  bartenders.forEach((bt) => {
+    if (bt.btName === bartenderName) {
+      console.log(bt.btName, "old Status:", bt.btStatus);
+      const newStatus = bartender.statusDetail;
+      bt.btStatus = newStatus;
+      console.log(bt.btName, "new Status:", bt.btStatus);
+    }
+  });
 }
 
 function showBartender(data) {
