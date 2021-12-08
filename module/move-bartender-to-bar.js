@@ -2,14 +2,22 @@
 
 export function moveBartenderToBar(bartender) {
   console.log(bartender);
-  getTap(bartender.usingTap);
+  const tapPosition = getTap(bartender.usingTap);
+  const bartenderPosition = getBartender(bartender);
+  console.log("tap", tapPosition, "bartender", bartenderPosition);
 }
 
 function getTap(tap) {
   // const tapAsString = data.usingTap.toString();
   const tapNumberAsString = tap.toString();
   const tapInDom = document.querySelector(`#tap_${tapNumberAsString}`);
-  console.log(tapInDom);
-  // const tapPosition = tapInDom.getBoundingClientRect();
-  // return [tapInDom, tapPosition];
+  const tapPosition = tapInDom.getBoundingClientRect();
+  return tapPosition;
+}
+
+function getBartender(bartender) {
+  const bartenderInDom = document.querySelector(`#${bartender.name}`);
+  const bartenderPosition = bartenderInDom.getBoundingClientRect();
+  return bartenderPosition;
+  // return [bartenderInDom, bartenderPosition];
 }
