@@ -25,7 +25,7 @@ export async function loadSvg() {
 
   //counter
 
-  document.querySelectorAll(".bt-pouring .Klaus").forEach((element) => {
+  document.querySelectorAll(".bt-pouring .Klaus .pouring").forEach((element) => {
     element.innerHTML = klausPouringText;
   });
   // document.querySelectorAll(".bt-pouring").forEach((element) => {
