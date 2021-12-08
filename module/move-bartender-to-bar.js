@@ -24,7 +24,7 @@ function animateToBar(tapElement, tapPosition, btElement, btPosition, bartender)
       },
     ],
     {
-      duration: 900,
+      duration: 1200,
       easing: "ease-in-out",
       fillMode: "forwards",
     }
