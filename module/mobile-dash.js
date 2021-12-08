@@ -11,10 +11,13 @@ window.addEventListener("DOMContentLoaded", init);
 async function init() {
   const url = "https://hangover3.herokuapp.com/";
 
+  // console.clear();
+
   fetch(url)
     .then((response) => response.json())
     .then((jsonData) => {
       prepareAllData(jsonData);
+      setTimeout(init, 3000);
     });
 }
 
@@ -26,4 +29,10 @@ function prepareAllData(jsonData) {
   displayKegInventory(jsonData);
   displayBartenders(jsonData);
   collapsible();
+}
+
+if (window.matchMedia("(max-device-width: 414px)").matches) {
+  document.querySelector("body").style.display = "block";
+} else {
+  document.querySelector("body").style.display = "none";
 }
