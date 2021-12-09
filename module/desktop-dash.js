@@ -60,9 +60,6 @@ function getBartenderStatus(bartender) {
       } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
         console.log("tap should stop pouring");
       } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
-        //move bartender to new tap
-        //change display to bartender with beer(s)
-        //remove bartender from old tap
         getBartenderAndTap(bartender, "not first");
       } else if (oldStatus === "releaseTap" && newStatus === "reserveTap") {
         console.log("bartender needs to move to counter, and then, be removed from the previous tap");

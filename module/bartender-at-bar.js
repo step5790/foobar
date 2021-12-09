@@ -13,7 +13,9 @@ export function getBartenderAndTap(bartender, firstTap) {
     animateToTap(tap.element, tap.position, bt.element, bt.position, bartender);
   } else {
     console.log("bartender needs to change a tap");
-    //display bartender with beers
+    //move bartender to new tap
+    //change display to bartender with beer(s)
+    //remove bartender from old tap
   }
 }
 
