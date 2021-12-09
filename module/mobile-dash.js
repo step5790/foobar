@@ -17,7 +17,7 @@ async function init() {
     .then((response) => response.json())
     .then((jsonData) => {
       prepareAllData(jsonData);
-      setTimeout(init, 3000);
+      // setTimeout(init, 3000);
     });
 }
 
@@ -32,7 +32,7 @@ function prepareAllData(jsonData) {
 }
 
 if (window.matchMedia("(max-device-width: 414px)").matches) {
-  document.querySelector("body").style.display = "block";
+  document.querySelector(".dash-container").style.display = "block";
 } else {
-  document.querySelector("body").style.display = "none";
+  document.querySelector(".dash-container").style.display = "none";
 }
