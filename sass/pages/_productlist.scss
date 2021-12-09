@@ -3,7 +3,7 @@ $pColor: white;
 
 /* body */
 html {
-  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 20%);
+  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 35%);
 }
 
 #productlist {
@@ -31,6 +31,7 @@ html {
   margin-right: 5%;
   width: 40%;
   font-weight: 300 !important;
+  line-height: 30px;
 }
 
 #beerList {
@@ -39,12 +40,13 @@ html {
   margin-top: 80px;
 }
 
-.beerGlass {
-  width: 100px;
+.secondaryHeading {
+  margin-bottom: 50px;
 }
 
-.beer Figure {
-  margin: 0;
+.beersContainer {
+  display: flex;
+  overflow-x: hidden;
 }
 
 .beer {
@@ -52,6 +54,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 100px;
+}
+
+.beer Figure {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.beerGlass {
+  width: 100px;
 }
 
 .beerName,
@@ -60,6 +72,79 @@ html {
   font-family: $pFont;
   color: $pColor;
   font-size: 20px;
+}
+
+.beerName {
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+.beerCategory {
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#aboutFoobar {
+  margin-top: 200px;
+  margin-bottom: 80px;
+}
+
+#aboutFoobar .secondaryHeading {
+  text-align: center;
+}
+
+.aboutText {
+  width: 60%;
+  margin-left: 20%;
+  font-family: $pFont;
+  color: $pColor;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+footer h1 {
+  color: #e4bfff;
+  font-size: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.soMe {
+  display: flex;
+  width: 180px;
+}
+
+.soMe img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.logoSoMeContainer {
+  display: flex;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.formalitiesContainer {
+  display: flex;
+  width: max-content;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.formalities {
+  font-family: $pFont;
+  color: $pColor;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* MIT License
