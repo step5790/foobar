@@ -37,8 +37,9 @@ export function animateToDestination(destinationElement, destinationPosition, bt
     //remove bt at bar and unhide at the counter
     else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
       console.log("remove old and unhide at bar");
-      console.log(btElement);
+      //remove bt element from bar
       btElement.innerHTML = "";
+      //unhide bt at bar
       unhideBartenderAtCounter(destinationElement);
     }
   };
