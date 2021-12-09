@@ -4,13 +4,21 @@ $pColor: white;
 /* body */
 
 #productlist {
-  margin: 0;
-  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 35%);
+  background: linear-gradient(
+    0deg,
+    rgba(76, 48, 180, 1) 0%,
+    rgba(13, 6, 39, 1) 35%
+  );
 }
 
 #heading {
   width: 100%;
-  background-image: linear-gradient(0deg, rgba(13, 6, 39, 1) 10%, rgba(13, 6, 39, 0) 60%), url("assets/home-cover.png");
+  background-image: linear-gradient(
+      0deg,
+      rgba(13, 6, 39, 1) 10%,
+      rgba(13, 6, 39, 0) 60%
+    ),
+    url("assets/home-cover.png");
   background-size: cover;
   background-position-x: center;
   /* background-position-y: -100px; */
@@ -29,7 +37,7 @@ $pColor: white;
   margin-right: 5%;
   width: 40%;
   font-weight: 300 !important;
-  line-height: 30px;
+  line-height: 1.3;
 }
 
 #beerList {

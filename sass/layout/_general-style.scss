@@ -1,0 +1,6 @@
+@use "../base/colors";
+
+body {
+  background-color: colors.$base;
+  color: colors.$font-primary;
+}
