@@ -60,10 +60,10 @@ function getBartenderStatus(bartender) {
       if (oldStatus === "") {
         console.log("there is no status yet");
         //import bt based on the newStatus only
-        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "change") {
+        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "startServing") {
           const bt = getBartenderAtCounter(bartender);
           console.log(bt.element.firstElementChild);
-          importBartenderSvg(bartender, bt.element.firstElementChild);
+          importBartenderSvg(bartender, "leaning", bt.element.firstElementChild);
         }
       } else {
         if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {

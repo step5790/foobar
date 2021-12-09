@@ -2,22 +2,16 @@
 
 import { loadBartenderSvg } from "./load-dashboard-svg";
 
-export async function importBartenderSvg(bartender, btElementBack) {
+export async function importBartenderSvg(bartender, display, btElementBack) {
   const tap = bartender.usingTap;
   const btElement = document.querySelector(`#bt-${tap}`);
+  const btSvg = await loadBartenderSvg(bartender.name, display);
   //change svg with "bt-pouring"
-  if (bartender.statusDetail === "pourBeer") {
-    const btSvg = await loadBartenderSvg(bartender.name, "pouring");
+  if (display === "pouring") {
     btElement.firstElementChild.innerHTML = btSvg;
   }
   //change svg with "bt-back-carrying"
-  else if (bartender.statusDetail === "receivePayment") {
-    const btSvg = await loadBartenderSvg(bartender.name, "back-carrying");
-    btElementBack.innerHTML = btSvg;
-  }
-  //change svg with "bt-leaning"
-  else if (bartender.statusDetail === "waiting" || bartender.statusDetail === "reserveTap" || bartender.statusDetail === "replaceKeg") {
-    const btSvg = await loadBartenderSvg(bartender.name, "leaning");
+  else if (display === "back-carrying" || display === "leaning") {
     btElementBack.innerHTML = btSvg;
   }
 }
