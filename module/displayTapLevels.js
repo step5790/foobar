@@ -1,3 +1,5 @@
+import { graphBeer } from "./graphBeer";
+
 export function displayTapLevels(tapData) {
   console.log(tapData.taps);
 
@@ -32,4 +34,6 @@ export function displayTapLevels(tapData) {
 
     document.querySelector("#dash-tap .content").appendChild(clone);
   });
+
+  graphBeer(tapData);
 }

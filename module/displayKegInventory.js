@@ -1,5 +1,3 @@
-import { graphBeer } from "./graphBeer";
-
 export function displayKegInventory(kegData) {
   console.log(kegData.storage);
 
@@ -27,6 +25,4 @@ export function displayKegInventory(kegData) {
 
     document.querySelector("#dash-keg .content").appendChild(clone);
   });
-
-  // graphBeer(kegData);
 }
