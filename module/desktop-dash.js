@@ -1,6 +1,7 @@
 "use strict";
 import { loadSvg } from "./load-dashboard-svg";
 import { getBartenderAndTap } from "./bartender-at-bar";
+import { moveBartenderToCounter } from "./move-bartender-to-counter";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -65,7 +66,7 @@ function getBartenderStatus(bartender) {
         console.log("bartender needs to move to counter, and then, be removed from the previous tap");
       } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
         console.log("bartender needs go to to the counter");
-        moveBartenderToCounter();
+        moveBartenderToCounter(bartender);
       }
 
       bt.btStatus = newStatus;
@@ -83,7 +84,3 @@ function showBartender(data) {
   const tapCol = document.querySelector(`td[data-bartender=usingTap]`);
   tapCol.textContent = data.usingTap;
 }
-
-function moveBartenderToNewTap() {}
-
-function moveBartenderToCounter() {}
