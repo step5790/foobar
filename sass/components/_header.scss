@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(13, 6, 39, 0.5);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+header h1 {
+  color: #e4bfff;
+  font-size: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cart {
+  width: 35px;
+}
