@@ -1,10 +1,10 @@
 "use strict";
 
-import { loadBartenderAtBar } from "./load-dashboard-svg";
+import { loadBartenderSvg } from "./load-dashboard-svg";
 
 export async function createBartenderAtBar(bartender) {
   const tap = bartender.usingTap;
   const btElement = document.querySelector(`#bt-${tap}`);
-  const btSvg = await loadBartenderAtBar(bartender.name);
+  const btSvg = await loadBartenderSvg(bartender.name, "pouring");
   btElement.innerHTML = btSvg;
 }

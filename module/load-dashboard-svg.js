@@ -18,27 +18,11 @@ export async function loadSvg() {
   //bartenders
   document.querySelector("#Klaus .front").innerHTML = klausFrontText;
   document.querySelector("#Klaus .leaning").innerHTML = klausLeaningText;
-
-  //counter
-
-  // document.querySelectorAll(".bt-pouring .Klaus .pouring").forEach((element) => {
-  //   element.innerHTML = klausPouringText;
-  // });
-  // document.querySelectorAll(".bt-pouring").forEach((element) => {
-  //   element.innerHTML = klausBackCarryingText;
-  // });
 }
 
-export async function loadBartenderAtBar(name) {
+export async function loadBartenderSvg(name, display) {
   const nameLC = name.toLowerCase();
-  const bartenderPouringSvg = await fetch(`assets/bartenders/${nameLC}-pouring.svg`);
+  const bartenderPouringSvg = await fetch(`assets/bartenders/${nameLC}-${display}.svg`);
   const svgText = await bartenderPouringSvg.text();
   return svgText;
 }
-
-// export async function loadKlausBackCarrying() {
-//   const klausPouringSvg = await fetch("assets/bartenders/klaus-pouring.svg");
-//   const klausPouringText = await klausPouringSvg.text();
-
-//   return klausPouringText, klausBackCarryingSvg };
-// }
