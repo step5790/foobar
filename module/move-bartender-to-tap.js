@@ -23,7 +23,15 @@ export function animateToTap(tapElement, tapPosition, btElement, btPosition, bar
     }
   );
   moveBartenderAnimation.onfinish = () => {
-    hideBartenderAtCounter(btElement);
+    //hide bt at counter
+    if (btElement.className === "bt-at-counter") {
+      hideBartenderAtCounter(btElement);
+    }
+    //remove bt at bar
+    else {
+      console.log("bartender at bar:", btElement);
+      btElement.innerHTML = "";
+    }
     createBartenderAtBar(bartender);
   };
 }
