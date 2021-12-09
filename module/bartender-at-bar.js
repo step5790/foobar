@@ -14,13 +14,19 @@ export function getBartenderAndTap(bartender, firstTap) {
   } else {
     console.log("bartender needs to change a tap");
     //move bartender to new tap
+    const bt = getBartenderAtBar(bartender);
     //change display to bartender with beer(s)
     //remove bartender from old tap
   }
 }
 
 function getBartenderAtCounter(bartender) {
-  const bartenderInDom = document.querySelector(`#${bartender.name}`);
+  const bartenderInDom = document.querySelector(`div#${bartender.name}`);
   const bartenderPosition = bartenderInDom.getBoundingClientRect();
   return { element: bartenderInDom, position: bartenderPosition };
+}
+
+function getBartenderAtBar(bartender) {
+  const bartenderInDom = document.querySelector(`g#${bartender.name}_pouring`).closest("div.bt-pouring");
+  console.log(bartenderInDom);
 }
