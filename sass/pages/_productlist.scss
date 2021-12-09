@@ -2,12 +2,10 @@ $pFont: Lato, sans-serif;
 $pColor: white;
 
 /* body */
-html {
-  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 35%);
-}
 
 #productlist {
   margin: 0;
+  background: linear-gradient(0deg, rgba(76, 48, 180, 1) 0%, rgba(13, 6, 39, 1) 35%);
 }
 
 #heading {
