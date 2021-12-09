@@ -8,7 +8,7 @@ export function moveBartenderToCounter(bartender) {
   //get right place at counter
   const spotAtCounter = getBartenderSpotAtCounter(bartender);
   console.log(spotAtCounter);
-  //   moveBartenderToCounter();
+  animateToDestination(spotAtCounter.element, spotAtCounter.position, bt.element, bt.position, bartender);
   //change display to "bt back carrying"
 
   //move bt to it's right place at counter

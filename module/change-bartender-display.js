@@ -8,3 +8,7 @@ export function displayFrontBartender(btElement) {
 export function hideBartenderAtCounter(btElement) {
   btElement.classList.add("hidden");
 }
+
+export function unhideBartenderAtCounter(btElement) {
+  btElement.classList.remove("hidden");
+}

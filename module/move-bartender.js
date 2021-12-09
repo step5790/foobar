@@ -1,12 +1,12 @@
 "use strict";
 
-import { hideBartenderAtCounter } from "./change-bartender-display";
+import { hideBartenderAtCounter, unhideBartenderAtCounter } from "./change-bartender-display";
 import { createBartenderAtBar } from "./create-bartender-at-bar";
 
-export function animateToDestination(tapElement, tapPosition, btElement, btPosition, bartender) {
+export function animateToDestination(destinationElement, destinationPosition, btElement, btPosition, bartender) {
   //calculate the movement
-  const deltaX = tapPosition.left - btPosition.left;
-  const deltaY = tapPosition.top - btPosition.top;
+  const deltaX = destinationPosition.left - btPosition.left;
+  const deltaY = destinationPosition.top - btPosition.top;
   //animate movement
   const moveBartenderAnimation = btElement.animate(
     [
@@ -26,12 +26,20 @@ export function animateToDestination(tapElement, tapPosition, btElement, btPosit
     //hide bt at counter
     if (btElement.className === "bt-at-counter") {
       hideBartenderAtCounter(btElement);
+      createBartenderAtBar(bartender);
     }
-    //remove bt at bar
-    else {
-      console.log("bartender at bar:", btElement);
+    //remove bt at bar and import at another tap
+    else if (bartender.statusDetail === "pourBeer") {
+      console.log("remove old and create new bartender at bar");
       btElement.innerHTML = "";
+      createBartenderAtBar(bartender);
     }
-    createBartenderAtBar(bartender);
+    //remove bt at bar and unhide at the counter
+    else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
+      console.log("remove old and unhide at bar");
+      console.log(btElement);
+      btElement.innerHTML = "";
+      unhideBartenderAtCounter(destinationElement);
+    }
   };
 }
