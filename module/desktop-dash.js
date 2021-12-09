@@ -56,13 +56,14 @@ function getBartenderStatus(bartender) {
       console.log(bt.btName, "old Status:", oldStatus);
 
       if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
-        console.log("bartender needs to go to the bar");
-        getBartenderAndTap(bartender, "front");
+        getBartenderAndTap(bartender, "first");
       } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
         console.log("tap should stop pouring");
       } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
-        console.log("bartender needs to move to a new tap, and then, be removed from the previous tap");
-        getBartenderAndTap(bartender, "bartender with beer(s)");
+        //move bartender to new tap
+        //change display to bartender with beer(s)
+        //remove bartender from old tap
+        getBartenderAndTap(bartender, "not first");
       } else if (oldStatus === "releaseTap" && newStatus === "reserveTap") {
         console.log("bartender needs to move to counter, and then, be removed from the previous tap");
       } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
