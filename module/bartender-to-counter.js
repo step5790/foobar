@@ -2,14 +2,15 @@
 
 import { getBartenderAtBar } from "./get-bartender";
 import { animateToDestination } from "./move-bartender";
+import { importBartenderSvg } from "./import-bartender-svg";
+
 export function moveBartenderToCounter(bartender) {
   //get bt in DOM
   const bt = getBartenderAtBar(bartender);
   //get right place at counter
   const spotAtCounter = getBartenderSpotAtCounter(bartender);
-  console.log(spotAtCounter);
+  importBartenderSvg(bartender, bt.element);
   animateToDestination(spotAtCounter.element, spotAtCounter.position, bt.element, bt.position, bartender);
-  //change display to "bt back carrying"
 
   //move bt to it's right place at counter
   //remove bt element from bar

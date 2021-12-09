@@ -1,7 +1,7 @@
 "use strict";
 
 import { hideBartenderAtCounter, unhideBartenderAtCounter } from "./change-bartender-display";
-import { createBartenderAtBar } from "./create-bartender-at-bar";
+import { importBartenderSvg } from "./import-bartender-svg";
 
 export function animateToDestination(destinationElement, destinationPosition, btElement, btPosition, bartender) {
   //calculate the movement
@@ -23,16 +23,16 @@ export function animateToDestination(destinationElement, destinationPosition, bt
     }
   );
   moveBartenderAnimation.onfinish = () => {
-    //hide bt at counter
+    //hide bt at counter and import at tap
     if (btElement.className === "bt-at-counter") {
       hideBartenderAtCounter(btElement);
-      createBartenderAtBar(bartender);
+      importBartenderSvg(bartender, btElement);
     }
     //remove bt at bar and import at another tap
     else if (bartender.statusDetail === "pourBeer") {
       console.log("remove old and create new bartender at bar");
       btElement.innerHTML = "";
-      createBartenderAtBar(bartender);
+      importBartenderSvg(bartender, btElement);
     }
     //remove bt at bar and unhide at the counter
     else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
