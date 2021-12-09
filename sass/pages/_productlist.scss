@@ -1,5 +1,5 @@
-$pFont: Lato, sans-serif;
-$pColor: white;
+// $pFont: Lato, sans-serif;
+// $pColor: white;
 
 /* body */
 
@@ -37,7 +37,10 @@ $pColor: white;
   margin-right: 5%;
   width: 40%;
   font-weight: 300 !important;
-  line-height: 1.3;
+  // line-height: 1.3;
+  // font-family: "Lato", sans-serif;
+  // color: white;
+  // font-size: 20px;
 }
 
 #beerList {
@@ -76,9 +79,9 @@ $pColor: white;
 .beerName,
 .beerCategory,
 .beerPrice {
-  font-family: $pFont;
-  color: $pColor;
-  font-size: 20px;
+  // font-family: $pFont;
+  // color: $pColor;
+  // font-size: 20px;
 }
 
 .beerName {
@@ -103,16 +106,16 @@ $pColor: white;
 .aboutText {
   width: 60%;
   margin-left: 20%;
-  font-family: $pFont;
-  color: $pColor;
+  // font-family: $pFont;
+  // color: $pColor;
   font-weight: 300;
-  font-size: 18px;
-  line-height: 30px;
+  // font-size: 18px;
+  // line-height: 30px;
 }
 
 footer h1 {
-  color: #e4bfff;
-  font-size: 35px;
+  // color: #e4bfff;
+  // font-size: 35px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -147,9 +150,9 @@ footer h1 {
 }
 
 .formalities {
-  font-family: $pFont;
-  color: $pColor;
-  font-size: 12px;
+  // font-family: $pFont;
+  // color: $pColor;
+  // font-size: 12px;
   margin-left: 10px;
   margin-right: 10px;
 }
