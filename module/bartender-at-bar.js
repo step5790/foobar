@@ -15,8 +15,10 @@ export function getBartenderAndTap(bartender, firstTap) {
     console.log("bartender needs to change a tap");
     //move bartender to new tap
     const bt = getBartenderAtBar(bartender);
+    console.log(bt);
     //change display to bartender with beer(s)
     //remove bartender from old tap
+    animateToTap(tap.element, tap.position, bt.element, bt.position, bartender);
   }
 }
 
@@ -28,5 +30,11 @@ function getBartenderAtCounter(bartender) {
 
 function getBartenderAtBar(bartender) {
   const bartenderInDom = document.querySelector(`g#${bartender.name}_pouring`).closest("div.bt-pouring");
-  console.log(bartenderInDom);
+  if (bartenderInDom === null) {
+    console.log("bartender hasn't been created at counter yet");
+    getBartenderAtCounter(bartender);
+  } else {
+    const bartenderPosition = bartenderInDom.getBoundingClientRect();
+    return { element: bartenderInDom, position: bartenderPosition };
+  }
 }
