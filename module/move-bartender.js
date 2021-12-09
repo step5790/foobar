@@ -3,7 +3,7 @@
 import { hideBartenderAtCounter } from "./change-bartender-display";
 import { createBartenderAtBar } from "./create-bartender-at-bar";
 
-export function animateToTap(tapElement, tapPosition, btElement, btPosition, bartender) {
+export function animateToDestination(tapElement, tapPosition, btElement, btPosition, bartender) {
   //calculate the movement
   const deltaX = tapPosition.left - btPosition.left;
   const deltaY = tapPosition.top - btPosition.top;

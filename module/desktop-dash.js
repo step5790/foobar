@@ -1,7 +1,7 @@
 "use strict";
 import { loadSvg } from "./load-dashboard-svg";
-import { getBartenderAndTap } from "./bartender-at-bar";
-import { moveBartenderToCounter } from "./move-bartender-to-counter";
+import { getBartenderAndTap } from "./bartender-to-bar";
+import { moveBartenderToCounter } from "./bartender-to-counter";
 
 window.addEventListener("DOMContentLoaded", start);
 
