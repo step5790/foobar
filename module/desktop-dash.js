@@ -1,6 +1,6 @@
 "use strict";
 import { loadSvg } from "./load-dashboard-svg";
-import { getBartenderAndTap } from "./get-bartender";
+import { getBartenderAndTap } from "./bartender-at-bar";
 
 window.addEventListener("DOMContentLoaded", start);
 
