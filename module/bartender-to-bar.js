@@ -10,7 +10,7 @@ export function getBartenderAndTap(bartender, firstTap) {
   if (firstTap === "first") {
     console.log("bartender goes to his first tap");
     const bt = getBartenderAtCounter(bartender);
-    displayFrontBartender(bt.element);
+    // displayFrontBartender(bt.element);
     animateToDestination(tap.element, tap.position, bt.element, bt.position, bartender);
   } else {
     console.log("bartender needs to change a tap");

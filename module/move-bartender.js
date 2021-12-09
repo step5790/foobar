@@ -25,20 +25,20 @@ export function animateToDestination(destinationElement, destinationPosition, bt
   moveBartenderAnimation.onfinish = () => {
     //hide bt at counter and import at tap
     if (btElement.className === "bt-at-counter") {
-      hideBartenderAtCounter(btElement);
+      // hideBartenderAtCounter(btElement);
       importBartenderSvg(bartender, btElement);
     }
     //remove bt at bar and import at another tap
     else if (bartender.statusDetail === "pourBeer") {
       console.log("remove old and create new bartender at bar");
-      btElement.innerHTML = "";
+      btElement.firstChild.innerHTML = "";
       importBartenderSvg(bartender, btElement);
     }
     //remove bt at bar and unhide at the counter
     else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
       console.log("remove old and unhide at bar");
       //remove bt element from bar
-      btElement.innerHTML = "";
+      btElement.firstChild.innerHTML = "";
       //unhide bt at bar
       unhideBartenderAtCounter(destinationElement);
     }
