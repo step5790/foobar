@@ -1,3 +1,5 @@
+import { displayChart } from "./displayChart";
+
 let elHefe = 0,
   fairy = 0,
   githop = 0,
@@ -12,7 +14,7 @@ let elHefe = 0,
 let arrayId = new Array();
 let flag = false;
 
-export function displaySales(tapData) {
+export function calculateSales(tapData) {
   const allOrder = tapData.serving;
 
   // if (flag == false) {
@@ -38,7 +40,7 @@ export function displaySales(tapData) {
     console.log("exist");
     if (tapData.serving[1].id != arrayId[1]) {
       const x = 1;
-      checkOneOrder(1);
+      checkOneOrder(x);
       arrayId[1] = tapData.serving[1].id;
     }
   }
@@ -60,7 +62,7 @@ export function displaySales(tapData) {
   }
 
   function checkOneOrder(x) {
-    console.log(tapData.serving[x].order);
+    // console.log(tapData.serving[x].order);
     tapData.serving[x].order.forEach((item) => {
       // console.log(item);
       switch (item) {
@@ -161,88 +163,17 @@ export function displaySales(tapData) {
   console.log("ruined " + ruined);
   console.log("sleighride " + sleighride);
   console.log("steampunk " + steampunk);
+
+  displayChart(
+    elHefe,
+    fairy,
+    githop,
+    hollaback,
+    hoppily,
+    mowintime,
+    row26,
+    ruined,
+    sleighride,
+    steampunk
+  );
 }
-
-// const ctx = document.getElementById("myChart");
-// const myChart = new Chart(ctx, {
-//   type: "pie",
-//   data: {
-//     labels: ["Red", "Blue", "Yellow"],
-//     datasets: [
-//       {
-//         label: "My First Dataset",
-//         data: [
-//           kegData.storage[0].amount,
-//           kegData.storage[1].amount,
-//           kegData.storage[2].amount,
-//           kegData.storage[3].amount,
-//           kegData.storage[4].amount,
-//           kegData.storage[5].amount,
-//           kegData.storage[6].amount,
-//           kegData.storage[7].amount,
-//           kegData.storage[8].amount,
-//           kegData.storage[9].amount,
-//         ],
-//         backgroundColor: [
-//           "rgb(255, 99, 132)",
-//           "rgb(54, 162, 235)",
-//           "rgb(255, 205, 86)",
-//           "rgb(212, 100, 214)",
-//           "rgb(100, 209, 214)",
-//         ],
-//         hoverOffset: 4,
-//       },
-//     ],
-//   },
-//   options: {
-//     plugins: {
-//       legend: {
-//         labels: {
-//           font: {
-//             size: 0,
-//           },
-//         },
-//       },
-//     },
-//   },
-// });
-
-// "El Hefe",
-// "Fairy Tale Ale",
-// "Mowintime",
-// "GitHop",
-// "Hollaback Lager",
-// "Hoppily Ever After",
-// "Row 26",
-// "Ruined Childhood",
-// "Sleighride",
-// "Steampunk",
-
-// kegData.storage[0].name,
-//           kegData.storage[1].name,
-//           kegData.storage[2].name,
-//           kegData.storage[3].name,
-//           kegData.storage[4].name,
-
-// if (arrayTime.length == 0) {
-//   arrayTime.push(order.startTime);
-// } else {
-//   if (order.startTime != arrayTime[0] && arrayTime[0] === "undefined") {
-//     arrayTime[0].push(order.startTime);
-//   } else if (
-//     order.startTime != arrayTime[1] &&
-//     arrayTime[1] === "undefined"
-//   ) {
-//     arrayTime[1].push(order.startTime);
-//   } else if (
-//     order.startTime != arrayTime[2] &&
-//     arrayTime[2] === "undefined"
-//   ) {
-//     arrayTime[2].push(order.startTime);
-//   } else if (
-//     order.startTime != arrayTime[3] &&
-//     arrayTime[3] === "undefined"
-//   ) {
-//     arrayTime[3].push(order.startTime);
-//   }
-// }

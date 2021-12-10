@@ -4,7 +4,7 @@ import { displayQues } from "./displayQues";
 import { displayTapLevels } from "./displayTapLevels";
 import { displayKegInventory } from "./displayKegInventory";
 import { displayBartenders } from "./displayBartenders";
-import { displaySales } from "./displaySales";
+import { calculateSales } from "./calculateSales";
 import { collapsible } from "./mobile-data-collapsible";
 
 window.addEventListener("DOMContentLoaded", init);
@@ -29,7 +29,7 @@ function prepareAllData(jsonData) {
   displayTapLevels(jsonData);
   displayKegInventory(jsonData);
   displayBartenders(jsonData);
-  displaySales(jsonData);
+  calculateSales(jsonData);
   collapsible();
 }
 
