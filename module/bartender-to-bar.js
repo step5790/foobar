@@ -1,6 +1,6 @@
 "use strict";
 import { getTap } from "./get-tap";
-import { getBartenderAtBar, getBartenderAtCounter } from "./get-bartender";
+import { getBartenderSpotAtCounter, getBartenderAtBar } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
 import { animateToDestination } from "./move-bartender";
 
@@ -9,7 +9,7 @@ export function getBartenderAndTap(bartender, firstTap) {
 
   if (firstTap === "first") {
     console.log("bartender goes to his first tap");
-    const bt = getBartenderAtCounter(bartender);
+    const bt = getBartenderSpotAtCounter(bartender);
     importBartenderSvg(bartender, "front", bt.element);
     animateToDestination(tap.element, tap.position, bt.element, bt.position, bartender);
   } else {

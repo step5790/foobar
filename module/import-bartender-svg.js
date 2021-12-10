@@ -12,6 +12,6 @@ export async function importBartenderSvg(bartender, display, btElementBack) {
   }
   //change svg with other displays
   else {
-    btElementBack.innerHTML = btSvg;
+    btElementBack.firstElementChild.innerHTML = btSvg;
   }
 }

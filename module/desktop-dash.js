@@ -2,7 +2,7 @@
 import { loadSvg } from "./load-dashboard-svg";
 import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
-import { getBartenderAtCounter, getBartenderSpotAtCounter } from "./get-bartender";
+import { getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
 
 window.addEventListener("DOMContentLoaded", start);
@@ -61,18 +61,19 @@ function getBartenderStatus(bartender) {
       if (oldStatus === "") {
         console.log("there is no oldStatus yet");
         //import bt based on the newStatus only
-        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "startServing" || newStatus === "receivePayment") {
-          const btAtCounter = getBartenderAtCounter(bartender);
-          importBartenderSvg(bartender, "leaning", btAtCounter.element.firstElementChild);
+        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment" || newStatus === "startServing") {
+          const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
+          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           bt.btStatus = newStatus;
-        } else if (newStatus === "pourBeer") {
-          // const btAtBar = getTap(bartender.usingTap);
+        }
+        // else if (newStatus === "startServing") {
+        // }
+        else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
           bt.btStatus = newStatus;
         } else if (newStatus === "releaseTap") {
-          //create bt at a
           const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
-          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
+          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           //cheat the system
           bt.btStatus = "";
         }
