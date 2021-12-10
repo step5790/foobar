@@ -3,6 +3,16 @@
 
 .login-header {
   margin: 5rem 0 0 5rem;
+  h2 {
+    margin-bottom: 2rem;
+  }
+  a {
+    color: colors.$font-primary;
+    text-decoration: none;
+    &:hover {
+      color: colors.$font-tertiary;
+    }
+  }
 }
 
 .container-login-page {
@@ -22,6 +32,11 @@
     text-shadow: none;
     color: colors.$font-primary;
   }
+}
+
+h2.payment {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 table {
@@ -49,12 +64,25 @@ table {
 }
 
 .login-form {
-  width: 30rem;
+  width: 20rem;
 }
 
 .item img {
   width: 2rem;
   height: auto;
+}
+
+input[type="checkbox"] {
+  outline: 1px solid colors.$contrast-primary;
+  transform: scale(1.5);
+  margin: 0 1rem 1rem 0.5rem;
+}
+
+button#button-continue {
+  width: 8rem;
+  height: 2rem;
+  align-self: flex-end;
+  margin-top: 3rem;
 }
 
 // ***text input***
@@ -70,9 +98,43 @@ table {
     flex-direction: column;
     width: 100%;
 
+    span {
+      font-size: 1rem;
+    }
+
+    .payment-container {
+      display: flex;
+      gap: 2rem;
+    }
+
     .input-container {
       position: relative;
       margin-bottom: 0.5rem;
+      width: 60%;
+
+      #phone {
+        width: 10rem;
+      }
+
+      .cc-number-input {
+        width: 16.4rem;
+        padding-left: 0;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .cc-expiry-input {
+        width: 7rem;
+        padding-left: 0;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .cc-cvc-input {
+        width: 7rem;
+        padding-left: 0;
+        text-align: center;
+        font-size: 1rem;
+      }
 
       input {
         height: 1.7rem;
@@ -123,7 +185,7 @@ table {
 
     input[type="text"],
     input[type="email"],
-    input[type="password"] {
+    input[type="tel"] {
       &:invalid:not(:placeholder-shown) {
         & ~ .requirements {
           visibility: visible;
@@ -137,5 +199,9 @@ table {
       font-size: 0.7rem;
       text-align: right;
     }
+  }
+
+  .payment-container {
+    width: 56%;
   }
 }
