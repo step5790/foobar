@@ -7,116 +7,128 @@
     <title>FooBar Form</title>
   </head>
 
+  <header>
+    <h1>Foobar</h1>
+    <img class="cart" src="assets/icons/cart.svg" />
+  </header>
+
   <body>
-    <!-- checkout-LoggedIn -->
-    <h1>Checkout</h1>
-    <a href="home">Back to cart</a>
+    <div class="login-header">
+      <h2>Checkout</h2>
+      <a href="home">← Back to cart</a>
+    </div>
 
-    <div class="row">
-      <div class="ordersummary">
+    <div class="container-login-page">
+      <div class="cart-details">
+        <h2>Order Summary</h2>
         <table>
-          <tr>
-            <th colspan="2">
-              <h2>Order Summary</h2>
-            </th>
-          </tr>
+          <div class="item-order">
+            <tr class="item">
+              <td class="beer-image">
+                <img src="/assets/beer/fairytaleale.png" />
+              </td>
+              <td class="beer-name">Hollaback Lager x 1</td>
+              <td class="beer-price">80 DKK</td>
+            </tr>
 
-          <tr>
-            <td>Hollaback Lager x 1</td>
-            <td>80 DKK</td>
-          </tr>
-
-          <tr>
-            <td>TOTAL</td>
-            <td>80 DKK</td>
-          </tr>
+            <tr class="item">
+              <td class="beer-image">
+                <img src="/assets/beer/fairytaleale.png" />
+              </td>
+              <td class="beer-name">Hollaback Lager x 1</td>
+              <td class="beer-price">80 DKK</td>
+            </tr>
+          </div>
         </table>
+
+        <div class="total-price">
+          <p>TOTAL</p>
+          <h3 class="beer-total">160 DKK</h3>
+        </div>
+      </div>
+
+      <div class="login-form">
+        <h2>Your Details</h2>
+
+        <div class="modal-page" id="first-modal">
+          <form>
+            <div class="input-container">
+              <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder=" "
+                pattern="[A-Za-z0-9]{6,50}"
+                required
+                autocomplete="off"
+              />
+              <label for="username" class="placeholder">Username</label>
+              <div class="requirements">Minimum 6 characters long.</div>
+            </div>
+
+            <div class="input-container">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder=" "
+                required
+                autocomplete="off"
+              />
+              <label for="email" class="placeholder">Email</label>
+              <div class="requirements">Must be a valid email address.</div>
+            </div>
+
+            <h2>Payment Details</h2>
+            <p>Please enter your Debit/Credit card information.</p>
+
+            <div>
+              <label>
+                <span
+                  >Card Number
+                  <img
+                    src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg"
+                    alt="debit/creditcard"
+                    width="50"
+                  />
+                </span>
+              </label>
+              <input type="text" name="card#" />
+            </div>
+
+            <div>
+              <label>
+                <span>Expiration Date</span>
+                <input type="text" name="expiry" placeholder="mm/yy" />
+              </label>
+            </div>
+
+            <div>
+              <label>
+                <span>Security Code</span>
+                <input type="text" name="expiry" placeholder="CVV" />
+              </label>
+            </div>
+
+            <label for="checkbox1">
+              <input name="checkbox" type="checkbox" />Save payment details for
+              later.
+            </label>
+
+            <label for="checkbox2">
+              <input name="checkbox" type="checkbox" />I accept terms and
+              conditions.
+              <span class="required">*</span>
+            </label>
+
+            <button type="submit" class="button-main" id="button-continue">
+              Place Order
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-
-    <!-- <div class="row"> -->
-    <div class="loginform">
-      <h1>Hi There!</h1>
-      <h2>Your Details</h2>
-
-      <div class="modal-page" id="first-modal">
-        <form>
-          <div class="input-container">
-            <input
-              id="username"
-              name="username"
-              type="text"
-              placeholder=" "
-              pattern="[A-Za-z0-9]{6,50}"
-              required
-              autocomplete="off"
-            />
-            <label for="username" class="placeholder">Username</label>
-            <div class="requirements">Minimum 6 characters long.</div>
-          </div>
-
-          <div class="input-container">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder=" "
-              required
-              autocomplete="off"
-            />
-            <label for="email" class="placeholder">Email</label>
-            <div class="requirements">Must be a valid email address.</div>
-          </div>
-
-          <h2>Payment Details</h2>
-          <p>Please enter your Debit/Credit card information.</p>
-
-          <div>
-            <label>
-              <span
-                >Card Number
-                <img
-                  src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg"
-                  alt="debit/creditcard"
-                  width="50"
-                />
-              </span>
-            </label>
-            <input type="text" name="card#" />
-          </div>
-
-          <div>
-            <label>
-              <span>Expiration Date</span>
-              <input type="text" name="expiry" placeholder="mm/yy" />
-            </label>
-          </div>
-
-          <div>
-            <label>
-              <span>Security Code</span>
-              <input type="text" name="expiry" placeholder="CVV" />
-            </label>
-          </div>
-
-          <label for="checkbox1">
-            <input name="checkbox" type="checkbox" />Save payment details for
-            later.
-          </label>
-
-          <label for="checkbox2">
-            <input name="checkbox" type="checkbox" />I accept terms and
-            conditions.
-            <span class="required">*</span>
-          </label>
-
-          <button type="submit" class="button-main" id="button-continue">
-            Place Order
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <script type="module" src="/main.js"></script>
   </body>
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+  <script type="module" src="/main.js"></script>
 </html>

@@ -1,4 +1,63 @@
 @use "../base/colors";
+@use "../base/fonts";
+
+.login-header {
+  margin: 5rem 0 0 5rem;
+}
+
+.container-login-page {
+  margin: 5rem;
+}
+
+.container-login-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
+
+  h1,
+  h2 {
+    font-family: lato;
+    text-shadow: none;
+    color: colors.$font-primary;
+  }
+}
+
+table {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.total-price {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 5rem;
+  margin-top: 2rem;
+  border-top: 1px solid white;
+  justify-content: right;
+  align-self: stretch;
+}
+
+.cart-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 25rem;
+  align-items: flex-start;
+}
+
+.login-form {
+  width: 30rem;
+}
+
+.item img {
+  width: 2rem;
+  height: auto;
+}
+
+// ***text input***
 
 #first-modal {
   display: flex;
@@ -9,6 +68,7 @@
     padding-top: 40px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .input-container {
       position: relative;
@@ -44,7 +104,7 @@
 
       input:not(:placeholder-shown) ~ label.placeholder {
         background-color: colors.$secondary;
-        color: colors.$font-secondary;
+        color: colors.$font-primary;
         padding: 1px 5px;
         border-radius: 5px;
         margin-top: 5px;
@@ -77,9 +137,5 @@
       font-size: 0.7rem;
       text-align: right;
     }
-
-    // button {
-    //   align-self: flex-end;
-    // }
   }
 }
