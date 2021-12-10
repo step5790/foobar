@@ -227,6 +227,15 @@ footer h1 {
   z-index: 2;
 }
 
+.textContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.textContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .textContainer {
   padding-top: 2rem;
   padding-left: 1.5rem;
