@@ -11,3 +11,10 @@ export function getBartenderSpotAtCounter(bartender) {
   const counterPosition = counterContainerInDom.getBoundingClientRect();
   return { element: counterContainerInDom, position: counterPosition };
 }
+
+export function getBartenderSpotAtBar(tap) {
+  const tapNumberAsString = tap.toString();
+  const tapInDom = document.querySelector(`.bt-pouring#bt-${tapNumberAsString}`);
+  const tapPosition = tapInDom.getBoundingClientRect();
+  return { element: tapInDom, position: tapPosition };
+}
