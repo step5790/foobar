@@ -10,12 +10,12 @@
 <body>
     <!-- checkout-LoggedIn -->
     <h1>Checkout</h1>
-    ←<a href="home">Back to cart</a>
+    <a href="home">Back to cart</a>
     <div class="row">
         <div class="ordersummary">
         <table>
           <tr>
-            <th colspan="2"><h2>Order Summary</th></h2>
+            <th colspan="2"><h2>Order Summary</h2></th>
           </tr>
 
           <tr>
@@ -55,6 +55,7 @@
           
       <h2>Payment Details</h2>
       <p>Please enter your Debit/Credit card information.</p>
+      
           <div>
       <label>
         <span>Card Number <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="debit/creditcard" width="50"></span></label>
@@ -62,11 +63,11 @@
         </div>
         
             <div>
-                <span><label>Expiration Date</span><input type="text" name="expiry"placeholder="mm/yy"></label>
+                <label><span>Expiration Date</span><input type="text" name="expiry"placeholder="mm/yy"/></label>
           </div>
 
           <div>
-            <span><label>Security Code</span><input type="text" name="expiry"placeholder="CVV"></label>
+            <label><span>Security Code</span><input type="text" name="expiry"placeholder="CVV"/></label>
       </div>
 
             
@@ -78,7 +79,7 @@
            <label for="checkbox2">
             <span> <input name="checkbox"
                           type="checkbox"
-                         />I accept terms and conditions.<span class="required">*</span></span></label>
+                         />I accept terms and conditions.<span class="required">*</span></label>
           
             
           <button type="button">Place Order</button>
