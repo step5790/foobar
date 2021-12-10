@@ -17,6 +17,8 @@ export function getBartenderAndTap(bartender, firstTap) {
     const bt = getBartenderAtBar(bartender);
     //change display to "bt changing tap"
     importBartenderSvg(bartender, "changing-tap", bt.element);
+    //get tap
+    //change visibility to "none"
     animateToDestination(tap.element, tap.position, bt.element, bt.position, bartender);
   }
 }
