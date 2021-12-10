@@ -15,45 +15,53 @@ let flag = false;
 export function displaySales(tapData) {
   const allOrder = tapData.serving;
 
-  if (flag == false) {
-    allOrder.forEach((id) => {
-      arrayId.push(id.id);
-      flag = true;
-    });
-    console.log("flag" + flag);
-    checkAllOrder(allOrder);
-  }
+  // if (flag == false) {
+  //   allOrder.forEach((id) => {
+  //     arrayId.push(id.id);
+  //     flag = true;
+  //   });
+  //   console.log("flag" + flag);
+  //   checkAllOrder(allOrder);
+  // }
 
   console.log(arrayId);
-  console.log(tapData.serving[0].id);
 
-  if (tapData.serving[0].id != arrayId[0]) {
-    checkOneOrder();
-    arrayId[0] = tapData.serving[0].id;
+  if (tapData.serving.hasOwnProperty(0)) {
+    console.log("exist");
+    if (tapData.serving[0].id != arrayId[0]) {
+      const x = 1;
+      checkOneOrder(x);
+      arrayId[0] = tapData.serving[0].id;
+    }
+  }
+  if (tapData.serving.hasOwnProperty(1)) {
+    console.log("exist");
+    if (tapData.serving[1].id != arrayId[1]) {
+      const x = 1;
+      checkOneOrder(1);
+      arrayId[1] = tapData.serving[1].id;
+    }
+  }
+  if (tapData.serving.hasOwnProperty(2)) {
+    console.log("exist");
+    if (tapData.serving[2].id != arrayId[2]) {
+      const x = 2;
+      checkOneOrder(x);
+      arrayId[2] = tapData.serving[2].id;
+    }
+  }
+  if (tapData.serving.hasOwnProperty(3)) {
+    console.log("exist");
+    if (tapData.serving[3].id != arrayId[3]) {
+      const x = 3;
+      checkOneOrder(x);
+      arrayId[3] = tapData.serving[3].id;
+    }
   }
 
-  if (tapData.serving[1].id != arrayId[1]) {
-    checkOneOrder();
-    arrayId[1] = tapData.serving[1].id;
-  }
-
-  if (tapData.serving[2].id != arrayId[2]) {
-    checkOneOrder();
-    arrayId[2] = tapData.serving[2].id;
-  }
-
-  if (tapData.serving[3].id != arrayId[3]) {
-    checkOneOrder();
-    arrayId[3] = tapData.serving[3].id;
-  }
-
-  if (tapData.serving[3].id === undefined) {
-    console.log("not found");
-  }
-
-  function checkOneOrder() {
-    console.log(tapData.serving[0].order);
-    tapData.serving[0].order.forEach((item) => {
+  function checkOneOrder(x) {
+    console.log(tapData.serving[x].order);
+    tapData.serving[x].order.forEach((item) => {
       // console.log(item);
       switch (item) {
         case "El Hefe":
@@ -139,19 +147,20 @@ export function displaySales(tapData) {
             steampunk++;
             break;
         }
-        console.log(elHefe);
-        console.log(fairy);
-        console.log(githop);
-        console.log(hollaback);
-        console.log(hoppily);
-        console.log(mowintime);
-        console.log(row26);
-        console.log(ruined);
-        console.log(sleighride);
-        console.log(steampunk);
       });
     });
   }
+
+  console.log("elHefe " + elHefe);
+  console.log("fairy " + fairy);
+  console.log("githop " + githop);
+  console.log("hollaback " + hollaback);
+  console.log("hoppily " + hoppily);
+  console.log("mowintime " + mowintime);
+  console.log("row26 " + row26);
+  console.log("ruined " + ruined);
+  console.log("sleighride " + sleighride);
+  console.log("steampunk " + steampunk);
 }
 
 // const ctx = document.getElementById("myChart");
