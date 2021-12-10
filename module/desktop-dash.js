@@ -2,9 +2,8 @@
 import { loadSvg } from "./load-dashboard-svg";
 import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
-import { getBartenderAtBar, getBartenderAtCounter, getBartenderSpotAtCounter } from "./get-bartender";
+import { getBartenderAtCounter, getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
-import { getTap } from "./get-tap";
 
 window.addEventListener("DOMContentLoaded", start);
 
