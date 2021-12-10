@@ -31,9 +31,8 @@ export function animateToDestination(destinationElement, destinationPosition, bt
       //start pouring animation
       //hide tap if newStatus === "releaseTap"
     }
-    //remove bt at bar and unhide at the counter
+    //remove bt at bar and import at the counter
     else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
-      console.log("remove old and unhide at bar");
       btElement.firstElementChild.innerHTML = "";
       //import svg
       importBartenderSvg(bartender, "back-carrying", destinationElement);
