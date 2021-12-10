@@ -47,6 +47,10 @@ export function displaySales(tapData) {
     arrayId[3] = tapData.serving[3].id;
   }
 
+  if (tapData.serving[3].id === undefined) {
+    console.log("not found");
+  }
+
   function checkOneOrder() {
     console.log(tapData.serving[0].order);
     tapData.serving[0].order.forEach((item) => {
