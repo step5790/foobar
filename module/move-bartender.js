@@ -26,6 +26,10 @@ export function animateToDestination(destinationElement, destinationPosition, bt
     if (btElement.className === "bt-at-counter") {
       btElement.firstElementChild.innerHTML = "";
       importBartenderSvg(bartender, "pouring", btElement);
+      //get tap element
+      //unhide beer glass g
+      //start pouring animation
+      //hide tap if newStatus === "releaseTap"
     }
     //remove bt at bar and import at another tap
     else if (bartender.statusDetail === "pourBeer") {

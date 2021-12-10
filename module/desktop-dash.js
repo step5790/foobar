@@ -68,9 +68,18 @@ function getBartenderStatus(bartender) {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
         } else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
+          //TODO:
+          //get tap element
+          //unhide beer glass g
+          //start pouring animation
+
           bt.btStatus = newStatus;
         } else if (newStatus === "releaseTap") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          // TODO:
+          //get tap element
+          //hide tap if newStatus === "releaseTap"
+
           //cheat the system
           bt.btStatus = "";
         }
