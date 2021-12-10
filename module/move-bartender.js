@@ -24,7 +24,6 @@ export function animateToDestination(destinationElement, destinationPosition, bt
   moveBartenderAnimation.onfinish = () => {
     //hide bt at counter and import at tap
     if (btElement.className === "bt-at-counter") {
-      // hideBartenderAtCounter(btElement);
       btElement.firstElementChild.innerHTML = "";
       importBartenderSvg(bartender, "pouring", btElement);
     }
