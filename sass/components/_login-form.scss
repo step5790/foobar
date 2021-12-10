@@ -1,0 +1,85 @@
+@use "../base/colors";
+
+#first-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+
+    .input-container {
+      position: relative;
+      margin-bottom: 0.5rem;
+
+      input {
+        height: 1.7rem;
+        border-radius: 5px;
+        letter-spacing: 0.5px;
+        padding-left: 5px;
+        width: 285px;
+      }
+
+      label.placeholder {
+        color: #808097;
+        top: 0.3rem;
+        left: 0.5rem;
+        pointer-events: none;
+        position: absolute;
+        transform-origin: 0 50%;
+        transition: transform 200ms, color 200ms;
+      }
+
+      input:focus ~ .cut,
+      input:not(:placeholder-shown) ~ .cut {
+        transform: translateY(0.2rem);
+      }
+
+      input:focus ~ label.placeholder,
+      input:not(:placeholder-shown) ~ label.placeholder {
+        transform: translateY(-1.7rem) translateX(0.2rem) scale(0.9);
+      }
+
+      input:not(:placeholder-shown) ~ label.placeholder {
+        background-color: colors.$dark-blue-color;
+        color: colors.$gray-color;
+        padding: 1px 5px;
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-left: -2px;
+      }
+
+      input:focus ~ label.placeholder {
+        background-color: colors.$dark-blue-color;
+        color: colors.$green-color;
+        padding: 1px 5px;
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-left: -2px;
+      }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      &:invalid:not(:placeholder-shown) {
+        & ~ .requirements {
+          visibility: visible;
+        }
+      }
+    }
+
+    .requirements {
+      visibility: hidden;
+      color: colors.$red-color;
+      font-size: 0.7rem;
+      text-align: right;
+    }
+
+    // button {
+    //   align-self: flex-end;
+    // }
+  }
+}
