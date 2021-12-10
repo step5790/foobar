@@ -83,6 +83,7 @@ function getBartenderStatus(bartender) {
           //cheat the system
           bt.btStatus = "";
         }
+        //TODO: if newStatus === "replaceKeg"
       } else {
         if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
           getBartenderAndTap(bartender, "first");
@@ -102,6 +103,7 @@ function getBartenderStatus(bartender) {
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element.firstElementChild);
         }
+        //TODO: if oldStatus === "replaceKeg" && newStatus === "pourBeer"
         bt.btStatus = newStatus;
       }
       console.log(bt.btName, "new Status:", bt.btStatus);
