@@ -1,6 +1,7 @@
 "use strict";
 // import { getBartenderSpotAtBar } from "./get-tap";
 import { getBartenderSpotAtCounter, getBartenderAtBar, getBartenderSpotAtBar } from "./get-bartender";
+import { removePreviousTap } from "./get-tap";
 import { importBartenderSvg } from "./import-bartender-svg";
 import { animateToDestination } from "./move-bartender";
 
@@ -19,6 +20,7 @@ export function getBartenderAndTap(bartender, firstTap) {
     importBartenderSvg(bartender, "changing-tap", bt.element);
     //get tap
     //change visibility to "none"
+    removePreviousTap(bartender);
     animateToDestination(tap.element, tap.position, bt.element, bt.position, bartender);
   }
 }

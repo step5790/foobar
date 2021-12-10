@@ -1,7 +1,7 @@
 "use strict";
 
 import { importBartenderSvg } from "./import-bartender-svg";
-import { getTap, handleTap } from "./get-tap";
+import { startTap } from "./get-tap";
 
 export function animateToDestination(destinationElement, destinationPosition, btElement, btPosition, bartender) {
   //calculate the movement
@@ -27,7 +27,7 @@ export function animateToDestination(destinationElement, destinationPosition, bt
     if (bartender.statusDetail === "pourBeer") {
       btElement.firstElementChild.innerHTML = "";
       importBartenderSvg(bartender, "pouring", btElement);
-      handleTap(bartender);
+      startTap(bartender);
     }
     //remove bt at bar and import at the counter
     else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
