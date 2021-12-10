@@ -2,8 +2,9 @@
 import { loadSvg } from "./load-dashboard-svg";
 import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
-import { getBartenderAtCounter } from "./get-bartender";
+import { getBartenderAtBar, getBartenderAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
+import { getTap } from "./get-tap";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -45,8 +46,8 @@ function getData(data) {
   // bartendersData.forEach((bartender) => {
   //   getBartenderStatus(bartender);
   // });
-  getBartenderStatus(bartendersData[1]);
   showBartender(bartendersData[1]);
+  getBartenderStatus(bartendersData[1]);
 }
 
 function getBartenderStatus(bartender) {
@@ -56,14 +57,17 @@ function getBartenderStatus(bartender) {
   bartenders.forEach((bt) => {
     if (bt.btName === bartenderName) {
       const oldStatus = bt.btStatus;
+
       console.log(bt.btName, "old Status:", oldStatus);
       if (oldStatus === "") {
-        console.log("there is no status yet");
+        console.log("there is no oldStatus yet");
         //import bt based on the newStatus only
-        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "startServing") {
-          const bt = getBartenderAtCounter(bartender);
-          console.log(bt.element.firstElementChild);
-          importBartenderSvg(bartender, "leaning", bt.element.firstElementChild);
+        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "startServing" || newStatus === "receivePayment") {
+          const btAtCounter = getBartenderAtCounter(bartender);
+          importBartenderSvg(bartender, "leaning", btAtCounter.element.firstElementChild);
+        } else if (newStatus === "pourBeer") {
+          // const btAtBar = getTap(bartender.usingTap);
+          importBartenderSvg(bartender, "pouring");
         }
       } else {
         if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
