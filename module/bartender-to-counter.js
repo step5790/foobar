@@ -1,6 +1,6 @@
 "use strict";
 
-import { getBartenderAtBar } from "./get-bartender";
+import { getBartenderAtBar, getBartenderSpotAtCounter } from "./get-bartender";
 import { animateToDestination } from "./move-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
 
@@ -13,10 +13,4 @@ export function moveBartenderToCounter(bartender) {
   importBartenderSvg(bartender, bt.element);
   //move bt to it's right place at counter
   animateToDestination(spotAtCounter.element, spotAtCounter.position, bt.element, bt.position, bartender);
-}
-
-function getBartenderSpotAtCounter(bartender) {
-  const counterContainerInDom = document.querySelector(`div#${bartender.name}`);
-  const counterPosition = counterContainerInDom.getBoundingClientRect();
-  return { element: counterContainerInDom, position: counterPosition };
 }
