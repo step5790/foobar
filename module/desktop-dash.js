@@ -89,6 +89,10 @@ function getBartenderStatus(bartender) {
         } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
           console.log("bartender needs go to to the counter to receive payment");
           moveBartenderToCounter(bartender);
+        } else if ((oldStatus === "startServing" || oldStatus === "receivePayment") && (newStatus === "waiting" || newStatus === "reserveTap")) {
+          console.log("change svg to leaning");
+          const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
+          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
         }
         bt.btStatus = newStatus;
       }
