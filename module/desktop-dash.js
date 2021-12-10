@@ -56,23 +56,19 @@ function getBartenderStatus(bartender) {
   bartenders.forEach((bt) => {
     if (bt.btName === bartenderName) {
       const oldStatus = bt.btStatus;
-
+      const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
       console.log(bt.btName, "old Status:", oldStatus);
       if (oldStatus === "") {
         console.log("there is no oldStatus yet");
         //import bt based on the newStatus only
-        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment" || newStatus === "startServing") {
-          const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
+        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           bt.btStatus = newStatus;
-        }
-        // else if (newStatus === "startServing") {
-        // }
-        else if (newStatus === "pourBeer") {
+        } else if (newStatus === "startServing") {
+        } else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
           bt.btStatus = newStatus;
         } else if (newStatus === "releaseTap") {
-          const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           //cheat the system
           bt.btStatus = "";
@@ -81,18 +77,18 @@ function getBartenderStatus(bartender) {
         if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
           getBartenderAndTap(bartender, "first");
         } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
-          console.log("tap should stop pouring");
+          //TODO stop tap "pouring"
         } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
           getBartenderAndTap(bartender, "not first");
         } else if (oldStatus === "releaseTap" && newStatus === "reserveTap") {
-          console.log("bartender needs to move to counter to wait for next tap");
+          //move bt to counter to wait for turn
           moveBartenderToCounter(bartender);
         } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
-          console.log("bartender needs go to to the counter to receive payment");
+          //move bt to counter to "receive payment"
           moveBartenderToCounter(bartender);
         } else if ((oldStatus === "startServing" || oldStatus === "receivePayment") && (newStatus === "waiting" || newStatus === "reserveTap")) {
-          console.log("change svg to leaning");
-          const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
+          //change display to "bt-leaning"
+
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
         }
         bt.btStatus = newStatus;
