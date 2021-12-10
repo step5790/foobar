@@ -77,9 +77,10 @@ function getBartenderStatus(bartender) {
         } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
           getBartenderAndTap(bartender, "not first");
         } else if (oldStatus === "releaseTap" && newStatus === "reserveTap") {
-          console.log("bartender needs to move to counter, and then, be removed from the previous tap");
+          console.log("bartender needs to move to counter to wait for next tap");
+          moveBartenderToCounter(bartender);
         } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
-          console.log("bartender needs go to to the counter");
+          console.log("bartender needs go to to the counter to receive payment");
           moveBartenderToCounter(bartender);
         }
       }
