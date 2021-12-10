@@ -65,6 +65,7 @@ function getBartenderStatus(bartender) {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           bt.btStatus = newStatus;
         } else if (newStatus === "startServing") {
+          importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
         } else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
           bt.btStatus = newStatus;
@@ -90,6 +91,8 @@ function getBartenderStatus(bartender) {
           //change display to "bt-leaning"
 
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
+        } else if (newStatus === "startServing") {
+          importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element.firstElementChild);
         }
         bt.btStatus = newStatus;
       }
