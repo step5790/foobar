@@ -1,91 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form.css" />
     <title>FooBar Form</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- checkout-LoggedIn -->
     <h1>Checkout</h1>
     <a href="home">Back to cart</a>
+
     <div class="row">
-        <div class="ordersummary">
+      <div class="ordersummary">
         <table>
           <tr>
-            <th colspan="2"><h2>Order Summary</h2></th>
+            <th colspan="2">
+              <h2>Order Summary</h2>
+            </th>
           </tr>
 
           <tr>
             <td>Hollaback Lager x 1</td>
             <td>80 DKK</td>
           </tr>
-    
-        <tr>
-        <td>TOTAL</td>
-        <td>80 DKK</td>
-      </tr>
-      </table>
-        </div>
+
+          <tr>
+            <td>TOTAL</td>
+            <td>80 DKK</td>
+          </tr>
+        </table>
+      </div>
     </div>
 
-
-
-        
-    <div class="row">
+    <!-- <div class="row"> -->
     <div class="loginform">
-             <h1>Hi There!</h1>
-            <h2>Your Details</h2>
-          
-         <form action="" method="">
-         <label>
-            <span><input type="text" name="fname" placeholder="Full Name"><span class="required">*</span></span>
-        </label>
-           
-        <label>
-            <span><input type="text" name="email" placeholder="Email"><span class="required">*</span></span>
-        </label>
-          
-        <label>
-            <span><input type="tel" name="phone" placeholder="Phone Number"><span class="required">*</span></span>
-            <p>Get a text message when your order is ready. (optional)</p>
-        </label>
-          
-      <h2>Payment Details</h2>
-      <p>Please enter your Debit/Credit card information.</p>
-      
-          <div>
-      <label>
-        <span>Card Number <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="debit/creditcard" width="50"></span></label>
-            <input type="text" name="card#">
-        </div>
-        
-            <div>
-                <label><span>Expiration Date</span><input type="text" name="expiry"placeholder="mm/yy"/></label>
-          </div>
+      <h1>Hi There!</h1>
+      <h2>Your Details</h2>
 
-          <div>
-            <label><span>Security Code</span><input type="text" name="expiry"placeholder="CVV"/></label>
-      </div>
+      <form action="" method="">
+        <label>
+          <input type="text" name="fname" placeholder="Full Name" />
+          <span class="required">* </span>
+        </label>
 
-            
-            <label for="checkbox1">
-                        <input name="checkbox"
-                          type="checkbox"
-                        />Save payment details for later.</label>
-           
-           <label for="checkbox2">
-            <span> <input name="checkbox"
-                          type="checkbox"
-                         />I accept terms and conditions.<span class="required">*</span></label>
-          
-            
-          <button type="button">Place Order</button>
+        <label>
+          <input type="text" name="email" placeholder="Email" />
+          <span class="required">* </span>
+        </label>
+
+        <label>
+          <input type="tel" name="phone" placeholder="Phone Number" />
+          <span class="required">* </span>
+          <p>Get a text message when your order is ready. (optional)</p>
+        </label>
+
+        <h2>Payment Details</h2>
+        <p>Please enter your Debit/Credit card information.</p>
+
+        <div>
+          <label>
+            <span
+              >Card Number
+              <img
+                src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg"
+                alt="debit/creditcard"
+                width="50"
+              />
+            </span>
+          </label>
+          <input type="text" name="card#" />
         </div>
-       </div>
-      </div>
-    </form>
-</body>
+
+        <div>
+          <label>
+            <span>Expiration Date</span>
+            <input type="text" name="expiry" placeholder="mm/yy" />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <span>Security Code</span>
+            <input type="text" name="expiry" placeholder="CVV" />
+          </label>
+        </div>
+
+        <label for="checkbox1">
+          <input name="checkbox" type="checkbox" />Save payment details for
+          later.
+        </label>
+
+        <label for="checkbox2">
+          <input name="checkbox" type="checkbox" />I accept terms and
+          conditions.
+          <span class="required">*</span>
+        </label>
+
+        <button type="button">Place Order</button>
+      </form>
+    </div>
+  </body>
 </html>
