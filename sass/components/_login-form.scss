@@ -23,7 +23,7 @@
       }
 
       label.placeholder {
-        color: #808097;
+        color: colors.$secondary;
         top: 0.3rem;
         left: 0.5rem;
         pointer-events: none;
@@ -43,8 +43,8 @@
       }
 
       input:not(:placeholder-shown) ~ label.placeholder {
-        background-color: colors.$dark-blue-color;
-        color: colors.$gray-color;
+        background-color: colors.$secondary;
+        color: colors.$font-secondary;
         padding: 1px 5px;
         border-radius: 5px;
         margin-top: 5px;
@@ -52,8 +52,8 @@
       }
 
       input:focus ~ label.placeholder {
-        background-color: colors.$dark-blue-color;
-        color: colors.$green-color;
+        background-color: colors.$secondary;
+        color: colors.$validated;
         padding: 1px 5px;
         border-radius: 5px;
         margin-top: 5px;
@@ -73,7 +73,7 @@
 
     .requirements {
       visibility: hidden;
-      color: colors.$red-color;
+      color: colors.$not-validated;
       font-size: 0.7rem;
       text-align: right;
     }
