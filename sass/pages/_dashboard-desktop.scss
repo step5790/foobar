@@ -57,5 +57,8 @@
     svg {
       position: absolute;
     }
+    g.beer_front {
+      visibility: hidden;
+    }
   }
 }
