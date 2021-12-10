@@ -22,20 +22,14 @@ export function animateToDestination(destinationElement, destinationPosition, bt
     }
   );
   moveBartenderAnimation.onfinish = () => {
-    //hide bt at counter and import at tap
-    if (btElement.className === "bt-at-counter") {
+    //remove previous bt and import at next tap
+    if (bartender.statusDetail === "pourBeer") {
       btElement.firstElementChild.innerHTML = "";
       importBartenderSvg(bartender, "pouring", btElement);
       //get tap element
       //unhide beer glass g
       //start pouring animation
       //hide tap if newStatus === "releaseTap"
-    }
-    //remove bt at bar and import at another tap
-    else if (bartender.statusDetail === "pourBeer") {
-      console.log("remove old and create new bartender at bar");
-      btElement.firstElementChild.innerHTML = "";
-      importBartenderSvg(bartender, "pouring", btElement);
     }
     //remove bt at bar and unhide at the counter
     else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
