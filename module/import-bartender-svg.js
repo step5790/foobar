@@ -8,10 +8,10 @@ export async function importBartenderSvg(bartender, display, btElementBack) {
   if (display === "pouring") {
     const tap = bartender.usingTap;
     const btElement = document.querySelector(`#bt-${tap}`);
-    btElement.firstElementChild.innerHTML = btSvg;
+    btElement.querySelector(`div[data-bt="${bartender.name}"]`).innerHTML = btSvg;
   }
   //change svg with other displays
   else {
-    btElementBack.firstElementChild.innerHTML = btSvg;
+    btElementBack.querySelector(`div[data-bt="${bartender.name}"]`).innerHTML = btSvg;
   }
 }

@@ -24,7 +24,7 @@ export function animateToDestination(destinationElement, destinationPosition, bt
   );
   moveBartenderAnimation.onfinish = () => {
     //clear previous bt
-    btElement.firstElementChild.innerHTML = "";
+    btElement.querySelector(`div[data-bt=${bartender.name}]`).innerHTML = "";
     if (bartender.statusDetail === "pourBeer") {
       importBartenderSvg(bartender, "pouring", btElement);
       startTap(bartender);
