@@ -31,7 +31,7 @@ export function calculateSales(tapData) {
   if (tapData.serving.hasOwnProperty(0)) {
     console.log("exist");
     if (tapData.serving[0].id != arrayId[0]) {
-      const x = 1;
+      const x = 0;
       checkOneOrder(x);
       arrayId[0] = tapData.serving[0].id;
     }
