@@ -2,7 +2,12 @@
 
 const beers = document.querySelectorAll(".beer");
 
-window.addEventListener("DOMContentLoaded", registerModal);
+window.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  registerModal();
+  scrollProductlist();
+}
 
 function registerModal() {
   for (const beer of beers) {
@@ -23,3 +28,5 @@ function toggleModal() {
     document.querySelector("#productlist").classList.remove("noScroll");
   }
 }
+
+function scrollProductlist() {}

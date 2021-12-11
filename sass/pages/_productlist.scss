@@ -105,8 +105,20 @@
   margin-top: 4rem;
 }
 
-.secondaryHeading {
-  margin-bottom: 50px;
+.scrollArrowsContainer {
+  display: flex;
+}
+
+.scrollArrow2 {
+  width: 3em;
+  scale: 0.5;
+  margin-right: -3rem;
+}
+
+.scrollArrow1 {
+  width: 3em;
+  scale: 0.5;
+  margin-left: -3rem;
 }
 
 .beersContainer {
