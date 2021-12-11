@@ -123,7 +123,6 @@ function getBartenderStatus(bartender) {
 
 function showBartenderData(bartender) {
   const row = document.querySelector(`.${bartender.name}-row`);
-  console.log(row);
   //change data in row
   const nameCol = row.querySelector(`[data-bartender="name"]`);
   nameCol.textContent = bartender.name;
