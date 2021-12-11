@@ -45,9 +45,8 @@ function getData(data) {
   const bartendersData = data.bartenders;
   bartendersData.forEach((bartender) => {
     getBartenderStatus(bartender);
+    showBartenderData(bartender);
   });
-  // showBartender(bartendersData[2]);
-  // getBartenderStatus(bartendersData[2]);
 }
 
 function getBartenderStatus(bartender) {
@@ -122,12 +121,14 @@ function getBartenderStatus(bartender) {
   });
 }
 
-function showBartender(data) {
-  //change data in table
-  const nameCol = document.querySelector("td[data-bartender=name]");
-  nameCol.textContent = data.name;
-  const statusDetCol = document.querySelector("td[data-bartender=statusDetail]");
-  statusDetCol.textContent = data.statusDetail;
-  const tapCol = document.querySelector(`td[data-bartender=usingTap]`);
-  tapCol.textContent = data.usingTap;
+function showBartenderData(bartender) {
+  const row = document.querySelector(`.${bartender.name}-row`);
+  console.log(row);
+  //change data in row
+  const nameCol = row.querySelector(`[data-bartender="name"]`);
+  nameCol.textContent = bartender.name;
+  const statusDetCol = row.querySelector(`[data-bartender="statusDetail"]`);
+  statusDetCol.textContent = bartender.statusDetail;
+  const tapCol = row.querySelector(`[data-bartender="usingTap"]`);
+  tapCol.textContent = bartender.usingTap;
 }
