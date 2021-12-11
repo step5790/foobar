@@ -4,7 +4,7 @@ import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
 import { getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
-import { removePreviousTap } from "./get-tap";
+import { startTap, removePreviousTap } from "./get-tap";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -69,6 +69,7 @@ function getBartenderStatus(bartender) {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
         } else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
+          startTap(bartender);
           //TODO:
           //get tap element
           //unhide beer glass g
