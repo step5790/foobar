@@ -1,7 +1,6 @@
 "use strict";
 // import { getBartenderSpotAtBar } from "./get-tap";
 import { getBartenderSpotAtCounter, getBartenderAtBar, getBartenderSpotAtBar } from "./get-bartender";
-import { removePreviousTap } from "./get-tap";
 import { importBartenderSvg } from "./import-bartender-svg";
 import { animateToDestination } from "./move-bartender";
 
