@@ -42,7 +42,7 @@ function loadDynamicData() {
 }
 
 function getData(data) {
-  const bartendersData = [data.bartenders[1], data.bartenders[2], data.bartenders[3]];
+  const bartendersData = data.bartenders;
   bartendersData.forEach((bartender) => {
     getBartenderStatus(bartender);
   });
