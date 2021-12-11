@@ -1,7 +1,5 @@
 "use strict";
 
-const beers = document.querySelectorAll(".beer");
-
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
@@ -10,6 +8,8 @@ function init() {
 }
 
 function registerModal() {
+  const beers = document.querySelectorAll(".beer");
+
   for (const beer of beers) {
     beer.addEventListener("click", toggleModal);
   }
