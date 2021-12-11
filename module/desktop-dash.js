@@ -90,7 +90,10 @@ function getBartenderStatus(bartender) {
           console.log("move bartender to bar");
           getBartenderAndTap(bartender, "first");
         } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
-          //TODO stop tap "pouring"
+          //TODO
+          //hide handle
+          removePreviousTap(bartender);
+          //stop tap "pouring" animation
         }
         //backup if releaseTap is not registered
         else if (oldStatus === "pourBeer" && newStatus === "receivePayment") {

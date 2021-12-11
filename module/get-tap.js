@@ -35,10 +35,12 @@ export function startTap(bartender) {
       bt.usingTap = tap;
       //unhide beer glass g
       tap.querySelector(".beer_front").style.visibility = "visible";
+      //TODO:
+      //hide handle
+      tap.querySelector("path").classList.add("hidden");
+      //start pouring animation
     }
   });
-  console.log(bartendersTaps);
-  //TODO: start pouring animation
 }
 
 export function removePreviousTap(bartender) {
@@ -47,6 +49,7 @@ export function removePreviousTap(bartender) {
       if (bt.usingTap !== "") {
         bt.usingTap.querySelector(".beer_front").style.visibility = "hidden";
         // bt.usingTap = "";
+        bt.usingTap.querySelector("path").classList.remove("hidden");
       } else {
         console.log(bartender.name, " hasn't used a tap yet");
       }
