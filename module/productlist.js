@@ -4,9 +4,11 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   registerModal();
+  registerCart();
   scrollProductlist();
 }
 
+//product modal
 function registerModal() {
   const beers = document.querySelectorAll(".beer");
 
@@ -16,11 +18,10 @@ function registerModal() {
 }
 
 function toggleModal() {
-  console.log("open");
   document.querySelector("#modal").classList.remove("hidden");
   document.querySelector("#pageMask").classList.remove("hidden");
-  document.querySelector(".exitModal").addEventListener("click", closeModal);
   document.querySelector("#productlist").classList.add("noScroll");
+  document.querySelector(".exitModal").addEventListener("click", closeModal);
 
   function closeModal() {
     document.querySelector("#modal").classList.add("hidden");
@@ -29,6 +30,26 @@ function toggleModal() {
   }
 }
 
+//product cart
+function registerCart() {
+  const cart = document.querySelector(".cart");
+  cart.addEventListener("click", toggleCart);
+}
+
+function toggleCart() {
+  document.querySelector("#cart").classList.remove("hidden");
+  document.querySelector("#pageMask").classList.remove("hidden");
+  document.querySelector(".exitCart").addEventListener("click", closeCart);
+  document.querySelector("#productlist").classList.add("noScroll");
+
+  function closeCart() {
+    document.querySelector("#cart").classList.add("hidden");
+    document.querySelector("#pageMask").classList.add("hidden");
+    document.querySelector("#productlist").classList.remove("noScroll");
+  }
+}
+
+//scroll arrows
 function scrollProductlist() {
   document.querySelector(".scrollArrow2").addEventListener("click", scrollRight);
   document.querySelector(".scrollArrow1").addEventListener("click", scrollLeft);
