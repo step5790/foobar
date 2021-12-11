@@ -97,6 +97,9 @@ function getBartenderStatus(bartender) {
         else if (oldStatus === "pourBeer" && newStatus === "receivePayment") {
           removePreviousTap(bartender);
           moveBartenderToCounter(bartender);
+        } else if (oldStatus === "startServing" && newStatus === "reserveTap") {
+          //change display to "bt-leaning"
+          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element.firstElementChild);
         } else if (oldStatus === "releaseTap") {

@@ -23,17 +23,19 @@ export function animateToDestination(destinationElement, destinationPosition, bt
     }
   );
   moveBartenderAnimation.onfinish = () => {
-    //remove previous bt and import at next tap
+    //clear previous bt
+    btElement.firstElementChild.innerHTML = "";
     if (bartender.statusDetail === "pourBeer") {
-      btElement.firstElementChild.innerHTML = "";
       importBartenderSvg(bartender, "pouring", btElement);
       startTap(bartender);
     }
     //remove bt at bar and import at the counter
-    else if (bartender.statusDetail === "receivePayment" || bartender.statusDetail === "reserveTap") {
-      btElement.firstElementChild.innerHTML = "";
-      //import svg
+    else if (bartender.statusDetail === "receivePayment") {
+      //import "back carrying svg
       importBartenderSvg(bartender, "back-carrying", destinationElement);
+    } else if (bartender.statusDetail === "reserveTap") {
+      //import "leaning" svg
+      importBartenderSvg(bartender, "leaning", destinationElement);
     }
   };
 }
