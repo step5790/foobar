@@ -2,7 +2,7 @@
 
 export function getBartenderAtBar(bartender) {
   const btNameLc = bartender.name.toLowerCase();
-  const bartenderInDom = document.querySelector(`g#${btNameLc}_pouring`).closest("div.bt-pouring");
+  const bartenderInDom = document.querySelector(`g#${btNameLc}_pouring`).closest("div.bt-svg");
   const bartenderPosition = bartenderInDom.getBoundingClientRect();
   return { element: bartenderInDom, position: bartenderPosition };
 }
