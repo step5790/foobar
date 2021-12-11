@@ -38,7 +38,7 @@ function loadDynamicData() {
   fetch(url)
     .then((res) => res.json())
     .then((data) => getData(data));
-  setTimeout(loadDynamicData, 900);
+  setTimeout(loadDynamicData, 1000);
 }
 
 function getData(data) {
