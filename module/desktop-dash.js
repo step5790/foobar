@@ -38,7 +38,7 @@ function loadDynamicData() {
   fetch(url)
     .then((res) => res.json())
     .then((data) => getData(data));
-  setTimeout(loadDynamicData, 1000);
+  setTimeout(loadDynamicData, 900);
 }
 
 function getData(data) {
@@ -92,9 +92,11 @@ function getBartenderStatus(bartender) {
           getBartenderAndTap(bartender, "first");
         } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
           //TODO stop tap "pouring"
-        } else if (newStatus === "waiting") {
-          //change display to "bt-leaning"
-          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
+        }
+        //backup if releaseTap is not registered
+        else if (oldStatus === "pourBeer" && newStatus === "receivePayment") {
+          removePreviousTap(bartender);
+          moveBartenderToCounter(bartender);
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element.firstElementChild);
         } else if (oldStatus === "releaseTap") {
