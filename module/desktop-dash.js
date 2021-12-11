@@ -46,8 +46,8 @@ function getData(data) {
   // bartendersData.forEach((bartender) => {
   //   getBartenderStatus(bartender);
   // });
-  showBartender(bartendersData[1]);
-  getBartenderStatus(bartendersData[1]);
+  showBartender(bartendersData[2]);
+  getBartenderStatus(bartendersData[2]);
 }
 
 function getBartenderStatus(bartender) {
