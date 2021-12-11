@@ -11,7 +11,7 @@
     <ellipse cx="97.87" cy="451.47" rx="12.69" ry="7.74" transform="translate(-361.97 495.6) rotate(-83.25)" fill="#fad297"/>
     <ellipse cx="204.05" cy="476.27" rx="10.08" ry="15.46" transform="translate(-65.38 33.69) rotate(-8.14)" fill="#fad297"/>
     <path d="M135.68,382.2l-23.6-65a40.09,40.09,0,0,0,47.21,0Z" fill="#fff"/>
-    <image width="1039" height="1213" transform="translate(48 122.97) scale(0.16)" xlink:href="raw/scarlet.png"/>
+    <image width="1039" height="1213" transform="translate(48 122.97) scale(0.16)" xlink:href="assets/customers/scarlet.png"/>
     <line x1="130.98" y1="324.65" x2="120.93" y2="341.61" fill="none" stroke="#4d4d4d" stroke-miterlimit="10"/>
     <line x1="141.29" y1="324.53" x2="150.27" y2="342.07" fill="none" stroke="#4d4d4d" stroke-miterlimit="10"/>
     <g>
