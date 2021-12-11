@@ -150,29 +150,30 @@
     </div>
 
     <div id="cart" class="hidden">
-      <img class="exitCart" src="assets/icons/close.svg" />
-      <h2 class="cartHeading">Your order</h2>
+      <div class="cartHeadingContainer">
+        <h2 class="cartHeading">Your order</h2>
+        <img class="exitCart" src="assets/icons/close.svg" />
+      </div>
       <div class="cartProduct">
         <img class="cartProductImage" src="assets/beer/hollaback.png" alt="Hollaback Lager" />
-        <p class="cartName">Hollaback Lager</p>
-        <div class="adjustAmount">
-          <img class="modalPlus" src="assets/icons/plus.svg" />
-          <p class="beerQuantity">1</p>
-          <img class="modalMinus" src="assets/icons/minus.svg" />
+        <div class="cartNameAmount">
+          <p class="cartName">Hollaback Lager</p>
+          <div class="adjustAmount">
+            <img class="modalPlus" src="assets/icons/plus.svg" />
+            <p class="beerQuantity">1</p>
+            <img class="modalMinus" src="assets/icons/minus.svg" />
+          </div>
         </div>
         <p class="cartPrice">40 DKK</p>
         <img class="modalRemoveCart" src="assets/icons/removeCart.svg" />
       </div>
-      <svg class="cartDivider">
-        <line x1="0" y1="0" x2="100" y2="0" style="stroke: white; stroke-width: 2" />
-      </svg>
-
+      <hr class="cartDivider" />
       <div class="cartTotalPriceContainer">
-        <h3 class="cartTotalprice">Total price</h3>
-        <h3 class="cartTotalprice">40 DKK</h3>
+        <h3 class="cartTotalPrice1">Total price</h3>
+        <h3 class="cartTotalPrice2">40 DKK</h3>
       </div>
 
-      <button class="productlistButton">To payment</button>
+      <button id="cartButton" class="productlistButton">To payment</button>
     </div>
 
     <div id="pageMask" class="hidden"></div>

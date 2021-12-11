@@ -289,7 +289,7 @@ footer h1 {
 }
 
 .exitModal {
-  width: 2.5rem;
+  width: 2rem;
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -303,38 +303,80 @@ footer h1 {
   top: 0;
   right: 0;
   padding-top: 2rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   height: fit-content;
-  width: 30%;
+  width: 25rem;
   z-index: 2;
 }
 
+.cartHeadingContainer {
+  display: flex;
+}
+
 .exitCart {
-  width: 2.5rem;
-  position: absolute;
-  top: 2rem;
-  right: 1.5rem;
+  width: 2rem;
+  margin-left: auto;
   cursor: pointer;
 }
 
 .cartProduct {
   display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .cartProductImage {
-  width: 3rem;
+  width: 2rem;
+}
+
+.cartNameAmount {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  margin-left: 2rem;
+}
+
+.adjustAmount {
+  margin-top: 1rem;
+}
+
+.cartName {
+  font-size: 1.2rem;
+}
+
+.cartPrice {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+
+.modalRemoveCart {
+  width: 2rem;
+  margin-left: 2rem;
 }
 
 .cartDivider {
-  position: relative;
-  top: 2rem;
-  //svg properties being affected globally
-  float: none;
+  width: 100%;
+  border-top: 0.1rem solid white;
+  margin-bottom: 2rem;
+}
+
+.cartTotalPrice1,
+.cartTotalPrice2 {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .cartTotalPriceContainer {
   display: flex;
+  justify-content: space-between;
+}
+
+#cartButton {
+  margin-top: 4rem;
+  float: right;
 }
 
 /* MIT License
