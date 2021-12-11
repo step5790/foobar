@@ -88,10 +88,11 @@ function getBartenderStatus(bartender) {
         //TODO: if newStatus === "replaceKeg"
       } else {
         if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
+          console.log("move bartender to bar");
           getBartenderAndTap(bartender, "first");
         } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
           //TODO stop tap "pouring"
-        } else if (newStatus === "waiting" || newStatus === "reserveTap") {
+        } else if (newStatus === "waiting") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
         } else if (newStatus === "startServing") {
@@ -100,8 +101,7 @@ function getBartenderStatus(bartender) {
           removePreviousTap(bartender);
           if (newStatus === "pourBeer") {
             getBartenderAndTap(bartender, "not first");
-          } else if (newStatus === "reserveTap" || newStatus === "receivePayment" || newStatus === "replaceKeg") {
-            //move bt to counter to wait for turn
+          } else {
             moveBartenderToCounter(bartender);
           }
           //TODO: if newStatus === "replaceKeg"
