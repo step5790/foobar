@@ -4,6 +4,7 @@ import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
 import { getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
+import { removePreviousTap } from "./get-tap";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -89,19 +90,20 @@ function getBartenderStatus(bartender) {
           getBartenderAndTap(bartender, "first");
         } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
           //TODO stop tap "pouring"
-        } else if (oldStatus === "releaseTap" && newStatus === "pourBeer") {
-          getBartenderAndTap(bartender, "not first");
-        } else if (oldStatus === "releaseTap" && newStatus === "reserveTap") {
-          //move bt to counter to wait for turn
-          moveBartenderToCounter(bartender);
-        } else if (oldStatus === "releaseTap" && newStatus === "receivePayment") {
-          //move bt to counter to "receive payment"
-          moveBartenderToCounter(bartender);
         } else if (newStatus === "waiting" || newStatus === "reserveTap") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element.firstElementChild);
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element.firstElementChild);
+        } else if (oldStatus === "releaseTap") {
+          removePreviousTap(bartender);
+          if (newStatus === "pourBeer") {
+            getBartenderAndTap(bartender, "not first");
+          } else if (newStatus === "reserveTap" || newStatus === "receivePayment" || newStatus === "replaceKeg") {
+            //move bt to counter to wait for turn
+            moveBartenderToCounter(bartender);
+          }
+          //TODO: if newStatus === "replaceKeg"
         }
         //TODO: if oldStatus === "replaceKeg" && newStatus === "pourBeer"
         bt.btStatus = newStatus;

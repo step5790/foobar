@@ -47,6 +47,8 @@ export function removePreviousTap(bartender) {
     if (bt.btName === bartender.name) {
       if (bt.usingTap !== "") {
         bt.usingTap.querySelector(".beer_front").style.visibility = "hidden";
+      } else {
+        console.log(bartender.name, " hasn't used a tap yet");
       }
     }
   });

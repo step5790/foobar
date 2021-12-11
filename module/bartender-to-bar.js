@@ -20,7 +20,7 @@ export function getBartenderAndTap(bartender, firstTap) {
     importBartenderSvg(bartender, "changing-tap", bt.element);
     //get tap
     //change visibility to "none"
-    removePreviousTap(bartender);
+
     animateToDestination(tap.element, tap.position, bt.element, bt.position, bartender);
   }
 }
