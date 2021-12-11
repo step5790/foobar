@@ -42,12 +42,13 @@ function loadDynamicData() {
 }
 
 function getData(data) {
-  const bartendersData = data.bartenders;
-  // bartendersData.forEach((bartender) => {
-  //   getBartenderStatus(bartender);
-  // });
-  showBartender(bartendersData[2]);
-  getBartenderStatus(bartendersData[2]);
+  const bartendersData = [data.bartenders[1], data.bartenders[2]];
+  console.log(bartendersData);
+  bartendersData.forEach((bartender) => {
+    getBartenderStatus(bartender);
+  });
+  // showBartender(bartendersData[2]);
+  // getBartenderStatus(bartendersData[2]);
 }
 
 function getBartenderStatus(bartender) {
