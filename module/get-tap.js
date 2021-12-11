@@ -38,8 +38,7 @@ export function startTap(bartender) {
     }
   });
   console.log(bartendersTaps);
-  //start pouring animation
-  //hide tap if newStatus === "releaseTap"
+  //TODO: start pouring animation
 }
 
 export function removePreviousTap(bartender) {
