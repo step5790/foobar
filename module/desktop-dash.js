@@ -5,6 +5,7 @@ import { moveBartenderToCounter } from "./bartender-to-counter";
 import { getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
 import { startTap, removePreviousTap } from "./get-tap";
+import { toggleCustomer } from "./desktop-dash-customers.js";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -104,9 +105,12 @@ function getBartenderStatus(bartender) {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
+          //showCustomer
+          toggleCustomer(bartender);
         } else if (newStatus === "waiting") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          toggleCustomer(bartender);
         } else if (oldStatus === "releaseTap") {
           removePreviousTap(bartender);
           if (newStatus === "pourBeer") {
