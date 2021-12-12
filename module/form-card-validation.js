@@ -1,3 +1,18 @@
+const searchParams = new URLSearchParams(window.location.search);
+const status = searchParams.get("status");
+
+if (status === "login") {
+  console.log(status);
+  document
+    .querySelector(".mutable-container-guest")
+    .classList.remove("display");
+} else if (status === "guest") {
+  console.log(status);
+  document
+    .querySelector(".mutable-container-login")
+    .classList.remove("display");
+}
+
 let ccNumberInput = document.querySelector(".cc-number-input"),
   ccNumberPattern = /^\d{0,16}$/g,
   ccNumberSeparator = " ",
