@@ -30,10 +30,26 @@ export async function toggleCustomer(bartender) {
     if (customers.length === 0) {
       customers = getCustomerSvgs();
     }
-    //get random customer from array
-    const randomNumber = getRandomInt(customers.length);
-    customerContainer.innerHTML = customers[randomNumber];
-    customerContainer.style.visibility = "visible";
+
+    const randomCustomerIndex = getRandomCustomerIndex();
+    const numberAsText = randomCustomerIndex.toString();
+    //check that customer svg is not in use
+    const isInUse = checkIfSvgInUse(numberAsText);
+
+    if (isInUse === false) {
+      customerContainer.innerHTML = customers[randomCustomerIndex];
+      customerContainer.style.visibility = "visible";
+      //set svg inde in array as the customer bartender is serving in bartenderCustomers
+      bartenderCustomers.forEach((bt) => {
+        if (bt.btName === bartender.name) {
+          console.log(bt.btName, "is serving customer svg in array:", randomCustomerIndex);
+          bt.customer = numberAsText;
+        }
+      });
+    } else {
+      //run toggleFunction again
+      toggleCustomer(bartender);
+    }
   } else {
     customerContainer.innerHTML = "";
     customerContainer.style.visibility = "hidden";
@@ -42,4 +58,14 @@ export async function toggleCustomer(bartender) {
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function getRandomCustomerIndex() {
+  //get random customer from array
+  const randomNumber = getRandomInt(customers.length);
+  return randomNumber;
+}
+
+function checkIfSvgInUse(number) {
+  return bartenderCustomers.some((bt) => bt.customer === number);
 }
