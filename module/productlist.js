@@ -33,11 +33,20 @@ function showBeer(beer) {
 
   copy.querySelector(".beerName").textContent = `${beer.name}`;
   copy.querySelector(".beerCategory").textContent = `${beer.category}`;
+  let price = (copy.querySelector(".beerPrice").textContent = `${beer.alc * 10} DKK`);
+
+  //Round prices
+  /* let splitPrice = price.split(" ");
+  let onlyPrice = splitPrice[0];
+  let roundedPrice = Math.ceil(onlyPrice);
+  console.log(roundedPrice); */
 
   //forEach.copy add id
 
   const parent = document.querySelector(".beersContainer");
   parent.appendChild(copy);
+
+  //const beerImage =
 
   registerModal();
   registerCart();
