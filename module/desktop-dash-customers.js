@@ -42,7 +42,6 @@ export async function toggleCustomer(bartender) {
       //set svg inde in array as the customer bartender is serving in bartenderCustomers
       bartenderCustomers.forEach((bt) => {
         if (bt.btName === bartender.name) {
-          console.log(bt.btName, "is serving customer svg in array:", randomCustomerIndex);
           bt.customer = numberAsText;
         }
       });
