@@ -62,13 +62,17 @@ function getBartenderStatus(bartender) {
       if (oldStatus === "") {
         console.log("there is no oldStatus yet");
         //import bt based on the newStatus only
-        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment") {
+        if (newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          toggleCustomer(bartender);
           bt.btStatus = newStatus;
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
+          toggleCustomer(bartender);
+          bt.btStatus = newStatus;
         } else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
+          toggleCustomer(bartender);
           startTap(bartender);
           //TODO:
           //get tap element
@@ -84,6 +88,9 @@ function getBartenderStatus(bartender) {
 
           //cheat the system
           bt.btStatus = "";
+        } else if (newStatus === "waiting") {
+          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          bt.btStatus = newStatus;
         }
         //TODO: if newStatus === "replaceKeg"
       } else {
@@ -110,6 +117,7 @@ function getBartenderStatus(bartender) {
         } else if (newStatus === "waiting") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          //hide customer
           toggleCustomer(bartender);
         } else if (oldStatus === "releaseTap") {
           removePreviousTap(bartender);
