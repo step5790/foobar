@@ -51,9 +51,11 @@ function loadDynamicData() {
 
 function getData(data) {
   const bartendersData = data.bartenders;
+  const queue = data.queue;
+  console.log(queue);
   bartendersData.forEach((bartender) => {
-    getBartenderStatus(bartender);
-    showBartenderData(bartender);
+    // getBartenderStatus(bartender);
+    // showBartenderData(bartender);
   });
 }
 
