@@ -1,5 +1,5 @@
 "use strict";
-import { loadSvg, loadCustomerSvgs } from "./load-dashboard-svg";
+import { loadSvg, loadCustomerSvgs, loadQueueSvgs } from "./load-dashboard-svg";
 import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
 import { getBartenderSpotAtCounter } from "./get-bartender";
@@ -29,11 +29,13 @@ let bartenders = [
 ];
 
 let customerSvgs = [];
+let queueSvgs = [];
 
 async function start() {
   console.log("start");
   await loadSvg();
   customerSvgs = await loadCustomerSvgs();
+  queueSvgs = await loadQueueSvgs();
   loadDynamicData();
 }
 
