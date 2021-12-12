@@ -250,8 +250,15 @@ footer h1 {
   scrollbar-width: none;
 }
 
-.textContainer {
+.productHeadingContainer {
   padding-top: 2rem;
+}
+
+.productModalHeading {
+  padding-left: 1.5rem;
+}
+
+.textContainer {
   padding-bottom: 2rem;
   padding-left: 1.5rem;
   display: flex;
@@ -282,6 +289,7 @@ footer h1 {
 
 .modalImpression {
   text-align: justify;
+  hyphens: auto;
   width: 80%;
   margin-top: 2rem;
   margin-bottom: 2rem;
