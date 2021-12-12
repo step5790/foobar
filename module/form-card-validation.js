@@ -1,3 +1,5 @@
+import { postData } from "./postData";
+
 const searchParams = new URLSearchParams(window.location.search);
 const status = searchParams.get("status");
 
@@ -6,6 +8,7 @@ if (status === "login") {
   document
     .querySelector(".mutable-container-guest")
     .classList.remove("display");
+  document.querySelector(".mutable-container-login").classList.add("display");
   document.querySelector("#username").disabled = true;
   document.querySelector("#email").disabled = true;
 } else if (status === "guest") {
@@ -13,7 +16,10 @@ if (status === "login") {
   document
     .querySelector(".mutable-container-login")
     .classList.remove("display");
+  document.querySelector(".mutable-container-guest").classList.add("display");
 }
+
+document.querySelector(".finish-payment").addEventListener("click", postData);
 
 let ccNumberInput = document.querySelector(".cc-number-input"),
   ccNumberPattern = /^\d{0,16}$/g,
