@@ -121,6 +121,15 @@
   margin-left: -3rem;
 }
 
+.productlistStart {
+  width: 0px;
+}
+
+.productlistEnd {
+  width: 0px;
+  align-self: flex-end;
+}
+
 .beersContainer {
   margin-top: 4rem;
   display: flex;
@@ -147,6 +156,13 @@
 
 .beerGlass {
   width: 100px;
+}
+
+.productlistBeerInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: max-content;
 }
 
 .beerGlass:hover {
@@ -184,13 +200,24 @@
   text-align: center;
 }
 
+.aboutTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .aboutText {
   width: 60%;
   margin-left: 20%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-
   font-weight: 300;
+}
+
+#productListFooter {
+  margin-top: 8rem;
 }
 
 footer h1 {
@@ -256,6 +283,7 @@ footer h1 {
 
 .productModalHeading {
   padding-left: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .textContainer {
@@ -277,6 +305,7 @@ footer h1 {
 .adjustAmount {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .modalPlus {

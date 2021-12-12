@@ -7,7 +7,6 @@ export function registerModal() {
 }
 
 export function toggleModal() {
-  console.log("aa");
   document.querySelector("#modal").classList.remove("hidden");
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector("#productlist").classList.add("noScroll");
