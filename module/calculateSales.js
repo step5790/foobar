@@ -1,18 +1,20 @@
 import { displayChart } from "./displayChart";
 
-let elHefe = 0,
-  fairy = 0,
-  githop = 0,
-  hollaback = 0,
-  hoppily = 0,
-  mowintime = 0,
-  row26 = 0,
-  ruined = 0,
-  sleighride = 0,
-  steampunk = 0;
+let beerArray = {
+  elHefe: 0,
+  fairy: 0,
+  githop: 0,
+  hollaback: 0,
+  hoppily: 0,
+  mowintime: 0,
+  row26: 0,
+  ruined: 0,
+  sleighride: 0,
+  steampunk: 0,
+};
 
 let arrayId = new Array();
-let flag = false;
+// let flag = false;
 
 export function calculateSales(tapData) {
   const allOrder = tapData.serving;
@@ -67,44 +69,45 @@ export function calculateSales(tapData) {
       // console.log(item);
       switch (item) {
         case "El Hefe":
-          elHefe++;
-          console.log(elHefe);
+          beerArray.elHefe += 1;
+          // elHefe++;
+          console.log(beerArray.elHefe);
           break;
         case "Fairy Tale Ale":
-          fairy++;
-          console.log(fairy);
+          beerArray.fairy += 1;
+          console.log(beerArray.fairy);
           break;
         case "GitHop":
-          githop++;
-          console.log(githop);
+          beerArray.githop += 1;
+          console.log(beerArray.githop);
           break;
         case "Hollaback Lager":
-          hollaback++;
-          console.log(hollaback);
+          beerArray.hollaback += 1;
+          console.log(beerArray.hollaback);
           break;
         case "Hoppily Ever After":
-          hoppily++;
-          console.log(hoppily);
+          beerArray.hoppily += 1;
+          console.log(beerArray.hoppily);
           break;
         case "Mowintime":
-          mowintime++;
-          console.log(mowintime);
+          beerArray.mowintime += 1;
+          console.log(beerArray.mowintime);
           break;
         case "Row 26":
-          row26++;
-          console.log(row26);
+          beerArray.row26 += 1;
+          console.log(beerArray.row26);
           break;
         case "Ruined Childhood":
-          ruined++;
-          console.log(ruined);
+          beerArray.ruined += 1;
+          console.log(beerArray.ruined);
           break;
         case "Sleighride":
-          sleighride++;
-          console.log(sleighride);
+          beerArray.sleighride += 1;
+          console.log(beerArray.sleighride);
           break;
         case "Steampunk":
-          steampunk++;
-          console.log(steampunk);
+          beerArray.steampunk += 1;
+          console.log(beerArray.steampunk);
           break;
       }
     });
@@ -119,61 +122,53 @@ export function calculateSales(tapData) {
 
         switch (item) {
           case "El Hefe":
-            elHefe++;
+            beerArray.elHefe += 1;
+            // elHefe++;
             break;
           case "Fairy Tale Ale":
-            fairy++;
+            beerArray.fairy += 1;
             break;
           case "GitHop":
-            githop++;
+            beerArray.githop += 1;
             break;
           case "Hollaback Lager":
-            hollaback++;
+            beerArray.hollaback += 1;
             break;
           case "Hoppily Ever After":
-            hoppily++;
+            beerArray.hoppily += 1;
             break;
           case "Mowintime":
-            mowintime++;
+            beerArray.mowintime += 1;
             break;
           case "Row 26":
-            row26++;
+            beerArray.row26 += 1;
             break;
           case "Ruined Childhood":
-            ruined++;
+            beerArray.ruined += 1;
             break;
           case "Sleighride":
-            sleighride++;
+            beerArray.sleighride += 1;
             break;
           case "Steampunk":
-            steampunk++;
+            beerArray.steampunk += 1;
             break;
         }
       });
     });
   }
 
-  console.log("elHefe " + elHefe);
-  console.log("fairy " + fairy);
-  console.log("githop " + githop);
-  console.log("hollaback " + hollaback);
-  console.log("hoppily " + hoppily);
-  console.log("mowintime " + mowintime);
-  console.log("row26 " + row26);
-  console.log("ruined " + ruined);
-  console.log("sleighride " + sleighride);
-  console.log("steampunk " + steampunk);
+  console.log("elHefe " + beerArray.elHefe);
+  console.log("fairy " + beerArray.fairy);
+  console.log("githop " + beerArray.githop);
+  console.log("hollaback " + beerArray.hollaback);
+  console.log("hoppily " + beerArray.hoppily);
+  console.log("mowintime " + beerArray.mowintime);
+  console.log("row26 " + beerArray.row26);
+  console.log("ruined " + beerArray.ruined);
+  console.log("sleighride " + beerArray.sleighride);
+  console.log("steampunk " + beerArray.steampunk);
 
-  displayChart(
-    elHefe,
-    fairy,
-    githop,
-    hollaback,
-    hoppily,
-    mowintime,
-    row26,
-    ruined,
-    sleighride,
-    steampunk
-  );
+  const sortBeer = Object.entries(beerArray).sort(([, a], [, b]) => b - a);
+
+  displayChart(sortBeer);
 }
