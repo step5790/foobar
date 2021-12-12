@@ -1,10 +1,11 @@
 "use strict";
-import { loadSvg } from "./load-dashboard-svg";
+import { loadSvg, loadCustomerSvgs } from "./load-dashboard-svg";
 import { getBartenderAndTap } from "./bartender-to-bar";
 import { moveBartenderToCounter } from "./bartender-to-counter";
 import { getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
 import { startTap, removePreviousTap } from "./get-tap";
+import { toggleCustomer } from "./desktop-dash-customers.js";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -27,10 +28,17 @@ let bartenders = [
   },
 ];
 
+let customerSvgs = [];
+
 async function start() {
   console.log("start");
   await loadSvg();
+  customerSvgs = await loadCustomerSvgs();
   loadDynamicData();
+}
+
+export function getCustomerSvgs() {
+  return customerSvgs;
 }
 
 function loadDynamicData() {
@@ -61,13 +69,17 @@ function getBartenderStatus(bartender) {
       if (oldStatus === "") {
         console.log("there is no oldStatus yet");
         //import bt based on the newStatus only
-        if (newStatus === "waiting" || newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment") {
+        if (newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          toggleCustomer(bartender);
           bt.btStatus = newStatus;
         } else if (newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
+          toggleCustomer(bartender);
+          bt.btStatus = newStatus;
         } else if (newStatus === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
+          toggleCustomer(bartender);
           startTap(bartender);
           //TODO:
           //get tap element
@@ -83,6 +95,9 @@ function getBartenderStatus(bartender) {
 
           //cheat the system
           bt.btStatus = "";
+        } else if (newStatus === "waiting") {
+          importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          bt.btStatus = newStatus;
         }
         //TODO: if newStatus === "replaceKeg"
       } else {
@@ -102,11 +117,15 @@ function getBartenderStatus(bartender) {
         } else if (oldStatus === "startServing" && newStatus === "reserveTap") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
-        } else if (newStatus === "startServing") {
+        } else if (oldStatus !== "startServing" && newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
-        } else if (newStatus === "waiting") {
+          //showCustomer
+          toggleCustomer(bartender);
+        } else if (oldStatus !== "waiting" && newStatus === "waiting") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
+          //hide customer
+          toggleCustomer(bartender);
         } else if (oldStatus === "releaseTap") {
           removePreviousTap(bartender);
           if (newStatus === "pourBeer") {

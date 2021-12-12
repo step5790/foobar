@@ -27,7 +27,20 @@
 
   .db-bar-view {
     position: relative;
+    .customers {
+      display: flex;
+      position: absolute;
+      top: 14vw;
+      left: 8vw;
+      width: 60vw;
+      justify-content: space-between;
 
+      .customer {
+        visibility: hidden;
+        position: relative;
+        width: 6.3vw;
+      }
+    }
     .bartenders-at-counter {
       display: flex;
       position: absolute;
