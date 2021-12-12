@@ -110,7 +110,7 @@ function getBartenderStatus(bartender) {
         } else if (oldStatus === "startServing" && newStatus === "reserveTap") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
-        } else if (newStatus === "startServing") {
+        } else if (oldStatus !== "startServing" && newStatus === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
           //showCustomer
           toggleCustomer(bartender);
