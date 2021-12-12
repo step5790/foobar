@@ -6,6 +6,7 @@ import { getBartenderSpotAtCounter } from "./get-bartender";
 import { importBartenderSvg } from "./import-bartender-svg";
 import { startTap, removePreviousTap } from "./get-tap";
 import { toggleCustomer } from "./desktop-dash-customers.js";
+import { createQueue } from "./desktop-dash-queue";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -53,8 +54,10 @@ function loadDynamicData() {
 
 function getData(data) {
   const bartendersData = data.bartenders;
-  const queue = data.queue;
-  console.log(queue);
+  //create queue if there is queue
+  if (data.queue.length !== 0) {
+    createQueue(data.queue, queueSvgs);
+  }
   bartendersData.forEach((bartender) => {
     // getBartenderStatus(bartender);
     // showBartenderData(bartender);
