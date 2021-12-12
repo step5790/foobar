@@ -1,7 +1,5 @@
 "use strict";
 
-const bartenderSvgs = [{}];
-
 export async function loadSvg() {
   const foregroundSvg = await fetch("assets/bar-foreground-taps.svg");
   const foregroundText = await foregroundSvg.text();
@@ -9,17 +7,6 @@ export async function loadSvg() {
   const midbackgroundText = await midbackgroundSvg.text();
   const bgSvg = await fetch("assets/bar-background.svg");
   const bgText = await bgSvg.text();
-  //customers
-  // const scarletSvg = await fetch("assets/customers/scarlet.svg");
-  // const scarletSvgText = await scarletSvg.text();
-  // const terrySvg = await fetch("assets/customers/terry.svg");
-  // const terrySvgText = await terrySvg.text();
-  // const filipSvg = await fetch("assets/customers/filip.svg");
-  // const filipSvgText = await filipSvg.text();
-  // const peterSvg = await fetch("assets/customers/peter.svg");
-  // const peterSvgText = await peterSvg.text();
-  // const stephenSvg = await fetch("assets/customers/stephen.svg");
-  // const stephenSvgText = await stephenSvg.text();
   //import to dom
   document.querySelector(".bar-background").innerHTML = bgText;
   document.querySelector(".bar-midbackground").innerHTML = midbackgroundText;
@@ -39,14 +26,16 @@ export async function loadBartenderSvg(name, display) {
   return svgText;
 }
 
-export async function loadCustomerSvg(btName) {
-  const randomNumber = getRandomInt(3);
-  const customerSvg = await fetch(`assets/customers/customer-${randomNumber}.svg`);
-  const svgText = await customerSvg.text();
-  console.log(btName, "should serve", randomNumber);
-  return svgText;
-}
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+export async function loadCustomerSvgs() {
+  const scarletSvg = await fetch("assets/customers/scarlet.svg");
+  const scarletSvgText = await scarletSvg.text();
+  const terrySvg = await fetch("assets/customers/terry.svg");
+  const terrySvgText = await terrySvg.text();
+  const filipSvg = await fetch("assets/customers/filip.svg");
+  const filipSvgText = await filipSvg.text();
+  const peterSvg = await fetch("assets/customers/peter.svg");
+  const peterSvgText = await peterSvg.text();
+  const stephenSvg = await fetch("assets/customers/stephen.svg");
+  const stephenSvgText = await stephenSvg.text();
+  return [scarletSvgText, terrySvgText, filipSvgText, peterSvgText, stephenSvgText];
 }
