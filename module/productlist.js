@@ -34,6 +34,9 @@ function showBeer(beer) {
   copy.querySelector(".beerName").textContent = `${beer.name}`;
   copy.querySelector(".beerCategory").textContent = `${beer.category}`;
   let price = (copy.querySelector(".beerPrice").textContent = `${beer.alc * 10} DKK`);
+  let beerImage = `${beer.label}`;
+  console.log(beerImage);
+  copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
 
   //Round prices
   /* let splitPrice = price.split(" ");
