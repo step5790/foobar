@@ -6,6 +6,8 @@ if (status === "login") {
   document
     .querySelector(".mutable-container-guest")
     .classList.remove("display");
+  document.querySelector("#username").disabled = true;
+  document.querySelector("#email").disabled = true;
 } else if (status === "guest") {
   console.log(status);
   document
