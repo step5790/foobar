@@ -111,6 +111,10 @@ function getBartenderStatus(bartender) {
           removePreviousTap(bartender);
           if (newStatus === "pourBeer") {
             getBartenderAndTap(bartender, "not first");
+          }
+          // backup if newStatus is releaseTap again
+          else if (newStatus === "releaseTap") {
+            console.log(bartender.name, "is releasing the tap too long ");
           } else {
             moveBartenderToCounter(bartender);
           }
