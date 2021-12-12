@@ -16,6 +16,10 @@ export async function loadSvg() {
   const terrySvgText = await terrySvg.text();
   const filipSvg = await fetch("assets/customers/filip.svg");
   const filipSvgText = await filipSvg.text();
+  const peterSvg = await fetch("assets/customers/peter.svg");
+  const peterSvgText = await peterSvg.text();
+  const stephenSvg = await fetch("assets/customers/stephen.svg");
+  const stephenSvgText = await stephenSvg.text();
   //import to dom
   document.querySelector(".bar-background").innerHTML = bgText;
   document.querySelector(".bar-midbackground").innerHTML = midbackgroundText;
@@ -24,7 +28,7 @@ export async function loadSvg() {
   //add each svg to bt object in bt array
   // import customers in DOM
   document.querySelectorAll(".customer").forEach((element) => {
-    element.innerHTML = filipSvgText;
+    element.innerHTML = stephenSvgText;
   });
 }
 
