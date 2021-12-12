@@ -114,7 +114,7 @@ function getBartenderStatus(bartender) {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
           //showCustomer
           toggleCustomer(bartender);
-        } else if (newStatus === "waiting") {
+        } else if (oldStatus !== "waiting" && newStatus === "waiting") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           //hide customer
