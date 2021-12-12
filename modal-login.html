@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="modal-login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div class="center">
-        <button onclick="openLoginForm()">Proceed to Checkout</button>
-      </div>
-      <div class="popup-overlay"></div>
-      <div class="popup">
-        <div class="popup-close" onclick="closeLoginForm()">×</div>
-        <div class="form">
-          <div class="avatar">
-            <img src="img/1b0b52.png">
-          </div>
-          <div class="header">
-            Login
-          </div>
-          <p>Already have an account</p>
-          <div class="element">
-            <label for="username">Email</label>
-            <input type="text" id="username">
-          </div>
-          <div class="element">
-            <label for="password">Password</label>
-            <input type="password" id="password">
-          </div>
-          <div class="element">
-            <button>Sign In</button>
-          </div>
-          <p>First time ordering?</p>
-          <div class="element">
-            <button>Shop as a guest</button>
-          </div>
+  </head>
+  <body>
+    <div class="modal-login" id="modal-login">
+      <button type="button" id="close-modal">X</button>
+      <h1>Login</h1>
+      <form class="form">
+        <h3>Already have an account?</h3>
+
+        <div class="input-container">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder=" "
+            required
+            autocomplete="off"
+          />
+          <label for="email" class="placeholder">Email</label>
+          <div class="requirements">Must be a valid email address.</div>
         </div>
-        <script src="modal-login.js"></script>
-</body>
+
+        <div class="input-container">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder=" "
+            required
+            autocomplete="off"
+          />
+          <label for="email" class="placeholder">Password</label>
+          <div class="requirements">Invalid password.</div>
+        </div>
+
+        <div class="button-container">
+          <button type="button" id="sign-in">Sign In</button>
+          <p>First time ordering in Foobar?</p>
+          <button type="button" id="log-guest">Shop as guest</button>
+        </div>
+      </form>
+    </div>
+
+    <script type="module" src="/module/modal-login.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
