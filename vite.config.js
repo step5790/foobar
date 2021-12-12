@@ -1,13 +1,13 @@
 const { resolve } = require("path");
+const { defineConfig } = require("vite");
 
-module.exports = {
-  base: "./", //set base here or in the build command
+module.exports = defineConfig({
   build: {
     rollupOptions: {
       input: {
         main: resolve(__dirname, "productlist.html"),
-        sub: resolve(__dirname, "nested/productlist.html"),
+        nested: resolve(__dirname, "nested/productlist.html"),
       },
     },
   },
-};
+});
