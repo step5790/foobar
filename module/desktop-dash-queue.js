@@ -12,20 +12,25 @@ export function createQueue(queueData, svgs) {
   if (queue > oldQueue) {
     console.log("Queue became LONGER and is now", queue, "long");
     //TODO:
-    //calculate difference between how many was and grew with
+    //calculate difference between how many was and is now
     const difference = calculateDifference(queue, oldQueue);
     console.log("should add", difference, "svgs in que");
 
     //check if queue is longer than 8
-    //if yes: add queue groups
-    //if no:
-    //send the difference as params to addQueue
-    addQueue(svgs, difference);
+    if (queue > 8) {
+      console.log("queue is longer than 8 people");
+      //if yes: add all single svgs
+      //todo: add queue groups based on queue length
+    } else {
+      //if no:
+      //send the difference as params to addQueue
+      addQueue(svgs, difference);
+    }
   } else if (queue < oldQueue) {
     console.log("Queue became SHORTER and is now", queue, "long");
     //check if length is not 0
     if (oldQueue > 0) {
-      //calculate difference between how many was and grew with
+      //calculate difference between how many was and is now
       const difference = calculateDifference(queue, oldQueue);
       console.log("should remove", difference, "svgs from que");
       //send the difference as params to removeQueue
@@ -38,12 +43,15 @@ export function createQueue(queueData, svgs) {
   oldQueue = queue;
 }
 
+// function addQueueGroups(){}
+
 function addQueue(svgs, max) {
   //loop max times
   for (let i = 0; i < max; i++) {
     createQueueSvg(svgs);
   }
   console.log("created newQueueElement", max, "times");
+  console.log(svgsInUse);
 }
 
 function createQueueSvg(svgs) {
@@ -67,7 +75,6 @@ function createQueueSvg(svgs) {
     console.log(randomIndex, "svg is already in use");
     createQueueSvg(svgs);
   }
-  console.log(svgsInUse);
 }
 
 function checkIfSvgInUse(number) {
