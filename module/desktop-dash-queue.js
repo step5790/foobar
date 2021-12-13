@@ -10,36 +10,27 @@ export function createQueue(queueData, svgs) {
   const queue = queueData.length;
 
   if (queue > oldQueue) {
-    console.log("Queue became LONGER and is now", queue, "long");
-    //TODO:
     //calculate difference between how many was and is now
     const difference = calculateDifference(queue, oldQueue);
-    console.log("should add", difference, "svgs in que");
-
     //check if queue is longer than 8
     if (queue > 8) {
       console.log("queue is longer than 8 people");
       //TODO: add all single svgs
       //todo: add queue groups based on queue length
     } else {
-      //if no:
       //send the difference as params to addQueue
       addQueue(svgs, difference);
       oldQueue = queue;
     }
   } else if (queue < oldQueue) {
-    console.log("Queue became SHORTER and is now", queue, "long");
     //check if length is not 0
     if (oldQueue > 0) {
       //calculate difference between how many was and is now
       const difference = calculateDifference(queue, oldQueue);
-      console.log("should remove", difference, "svgs from que");
       //send the difference as params to removeQueue
       removeQueue(difference);
       oldQueue = queue;
     }
-  } else {
-    console.log("Queue length did not change and is still", queue);
   }
 }
 
@@ -50,8 +41,6 @@ function addQueue(svgs, max) {
   for (let i = 0; i < max; i++) {
     createQueueSvg(svgs);
   }
-  console.log("created newQueueElement", max, "times");
-  console.log(svgsInUse);
 }
 
 function createQueueSvg(svgs) {
@@ -72,7 +61,6 @@ function createQueueSvg(svgs) {
     // add the newly created element and its content into the DOM
     parent.appendChild(newQueueElement);
   } else {
-    console.log(randomIndex, "svg is already in use");
     createQueueSvg(svgs);
   }
 }
@@ -99,10 +87,7 @@ function removeQueue(max) {
       }
     );
     fadeOutAnimation.onfinish = () => {
-      console.log("animation finished");
       queueElement.remove();
     };
   }
-  console.log("removed lastElementChild", max, "times");
-  console.log(svgsInUse);
 }
