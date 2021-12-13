@@ -4,6 +4,8 @@ import { calculateDifference, getRandomInt } from "./calculations";
 
 let oldQueue = 0;
 
+const svgsInUse = [];
+
 export function createQueue(queueData, svgs) {
   const queue = queueData.length;
 
@@ -37,20 +39,27 @@ export function createQueue(queueData, svgs) {
 }
 
 function addQueue(svgs, max) {
-  // grap parent
-  const parent = document.querySelector(".queue");
   //loop max times
   for (let i = 0; i < max; i++) {
-    // create a new div element
-    const newQueueElement = document.createElement("div");
-    //get random customer from array based on arr length
-    const randomIndex = getRandomInt(svgs.length);
-    //create inside element
-    newQueueElement.innerHTML = svgs[randomIndex];
-    // add the newly created element and its content into the DOM
-    parent.appendChild(newQueueElement);
+    createQueueSvg(svgs);
   }
   console.log("created newQueueElement", max, "times");
+}
+
+function createQueueSvg(svgs) {
+  //get random customer from array based on arr length
+  const randomIndex = getRandomInt(svgs.length);
+  // grap parent
+  const parent = document.querySelector(".queue");
+  // create a new div element
+  const newQueueElement = document.createElement("div");
+
+  //create inside element
+  newQueueElement.innerHTML = svgs[randomIndex];
+  //push index in the array of svgsInUse
+  svgsInUse.push(randomIndex);
+  // add the newly created element and its content into the DOM
+  parent.appendChild(newQueueElement);
 }
 
 function removeQueue(max) {
