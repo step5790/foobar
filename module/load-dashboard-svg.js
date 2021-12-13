@@ -51,5 +51,13 @@ export async function loadQueueSvgs() {
   const queue4 = await singleSvg4.text();
   const singleSvg5 = await fetch("assets/queue/queue-single-5.svg");
   const queue5 = await singleSvg5.text();
-  return [queue1, queue2, queue3, queue4, queue5];
+  let svg;
+  svg = await fetch("assets/queue/queue-single-6.svg");
+  const queue6 = await svg.text();
+  svg = await fetch("assets/queue/queue-single-7.svg");
+  const queue7 = await svg.text();
+  svg = await fetch("assets/queue/queue-single-8.svg");
+  const queue8 = await svg.text();
+
+  return [queue1, queue2, queue3, queue4, queue5, queue6, queue7, queue8];
 }
