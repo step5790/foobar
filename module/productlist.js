@@ -44,12 +44,16 @@ function showBeer(beer) {
   const copy = template.cloneNode(true);
 
   copy.querySelector(".beerName").textContent = `${beer.name}`;
-  let category = (copy.querySelector(".beerCategory").textContent = `${beer.category}`);
-  let price = (copy.querySelector(".beerPrice").textContent = `${beer.alc * 10} DKK`);
+  let category = copy.querySelector(".beerCategory");
+  category.textContent = `${beer.category}`;
+  let price = copy.querySelector(".beerPrice");
+  price.textContent = `${beer.alc * 10} DKK`;
   let beerImage = `${beer.label}`;
 
   copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
-  copy.querySelector("article").dataset.name = beer.name;
+  let beername = copy.querySelector("article");
+  beername.dataset.name = beer.name;
+  console.log(beername.dataset.name);
 
   //Round prices
   /* let splitPrice = price.split(" ");
@@ -69,5 +73,5 @@ function showBeer(beer) {
 
 function passModalData(beer) {
   document.querySelector(".modalCategoryText").textContent = `${beer.category}`;
-  console.log(beer);
+  //console.log(beer);
 }

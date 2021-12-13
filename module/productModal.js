@@ -21,5 +21,14 @@ export function toggleModal(beersData) {
 
 function changeBeerData(beersData) {
   console.log(beersData);
-  document.querySelector(".productModalHeading").textContent = beersData[0].name;
+  //document.querySelector(".productModalHeading").textContent = beersData[0].name;
+
+  //console.log(beersData[0].name);
+
+  beersData.forEach((beer) => {
+    console.log(beer.name);
+    /* if (beer.name === this.dataset.name) {
+      console.log("found it");
+    } */
+  });
 }
