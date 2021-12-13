@@ -19,7 +19,7 @@ export function createQueue(queueData, svgs) {
     //check if queue is longer than 8
     if (queue > 8) {
       console.log("queue is longer than 8 people");
-      //if yes: add all single svgs
+      //TODO: add all single svgs
       //todo: add queue groups based on queue length
     } else {
       //if no:
@@ -64,7 +64,7 @@ function createQueueSvg(svgs) {
     const parent = document.querySelector(".queue");
     // create a new div element
     const newQueueElement = document.createElement("div");
-
+    newQueueElement.classList.add("queue-single", "fade-in");
     //create inside element
     newQueueElement.innerHTML = svgs[randomIndex];
     //push index in the array of svgsInUse
@@ -84,9 +84,24 @@ function checkIfSvgInUse(number) {
 function removeQueue(max) {
   const parent = document.querySelector(".queue");
   for (let i = 0; i < max; i++) {
-    parent.firstElementChild.remove();
     //remove first element in array
     svgsInUse.shift();
+    const queueElement = parent.firstElementChild;
+    const fadeOutAnimation = queueElement.animate(
+      [
+        {
+          opacity: 0,
+        },
+      ],
+      {
+        duration: 400,
+        easing: "linear",
+      }
+    );
+    fadeOutAnimation.onfinish = () => {
+      console.log("animation finished");
+      queueElement.remove();
+    };
   }
   console.log("removed lastElementChild", max, "times");
   console.log(svgsInUse);

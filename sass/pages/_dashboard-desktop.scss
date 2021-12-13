@@ -32,6 +32,17 @@
       top: 8vw;
       left: 21vw;
       width: 35vw;
+      .queue-single {
+        opacity: 0;
+      }
+    }
+    .fade-in {
+      animation: 0.5s linear forwards kf_fadeIn;
+    }
+    @keyframes kf_fadeIn {
+      100% {
+        opacity: 1;
+      }
     }
     .customers {
       display: flex;
