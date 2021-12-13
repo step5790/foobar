@@ -323,6 +323,11 @@ footer h1 {
   border: none;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
+}
+
+.modalPlus:active {
+  scale: 0.95;
 }
 
 .modalMinus {
@@ -331,6 +336,11 @@ footer h1 {
   border: none;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
+}
+
+.modalMinus:active {
+  scale: 0.95;
 }
 
 .modalImpression {
