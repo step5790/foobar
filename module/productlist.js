@@ -1,6 +1,6 @@
 "use strict";
 
-import { registerModal } from "./productModal";
+import { toggleModal } from "./productModal";
 import { registerCart } from "./productCart";
 import { scrollProductlist } from "./scrollProductlist";
 
@@ -22,12 +22,24 @@ function fetchBeersData() {
     });
 }
 
-function receiveBeerstData(data) {
-  data.forEach(showBeer);
+function receiveBeerstData(beersData) {
+  beersData.forEach(showBeer);
+
+  registerModal(beersData);
+}
+
+function registerModal(beersData) {
+  //console.log(beersData);
+  const beers = document.querySelectorAll(".beer");
+
+  for (const beer of beers) {
+    beer.addEventListener("click", () => {
+      toggleModal(beersData);
+    });
+  }
 }
 
 function showBeer(beer) {
-  //console.log(beer);
   const template = document.querySelector("#beerTemplate").content;
   const copy = template.cloneNode(true);
 
@@ -35,8 +47,9 @@ function showBeer(beer) {
   let category = (copy.querySelector(".beerCategory").textContent = `${beer.category}`);
   let price = (copy.querySelector(".beerPrice").textContent = `${beer.alc * 10} DKK`);
   let beerImage = `${beer.label}`;
-  //console.log(beerImage);
+
   copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
+  copy.querySelector("article").dataset.name = beer.name;
 
   //Round prices
   /* let splitPrice = price.split(" ");
@@ -49,13 +62,12 @@ function showBeer(beer) {
   const parent = document.querySelector(".beersContainer");
   parent.appendChild(copy);
 
-  registerModal();
   registerCart();
   scrollProductlist();
-  passModalData(beer, category);
+  passModalData(beer);
 }
 
-function passModalData(beer, category) {
-  document.querySelector(".modalCategoryText").textContent = category;
+function passModalData(beer) {
+  document.querySelector(".modalCategoryText").textContent = `${beer.category}`;
   console.log(beer);
 }
