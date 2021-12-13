@@ -1,6 +1,7 @@
 "use strict";
 
 import { getCustomerSvgs } from "./desktop-dash";
+import { getRandomInt } from "./calculations";
 
 let customers = [];
 
@@ -53,10 +54,6 @@ export async function toggleCustomer(bartender) {
     customerContainer.innerHTML = "";
     customerContainer.style.visibility = "hidden";
   }
-}
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
 }
 
 function getRandomCustomerIndex() {

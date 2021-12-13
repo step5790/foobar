@@ -1,5 +1,7 @@
 "use strict";
 
+import { calculateDifference } from "./calculations";
+
 let oldQueue = 0;
 
 export function createQueue(queueData, svgs) {
@@ -32,10 +34,6 @@ export function createQueue(queueData, svgs) {
     console.log("Queue length did not change and is still", queue);
   }
   oldQueue = queue;
-}
-
-function calculateDifference(a, b) {
-  return Math.abs(a - b);
 }
 
 function addQueue(svgs, max) {
