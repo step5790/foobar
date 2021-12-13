@@ -22,4 +22,6 @@ export function postData(e) {
     .catch((err) => {
       console.error(err);
     });
+
+  console.log("post");
 }

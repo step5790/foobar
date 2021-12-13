@@ -19,7 +19,7 @@ if (status === "login") {
   document.querySelector(".mutable-container-guest").classList.add("display");
 }
 
-document.querySelector(".finish-payment").addEventListener("click", postData);
+document.querySelector(".finish-payment").addEventListener("submit", postData);
 
 let ccNumberInput = document.querySelector(".cc-number-input"),
   ccNumberPattern = /^\d{0,16}$/g,
