@@ -69,5 +69,5 @@ function showBeer(beer) {
 
 function passModalData(beer) {
   document.querySelector(".modalCategoryText").textContent = `${beer.category}`;
-  console.log(beer);
+  //console.log(beer);
 }
