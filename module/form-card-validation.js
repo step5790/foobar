@@ -1,10 +1,12 @@
 import { postData } from "./postData";
+import { fetchData } from "./fetchData";
 
 const searchParams = new URLSearchParams(window.location.search);
 const status = searchParams.get("status");
 
 if (status === "login") {
   console.log(status);
+  fetchData();
   document
     .querySelector(".mutable-container-guest")
     .classList.remove("display");
@@ -13,6 +15,7 @@ if (status === "login") {
   document.querySelector("#email").disabled = true;
 } else if (status === "guest") {
   console.log(status);
+  fetchData();
   document
     .querySelector(".mutable-container-login")
     .classList.remove("display");

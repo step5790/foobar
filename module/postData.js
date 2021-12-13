@@ -1,14 +1,17 @@
 export function postData(e) {
   e.preventDefault();
 
-  const payload = [
-    { name: "Row 26", amount: 2 },
-    { name: "Row 26", amount: 2 },
-  ];
+  var orders = JSON.parse(localStorage.getItem("orders"));
+  // console.log(JSON.parse(orders));
+
+  // const payload = [
+  //   { name: "Row 26", amount: 2 },
+  //   { name: "Row 26", amount: 2 },
+  // ];
 
   // document.querySelector(".finish-payment").setAttribute("disabled", true);
 
-  const postData = JSON.stringify(payload);
+  const postData = JSON.stringify(orders);
 
   fetch("https://hangover3.herokuapp.com/order", {
     method: "POST",
@@ -18,10 +21,10 @@ export function postData(e) {
     body: postData,
   })
     .then((res) => res.json())
-
     .catch((err) => {
       console.error(err);
     });
 
-  console.log("post");
+  console.log(postData);
+  window.location.href = "/thank-you.html";
 }
