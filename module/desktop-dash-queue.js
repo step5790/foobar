@@ -60,13 +60,14 @@ function createQueueSvg(svgs) {
     //create inside element
     newQueueElement.innerHTML = svgs[randomIndex];
     //push index in the array of svgsInUse
-
+    svgsInUse.push(randomIndex);
     // add the newly created element and its content into the DOM
     parent.appendChild(newQueueElement);
   } else {
     console.log(randomIndex, "svg is already in use");
     createQueueSvg(svgs);
   }
+  console.log(svgsInUse);
 }
 
 function checkIfSvgInUse(number) {
@@ -81,4 +82,5 @@ function removeQueue(max) {
     svgsInUse.shift();
   }
   console.log("removed lastElementChild", max, "times");
+  console.log(svgsInUse);
 }
