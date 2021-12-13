@@ -1,6 +1,6 @@
 "use strict";
 
-import { calculateDifference } from "./calculations";
+import { calculateDifference, getRandomInt } from "./calculations";
 
 let oldQueue = 0;
 
@@ -43,7 +43,10 @@ function addQueue(svgs, max) {
   for (let i = 0; i < max; i++) {
     // create a new div element
     const newQueueElement = document.createElement("div");
-    newQueueElement.innerHTML = svgs[1];
+    //get random customer from array based on arr length
+    const randomIndex = getRandomInt(svgs.length);
+    //create inside element
+    newQueueElement.innerHTML = svgs[randomIndex];
     // add the newly created element and its content into the DOM
     parent.appendChild(newQueueElement);
   }
@@ -53,7 +56,7 @@ function addQueue(svgs, max) {
 function removeQueue(max) {
   const parent = document.querySelector(".queue");
   for (let i = 0; i < max; i++) {
-    parent.lastElementChild.remove();
+    parent.firstElementChild.remove();
   }
   console.log("removed lastElementChild", max, "times");
 }
