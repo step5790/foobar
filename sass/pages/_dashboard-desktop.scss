@@ -27,6 +27,12 @@
 
   .db-bar-view {
     position: relative;
+    .queue {
+      position: absolute;
+      top: 8vw;
+      left: 10vw;
+      width: 40vw;
+    }
     .customers {
       display: flex;
       position: absolute;
