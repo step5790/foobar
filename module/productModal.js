@@ -21,5 +21,10 @@ export function toggleModal(beersData) {
 
 function changeBeerData(beersData) {
   console.log(beersData);
-  document.querySelector(".productModalHeading").textContent = beersData[0].name;
+  //document.querySelector(".productModalHeading").textContent = beersData[0].name;
+
+  let beers = document.querySelectorAll(".beer");
+  console.log(beers);
+  
+  beers.forEach(beer => )
 }
