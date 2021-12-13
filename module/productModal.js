@@ -1,3 +1,5 @@
+import { registerCounter } from "./product-counter";
+
 export function toggleModal(beersData) {
   //console.log(this.dataset.name);
   document.querySelector("#modal").classList.remove("hidden");
@@ -6,6 +8,7 @@ export function toggleModal(beersData) {
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
   changeBeerData(beersData);
+  registerCounterClick();
   //to do
 
   //change content with one beer
@@ -22,4 +25,10 @@ export function toggleModal(beersData) {
 function changeBeerData(beersData) {
   console.log(beersData);
   document.querySelector(".productModalHeading").textContent = beersData[0].name;
+}
+
+function registerCounterClick() {
+  document.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
+    button.addEventListener("click", registerCounter);
+  });
 }
