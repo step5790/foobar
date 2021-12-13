@@ -25,6 +25,7 @@ export function createQueue(queueData, svgs) {
       //if no:
       //send the difference as params to addQueue
       addQueue(svgs, difference);
+      oldQueue = queue;
     }
   } else if (queue < oldQueue) {
     console.log("Queue became SHORTER and is now", queue, "long");
@@ -34,13 +35,12 @@ export function createQueue(queueData, svgs) {
       const difference = calculateDifference(queue, oldQueue);
       console.log("should remove", difference, "svgs from que");
       //send the difference as params to removeQueue
-
       removeQueue(difference);
+      oldQueue = queue;
     }
   } else {
     console.log("Queue length did not change and is still", queue);
   }
-  oldQueue = queue;
 }
 
 // function addQueueGroups(){}
