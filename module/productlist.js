@@ -27,15 +27,15 @@ function receiveBeerstData(data) {
 }
 
 function showBeer(beer) {
-  console.log(beer);
+  //console.log(beer);
   const template = document.querySelector("#beerTemplate").content;
   const copy = template.cloneNode(true);
 
   copy.querySelector(".beerName").textContent = `${beer.name}`;
-  copy.querySelector(".beerCategory").textContent = `${beer.category}`;
+  let category = (copy.querySelector(".beerCategory").textContent = `${beer.category}`);
   let price = (copy.querySelector(".beerPrice").textContent = `${beer.alc * 10} DKK`);
   let beerImage = `${beer.label}`;
-  console.log(beerImage);
+  //console.log(beerImage);
   copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
 
   //Round prices
@@ -49,9 +49,13 @@ function showBeer(beer) {
   const parent = document.querySelector(".beersContainer");
   parent.appendChild(copy);
 
-  //const beerImage =
-
   registerModal();
   registerCart();
   scrollProductlist();
+  passModalData(beer, category);
+}
+
+function passModalData(beer, category) {
+  document.querySelector(".modalCategoryText").textContent = category;
+  console.log(beer);
 }
