@@ -58,26 +58,24 @@ function getData(data) {
 }
 
 function getBartenderStatus(bartender) {
-  const bartenderName = bartender.name;
-  const newStatus = bartender.statusDetail;
   //match bartender in global variable
   bartenders.forEach((bt) => {
-    if (bt.btName === bartenderName) {
-      const oldStatus = bt.btStatus;
+    if (bt.btName === bartender.name) {
+      // const bt.btStatus = bt.btStatus;
       const btSpotAtCounter = getBartenderSpotAtCounter(bartender);
-      console.log(bt.btName, "old Status:", oldStatus);
-      if (oldStatus === "") {
-        console.log("there is no oldStatus yet");
-        //import bt based on the newStatus only
-        if (newStatus === "reserveTap" || newStatus === "replaceKeg" || newStatus === "receivePayment") {
+      console.log(bt.btName, "old Status:", bt.btStatus);
+      if (bt.btStatus === "") {
+        console.log("there is no bt.btStatus yet");
+        //import bt based on the bartender.statusDetail only
+        if (bartender.statusDetail === "reserveTap" || bartender.statusDetail === "replaceKeg" || bartender.statusDetail === "receivePayment") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           toggleCustomer(bartender);
-          bt.btStatus = newStatus;
-        } else if (newStatus === "startServing") {
+          bt.btStatus = bartender.statusDetail;
+        } else if (bartender.statusDetail === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
           toggleCustomer(bartender);
-          bt.btStatus = newStatus;
-        } else if (newStatus === "pourBeer") {
+          bt.btStatus = bartender.statusDetail;
+        } else if (bartender.statusDetail === "pourBeer") {
           importBartenderSvg(bartender, "pouring");
           toggleCustomer(bartender);
           startTap(bartender);
@@ -86,62 +84,78 @@ function getBartenderStatus(bartender) {
           //unhide beer glass g
           //start pouring animation
 
-          bt.btStatus = newStatus;
-        } else if (newStatus === "releaseTap") {
+          bt.btStatus = bartender.statusDetail;
+        } else if (bartender.statusDetail === "releaseTap") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           // TODO:
           //get tap element
-          //hide tap if newStatus === "releaseTap"
+          //hide tap if bartender.statusDetail === "releaseTap"
 
           //cheat the system
           bt.btStatus = "";
-        } else if (newStatus === "waiting") {
+        } else if (bartender.statusDetail === "waiting") {
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
-          bt.btStatus = newStatus;
+          bt.btStatus = bartender.statusDetail;
         }
-        //TODO: if newStatus === "replaceKeg"
+        //TODO: if bartender.statusDetail === "replaceKeg"
       } else {
-        if ((oldStatus === "startServing" || oldStatus === "waiting" || oldStatus === "reserveTap") && newStatus === "pourBeer") {
-          console.log("move bartender to bar");
+        if ((bt.btStatus === "startServing" || bt.btStatus === "waiting" || bt.btStatus === "reserveTap") && bartender.statusDetail === "pourBeer") {
+          bt.btStatus = bartender.statusDetail;
           getBartenderAndTap(bartender, "first");
-        } else if (oldStatus === "pourBeer" && newStatus === "releaseTap") {
+        } else if (bt.btStatus === "pourBeer" && bartender.statusDetail === "releaseTap") {
+          bt.btStatus = bartender.statusDetail;
           //TODO
           //hide handle
           removePreviousTap(bartender);
           //stop tap "pouring" animation
         }
+
         //backup if releaseTap is not registered
-        else if (oldStatus === "pourBeer" && newStatus === "receivePayment") {
+        else if (bartender.statusDetail === "receivePayment") {
           removePreviousTap(bartender);
           moveBartenderToCounter(bartender);
-        } else if (oldStatus === "startServing" && newStatus === "reserveTap") {
+          bt.btStatus = bartender.statusDetail;
+        } else if (bt.btStatus === "startServing" && bartender.statusDetail === "reserveTap") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
-        } else if (oldStatus !== "startServing" && newStatus === "startServing") {
+          bt.btStatus = bartender.statusDetail;
+        } else if (bt.btStatus !== "startServing" && bartender.statusDetail === "startServing") {
           importBartenderSvg(bartender, "start-serving", btSpotAtCounter.element);
           //showCustomer
           toggleCustomer(bartender);
-        } else if (oldStatus !== "waiting" && newStatus === "waiting") {
+          bt.btStatus = bartender.statusDetail;
+        } else if (bt.btStatus !== "waiting" && bartender.statusDetail === "waiting") {
           //change display to "bt-leaning"
           importBartenderSvg(bartender, "leaning", btSpotAtCounter.element);
           //hide customer
           toggleCustomer(bartender);
-        } else if (oldStatus === "releaseTap") {
+          bt.btStatus = bartender.statusDetail;
+        }
+        // ---- Backup if "releaseTap comes at weird time"
+        else if (bt.btStatus !== "pourBeer" && bartender.statusDetail === "releaseTap") {
+          console.log("WHAT");
+          bt.btStatus = "";
+        } else if (bt.btStatus === "releaseTap") {
           removePreviousTap(bartender);
-          if (newStatus === "pourBeer") {
+          if (bartender.statusDetail === "pourBeer") {
             getBartenderAndTap(bartender, "not first");
+            bt.btStatus = bartender.statusDetail;
           }
-          // backup if newStatus is releaseTap again
-          else if (newStatus === "releaseTap") {
-            console.log(bartender.name, "is releasing the tap too long ");
+          // ---- backup if bartender.statusDetail is releaseTap again: ----
+          else if (bartender.statusDetail === "releaseTap") {
+            console.log(bartender.name, " is releasing the tap too long - WHAT");
+            //dont update bt.btStatus
+            bt.btStatus = "";
           } else {
             moveBartenderToCounter(bartender);
+            bt.btStatus = bartender.statusDetail;
           }
-          //TODO: if newStatus === "replaceKeg"
+
+          //TODO: if bartender.statusDetail === "replaceKeg"
         }
-        //TODO: if oldStatus === "replaceKeg" && newStatus === "pourBeer"
-        bt.btStatus = newStatus;
+        //TODO: if bt.btStatus === "replaceKeg" && bartender.statusDetail === "pourBeer"
       }
+      // bt.btStatus = bartender.statusDetail;
       console.log(bt.btName, "new Status:", bt.btStatus);
     }
   });
