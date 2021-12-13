@@ -51,7 +51,6 @@
 .productlistButton:active {
   box-shadow: 0 0 0.6em 0.25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color), inset 0 0 0.5em 0.25em var(--glow-color);
 }
-//button
 
 .hidden {
   visibility: hidden;
@@ -82,6 +81,14 @@
   background-position-x: center;
 
   background-repeat: no-repeat;
+}
+
+.cartButton {
+  background: url("/assets/icons/removeCart.svg") no-repeat;
+  background-size: cover;
+  border: none;
+  width: 2rem;
+  height: 2rem;
 }
 
 .mainHeading {
@@ -311,11 +318,19 @@ footer h1 {
 }
 
 .modalPlus {
+  background: url("/assets/icons/plus.svg") no-repeat;
+  background-size: cover;
+  border: none;
   width: 2rem;
+  height: 2rem;
 }
 
 .modalMinus {
+  background: url("/assets/icons/minus.svg") no-repeat;
+  background-size: cover;
+  border: none;
   width: 2rem;
+  height: 2rem;
 }
 
 .modalImpression {
@@ -395,8 +410,12 @@ footer h1 {
 }
 
 .modalRemoveCart {
+  height: 2rem;
   width: 2rem;
   margin-left: 2rem;
+  background: url("/assets/icons/removeCart.svg") no-repeat;
+  background-size: cover;
+  border: none;
 }
 
 .cartDivider {

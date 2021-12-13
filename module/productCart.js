@@ -1,5 +1,5 @@
 export function registerCart() {
-  const cart = document.querySelector(".cart");
+  const cart = document.querySelector(".cartButton");
   cart.addEventListener("click", toggleCart);
 }
 
