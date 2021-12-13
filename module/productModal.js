@@ -26,9 +26,9 @@ function changeBeerData(beersData) {
   //console.log(beersData[0].name);
 
   beersData.forEach((beer) => {
-    //console.log(beer.name);
-    if (beer.name === this.dataset.name) {
+    console.log(beer.name);
+    /* if (beer.name === this.dataset.name) {
       console.log("found it");
-    }
+    } */
   });
 }
