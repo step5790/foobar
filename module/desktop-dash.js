@@ -59,8 +59,8 @@ function getData(data) {
     createQueue(data.queue, queueSvgs);
   }
   bartendersData.forEach((bartender) => {
-    // getBartenderStatus(bartender);
-    // showBartenderData(bartender);
+    getBartenderStatus(bartender);
+    showBartenderData(bartender);
   });
 }
 
