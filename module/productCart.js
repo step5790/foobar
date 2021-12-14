@@ -14,8 +14,8 @@ function toggleCart() {
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector(".exitCart").addEventListener("click", closeCart);
   document.querySelector("#productlist").classList.add("noScroll");
-  //display cart items
 
+  toggleTotal();
   displayCartItems();
 
   document.querySelector("#cartButton").addEventListener("click", addToLocalStorage);
@@ -30,6 +30,21 @@ function displayCartItems() {
     orderFromLocalStorage.forEach((obj) => displayCartItem(obj));
     //make order array into same as orderFromLocalStorage is
     order = orderFromLocalStorage;
+  }
+}
+
+function toggleTotal() {
+  //check if order and localStorage is empty
+  if (!localStorage.getItem("order") && order.length === 0) {
+    console.log(order);
+    console.log("cart is empty");
+    //hide total
+    document.querySelector(".cartTotalPriceContainer").classList.add("hidden");
+    document.querySelector(".cartEmptyFeedback").classList.remove("hidden");
+  } else {
+    //show total
+    document.querySelector(".cartTotalPriceContainer").classList.remove("hidden");
+    document.querySelector(".cartEmptyFeedback").classList.add("hidden");
   }
 }
 
@@ -84,8 +99,7 @@ function displayCartItem(obj) {
   copy.querySelector(".cartProductImage").alt = obj.beer.label;
   copy.querySelector(".cartName").textContent = obj.beer.name;
 
-  //TODO: calculate price based on quantity
-  //calculate total price
+  //calculate sub-total price
   const subTotalText = copy.querySelector(".cartPrice");
   displaySubTotal(subTotalText, obj);
   const quantityIndicator = copy.querySelector(".beerQuantity");
