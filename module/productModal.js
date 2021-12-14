@@ -1,3 +1,5 @@
+import { registerCounter } from "./product-counter";
+
 export function toggleModal(beer) {
   //console.log(this.dataset.name);
   document.querySelector(".modalCategoryHeading").scrollIntoView();
@@ -7,8 +9,8 @@ export function toggleModal(beer) {
   document.querySelector("#productlist").classList.add("noScroll");
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
-  // changeBeerData(beer);
-
+  // changeBeerData(beersData);
+  registerCounterClick();
   //to do
   console.log(beer);
   document.querySelector(".productModalHeading").textContent = beer.name;
@@ -51,5 +53,11 @@ function changeBeerData(beer) {
     /* if (beer.name === this.dataset.name) {
       console.log("found it");
     } */
+  });
+}
+
+function registerCounterClick() {
+  document.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
+    button.addEventListener("click", registerCounter);
   });
 }
