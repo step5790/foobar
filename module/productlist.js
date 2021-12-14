@@ -56,7 +56,7 @@ function showBeer(beer) {
   price.textContent = `${beer.alc * 10} DKK`;
   let beerImage = `${beer.label}`;
 
-  copy.querySelector(".beerGlass").src = `assets/beer/elhefe.png`;
+  copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
   copy.querySelector(".beerGlass").alt = beerImage;
   let beername = copy.querySelector("article");
   beername.dataset.name = beer.name;
