@@ -7,13 +7,14 @@ const BeerObject = {
 
 let beerToAdd = {};
 
-export function registerCounter(beer, e) {
+export function registerCounter(e) {
+  console.log(e);
   const count = e.target.dataset.counter;
   if (count === "plus") {
-    addQuantity(beer);
+    addQuantity();
   } else {
     if (beerToAdd.quantity > 1) {
-      removeQuantity(beer);
+      removeQuantity();
     } else {
       console.log("can't add 0 beers to cart");
     }
@@ -22,6 +23,9 @@ export function registerCounter(beer, e) {
 }
 
 export function createBeerObject(beer) {
+  // beerToAdd.beerName = "";
+  // beerToAdd.quantity = "";
+  console.log(beerToAdd);
   console.log("beer to create", beer);
   const newBeer = Object.create(BeerObject);
   newBeer.beerName = beer;
@@ -30,17 +34,17 @@ export function createBeerObject(beer) {
   console.log(beerToAdd);
 }
 
-function addQuantity(beer) {
+function addQuantity() {
+  console.log(beerToAdd);
   //increase quantity by one
   beerToAdd.quantity++;
-  console.log("ready to add to cart:", beerToAdd.quantity, beer);
+  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beerName);
 }
 
-function removeQuantity(beer) {
-  console.log(beer, "quantity should be decreased");
+function removeQuantity() {
   //find beer in array
   beerToAdd.quantity--;
-  console.log("ready to add to cart:", beerToAdd.quantity, beer);
+  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beerName);
 }
 
 export function displayQuantity() {

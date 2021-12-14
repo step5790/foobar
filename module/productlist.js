@@ -78,10 +78,10 @@ function showBeer(beer) {
 
   registerCart();
   scrollProductlist();
-  passModalData(beer);
+  // passModalData(beer);
 }
 
-function passModalData(beer) {
-  document.querySelector(".modalCategoryText").textContent = `${beer.category}`;
-  //console.log(beer);
-}
+// function passModalData(beer) {
+//   document.querySelector(".modalCategoryText").textContent = `${beer.category}`;
+//   //console.log(beer);
+// }
