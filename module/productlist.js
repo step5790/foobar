@@ -58,9 +58,8 @@ function showBeer(beer) {
 
   copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
   copy.querySelector(".beerGlass").alt = beerImage;
-  let beername = copy.querySelector("article");
-  beername.dataset.name = beer.name;
-  console.log(beername.dataset.name);
+  // let beername = copy.querySelector("article");
+  // beername.dataset.name = beer.name;
 
   copy.querySelector("article#beer1").addEventListener("click", () => {
     toggleModal(beer);
