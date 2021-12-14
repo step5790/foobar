@@ -388,11 +388,29 @@ footer h1 {
   cursor: pointer;
 }
 
+.cartProductContainer {
+  height: fit-content;
+  max-height: 14rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cartProductContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.cartProductContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .cartProduct {
   display: flex;
   align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .cartProductImage {
