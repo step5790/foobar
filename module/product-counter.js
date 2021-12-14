@@ -1,7 +1,7 @@
 "use strict";
 
 const BeerObject = {
-  beerName: "name",
+  beer: {},
   quantity: 1,
 };
 
@@ -23,7 +23,7 @@ export function registerCounter(e) {
 
 export function createBeerObject(beer) {
   const newBeer = Object.create(BeerObject);
-  newBeer.beerName = beer;
+  newBeer.beer = beer;
   newBeer.quantity = 1;
   beerToAdd = newBeer;
   console.log("ready to add to cart:", beerToAdd);

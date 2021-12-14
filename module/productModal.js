@@ -22,7 +22,7 @@ export function toggleModal(beer) {
   copy.querySelector(`button[data-button="addToCart"]`).addEventListener("click", () => {
     const beerToAdd = getBeerToAdd();
     //clear object
-    createBeerObject(beer.name);
+    createBeerObject(beer);
     addToCart(beerToAdd);
   });
 
@@ -35,7 +35,7 @@ export function toggleModal(beer) {
   document.querySelector("#productlist").classList.add("noScroll");
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
-  createBeerObject(beer.name);
+  createBeerObject(beer);
 
   //change content with one beer
   //loop through the beers and find the matching - index of array
