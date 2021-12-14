@@ -1,5 +1,5 @@
 import { createBeerObject, getBeerToAdd, registerCounter } from "./product-counter";
-import { addToCart } from "./cart";
+import { addToCart } from "./productCart";
 
 export function toggleModal(beer) {
   const template = document.querySelector("#modalTemp").content;

@@ -1,3 +1,7 @@
+"use strict";
+
+const order = [];
+
 export function registerCart() {
   const cart = document.querySelector(".cartButton");
   cart.addEventListener("click", toggleCart);
@@ -15,10 +19,6 @@ function toggleCart() {
     document.querySelector("#productlist").classList.remove("noScroll");
   }
 }
-
-("use strict");
-
-const order = [];
 
 export function addToCart(singleOrder) {
   console.log("add", singleOrder, "to cart");
@@ -54,8 +54,12 @@ export function addToCart(singleOrder) {
       </div> */
 
 function displayCartItem(obj) {
+  console.log(obj);
   const template = document.querySelector("#cartTemp").content;
   const copy = template.cloneNode(true);
-  copy.querySelector(".cartProductImage").src = obj.beer.label;
-  // const parent = document.querySelector("#");
+  copy.querySelector(".cartProductImage").src = `assets/beer/${obj.beer.label}`;
+  copy.querySelector(".cartProductImage").alt = obj.beer.label;
+  copy.querySelector(".cartName").textContent = obj.beer.label;
+  const parent = document.querySelector(".cartItems");
+  parent.appendChild(copy);
 }
