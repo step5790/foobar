@@ -4,3 +4,6 @@ body {
   background-color: colors.$base;
   color: colors.$font-primary;
 }
+.hidden {
+  visibility: hidden;
+}
