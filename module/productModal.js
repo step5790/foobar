@@ -5,8 +5,16 @@ export function toggleModal(beersData) {
   document.querySelector("#productlist").classList.add("noScroll");
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
-  changeBeerData(beersData);
+  // changeBeerData(beersData);
+
   //to do
+  console.log(beersData);
+  document.querySelector(".productModalHeading").textContent = beersData.name;
+  document.querySelector(".modalCategoryText").textContent = beersData.category;
+  document.querySelector(".modalAlcoholText").textContent = beersData.alc;
+  document.querySelector(".modalPprice").textContent = `${
+    beersData.alc * 10
+  } DKK`;
 
   //change content with one beer
   //loop through the beers and find the matching - index of array

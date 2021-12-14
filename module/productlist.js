@@ -30,13 +30,17 @@ function receiveBeerstData(beersData) {
 
 function registerModal(beersData) {
   //console.log(beersData);
-  const beers = document.querySelectorAll(".beer");
-
-  for (const beer of beers) {
-    beer.addEventListener("click", () => {
-      toggleModal(beersData);
-    });
-  }
+  // const beers = document.querySelectorAll(".beer");
+  // for (const beer of beers) {
+  //   beer.addEventListener("click", () => {
+  //     toggleModal(beersData);
+  //   });
+  // }
+  // **mine**
+  // beersData.forEach((beer) => {
+  //   document.querySelector(".modalCategoryText").textContent = beer.caregory;
+  // });
+  // toggleModal(beersData);
 }
 
 function showBeer(beer) {
@@ -55,6 +59,9 @@ function showBeer(beer) {
   beername.dataset.name = beer.name;
   console.log(beername.dataset.name);
 
+  copy.querySelector("article#beer1").addEventListener("click", () => {
+    toggleModal(beer);
+  });
   //Round prices
   /* let splitPrice = price.split(" ");
   let onlyPrice = splitPrice[0];
