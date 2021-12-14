@@ -4,7 +4,12 @@ const order = [];
 
 export function addToCart(singleOrder) {
   console.log("add", singleOrder, "to cart");
-  //add order to array
-  order.push(singleOrder);
-  console.log(order);
+  //check if beer is already in array
+  if (order.some((el) => el.beerName === singleOrder.beerName)) {
+    console.log(singleOrder.beerName, "is already added");
+    singleOrder.beerName;
+  } else {
+    order.push(singleOrder);
+    console.log("updated order:", order);
+  }
 }
