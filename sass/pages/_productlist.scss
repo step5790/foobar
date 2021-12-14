@@ -164,10 +164,6 @@
   margin-bottom: 10px;
 }
 
-.beerGlass {
-  width: 100px;
-}
-
 .productlistBeerInfo {
   display: flex;
   flex-direction: column;
@@ -175,13 +171,16 @@
   width: max-content;
 }
 
+.beerGlass {
+  width: 100px;
+  transition: filter 0.2s;
+}
+
 .beerGlass:hover {
-  -webkit-filter: drop-shadow(0px 0px 55px #e9ccff);
   filter: drop-shadow(0px 0px 55px #e9ccff);
 }
 
 .beerGlass:active {
-  -webkit-filter: drop-shadow(0px 0px 55px #e9ccff);
   filter: drop-shadow(0px 0px 55px #e9ccff);
 }
 
