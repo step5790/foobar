@@ -67,7 +67,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1001;
 }
 
 #productlist {
@@ -95,7 +95,6 @@
 
 .mainHeading {
   margin-left: 5%;
-  margin-right: 5%;
   width: 28%;
   margin-top: 20%;
 }
@@ -274,7 +273,7 @@ footer h1 {
   transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: 25rem 25rem;
-  z-index: 2;
+  z-index: 2000;
   height: 80vh;
 }
 
@@ -375,7 +374,7 @@ footer h1 {
 //cart
 #cart {
   background-color: /* $base */ #0d0627;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   padding-top: 2rem;
@@ -384,7 +383,7 @@ footer h1 {
   padding-right: 2rem;
   height: fit-content;
   width: 25rem;
-  z-index: 2;
+  z-index: 2000;
 }
 
 .cartHeadingContainer {
@@ -477,9 +476,47 @@ footer h1 {
   float: left;
 }
 
-@media only screen and (max-width: 1200px) {
-  body {
-    background-color: khaki;
+@media only screen and (max-width: 800px) {
+  #productlist {
+    color: red;
+  }
+
+  .mainHeading {
+    width: 50%;
+  }
+
+  #beerList {
+    margin-top: 38.75rem;
+  }
+
+  .beersContainer {
+    gap: 2rem;
+  }
+
+  .logoSoMeContainer {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .logoSoMeContainer h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .logoSoMeContainer .fb {
+    margin-left: 150px;
+  }
+
+  .logoSoMeContainer .tw {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .formalitiesContainer {
+    margin-right: auto;
   }
 }
 
