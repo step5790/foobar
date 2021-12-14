@@ -5,6 +5,11 @@ header {
   padding-left: 5%;
   padding-right: 5%;
   align-items: center;
+
+  position: fixed;
+  width: 90%;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 {
