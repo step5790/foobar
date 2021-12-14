@@ -1,7 +1,6 @@
 "use strict";
 
 import { calculateBasePrice } from "./beer-price";
-import { displayCartQuantity } from "./product-counter";
 
 const order = [];
 
@@ -69,7 +68,16 @@ function displayCartItem(obj) {
   const quantityIndicator = copy.querySelector(".beerQuantity");
   displayCartQuantity(quantityIndicator, obj.quantity);
   copy.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
-    button.addEventListener("click", (e) => registerCounter(e));
+    button.addEventListener("click", (e) => registerCartCounter(e, obj));
   });
   parent.appendChild(copy);
+}
+
+function displayCartQuantity(quantityIndicator, quantity) {
+  quantityIndicator.dataset.quantity = quantity;
+  quantityIndicator.textContent = quantity;
+}
+
+function registerCartCounter(e, obj) {
+  console.log(e, obj);
 }

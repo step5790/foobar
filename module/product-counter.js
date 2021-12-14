@@ -50,10 +50,3 @@ export function displayModalQuantity() {
 export function getBeerToAdd() {
   return beerToAdd;
 }
-
-// CART //
-
-export function displayCartQuantity(quantityIndicator, quantity) {
-  quantityIndicator.dataset.quantity = quantity;
-  quantityIndicator.textContent = quantity;
-}
