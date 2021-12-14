@@ -57,6 +57,7 @@ function showBeer(beer) {
   let beerImage = `${beer.label}`;
 
   copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
+  copy.querySelector(".beerGlass").alt = beerImage;
   let beername = copy.querySelector("article");
   beername.dataset.name = beer.name;
   console.log(beername.dataset.name);
