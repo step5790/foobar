@@ -2,7 +2,7 @@
 
 import { calculateBasePrice } from "./beer-price";
 
-const order = [];
+let order = [];
 
 export function registerCart() {
   const cart = document.querySelector(".cartButton");
@@ -15,10 +15,22 @@ function toggleCart() {
   document.querySelector(".exitCart").addEventListener("click", closeCart);
   document.querySelector("#productlist").classList.add("noScroll");
   //display cart items
-  order.forEach((obj) => {
-    displayCartItem(obj);
-  });
+
+  displayCartItems();
+
   document.querySelector("#cartButton").addEventListener("click", addToLocalStorage);
+}
+
+function displayCartItems() {
+  //check if exists in localStorage
+  if (!localStorage.getItem("order")) {
+    order.forEach((obj) => displayCartItem(obj));
+  } else {
+    const orderFromLocalStorage = JSON.parse(localStorage.getItem("order"));
+    orderFromLocalStorage.forEach((obj) => displayCartItem(obj));
+    //make order array into same as orderFromLocalStorage is
+    order = orderFromLocalStorage;
+  }
 }
 
 function closeCart() {
@@ -27,6 +39,7 @@ function closeCart() {
   document.querySelector("#productlist").classList.remove("noScroll");
   //clear cart
   document.querySelector(".cartItems").innerHTML = "";
+  addToLocalStorage();
 }
 
 export function addToCart(singleOrder) {
@@ -39,6 +52,7 @@ export function addToCart(singleOrder) {
     order.push(singleOrder);
   }
   console.log("updated order:", order);
+  addToLocalStorage();
 }
 
 function increaseBeerQuantityInOrder(singleOrder) {
@@ -111,7 +125,7 @@ function addToLocalStorage() {
     console.log("cart is empty");
   } else {
     localStorage.setItem("order", JSON.stringify(order));
-    console.log(JSON.parse(localStorage.getItem("order")));
+    console.log("order in localStorage:", JSON.parse(localStorage.getItem("order")));
   }
 }
 
