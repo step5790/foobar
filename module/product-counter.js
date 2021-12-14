@@ -26,7 +26,8 @@ export function createBeerObject(beer) {
   newBeer.beerName = beer;
   newBeer.quantity = 1;
   beerToAdd = newBeer;
-  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beerName);
+  console.log("ready to add to cart:", beerToAdd);
+  displayQuantity();
 }
 
 function addQuantity() {

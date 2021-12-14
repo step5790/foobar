@@ -21,7 +21,8 @@ export function toggleModal(beer) {
   });
   copy.querySelector(`button[data-button="addToCart"]`).addEventListener("click", () => {
     const beerToAdd = getBeerToAdd();
-    console.log(beerToAdd);
+    //clear object
+    createBeerObject(beer.name);
     addToCart(beerToAdd);
   });
 
@@ -35,7 +36,6 @@ export function toggleModal(beer) {
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
   createBeerObject(beer.name);
-  displayQuantity();
 
   //change content with one beer
   //loop through the beers and find the matching - index of array
