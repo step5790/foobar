@@ -6,7 +6,7 @@ const status = searchParams.get("status");
 
 if (status === "login") {
   console.log(status);
-  fetchData();
+  runPostData();
   document
     .querySelector(".mutable-container-guest")
     .classList.remove("display");
@@ -15,14 +15,17 @@ if (status === "login") {
   document.querySelector("#email").disabled = true;
 } else if (status === "guest") {
   console.log(status);
-  fetchData();
+  runPostData();
   document
     .querySelector(".mutable-container-login")
     .classList.remove("display");
   document.querySelector(".mutable-container-guest").classList.add("display");
 }
 
-document.querySelector(".finish-payment").addEventListener("submit", postData);
+function runPostData() {
+  const form = document.querySelector(".form");
+  form.addEventListener("submit", postData);
+}
 
 let ccNumberInput = document.querySelector(".cc-number-input"),
   ccNumberPattern = /^\d{0,16}$/g,
