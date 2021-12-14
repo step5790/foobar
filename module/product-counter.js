@@ -18,6 +18,7 @@ export function registerCounter(beer, e) {
       console.log("can't add 0 beers to cart");
     }
   }
+  displayQuantity();
 }
 
 export function createBeerObject(beer) {
@@ -26,6 +27,7 @@ export function createBeerObject(beer) {
   newBeer.beerName = beer;
   newBeer.quantity = 1;
   beerToAdd = newBeer;
+  console.log(beerToAdd);
 }
 
 function addQuantity(beer) {
@@ -39,4 +41,9 @@ function removeQuantity(beer) {
   //find beer in array
   beerToAdd.quantity--;
   console.log("ready to add to cart:", beerToAdd.quantity, beer);
+}
+
+export function displayQuantity() {
+  document.querySelector(".beerQuantity").dataset.quantity = beerToAdd.quantity;
+  document.querySelector(".beerQuantity").textContent = beerToAdd.quantity;
 }

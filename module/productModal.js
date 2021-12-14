@@ -1,4 +1,4 @@
-import { createBeerObject, registerCounter } from "./product-counter";
+import { createBeerObject, displayQuantity, registerCounter } from "./product-counter";
 
 export function toggleModal(beer) {
   //console.log(this.dataset.name);
@@ -12,6 +12,7 @@ export function toggleModal(beer) {
   // changeBeerData(beersData);
 
   createBeerObject(beer.name);
+  displayQuantity();
   registerCounterClick(beer.name);
 
   //to do
