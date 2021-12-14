@@ -7,22 +7,21 @@ const BeerObject = {
 
 const beersToAddToCart = [];
 
-export function registerCounter(e) {
-  const beerInModal = e.target.closest("#modal").dataset.name;
+export function registerCounter(beer, e) {
   const count = e.target.dataset.counter;
   if (count === "plus") {
-    console.log("add one", beerInModal);
+    console.log("add one", beer);
     //check if beername is in array
-    if (beersToAddToCart.some((obj) => obj.beerName === beerInModal) === false) {
-      createBeerObject(beerInModal);
+    if (beersToAddToCart.some((obj) => obj.beerName === beer) === false) {
+      createBeerObject(beer);
     } else {
-      addQuantity(beerInModal);
+      addQuantity(beer);
     }
   }
   //check if beername is in array
   // if yes: remove one
   else {
-    console.log("remove one", beerInModal);
+    console.log("remove one", beer);
   }
 }
 

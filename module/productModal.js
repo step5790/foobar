@@ -10,7 +10,7 @@ export function toggleModal(beer) {
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
   // changeBeerData(beersData);
-  registerCounterClick();
+  registerCounterClick(beer.name);
   //to do
   console.log(beer);
   document.querySelector(".productModalHeading").textContent = beer.name;
@@ -56,8 +56,8 @@ function changeBeerData(beer) {
   });
 }
 
-function registerCounterClick() {
+function registerCounterClick(beer) {
   document.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
-    button.addEventListener("click", registerCounter);
+    button.addEventListener("click", (e) => registerCounter(beer, e));
   });
 }
