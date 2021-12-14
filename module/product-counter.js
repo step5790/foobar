@@ -33,13 +33,13 @@ export function createBeerObject(beer) {
 function addQuantity() {
   //increase quantity by one
   beerToAdd.quantity++;
-  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beerName);
+  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beer.name);
 }
 
 function removeQuantity() {
   //find beer in array
   beerToAdd.quantity--;
-  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beerName);
+  console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beer.name);
 }
 
 export function displayQuantity() {
