@@ -12,7 +12,11 @@ export function registerCounter(beer, e) {
   if (count === "plus") {
     addQuantity(beer);
   } else {
-    removeQuantity(beer);
+    if (beerToAdd.quantity > 1) {
+      removeQuantity(beer);
+    } else {
+      console.log("can't add 0 beers to cart");
+    }
   }
 }
 
@@ -25,13 +29,14 @@ export function createBeerObject(beer) {
 }
 
 function addQuantity(beer) {
-  console.log(beer, "quantity should be increased");
-  //find beer in array
   //increase quantity by one
+  beerToAdd.quantity++;
+  console.log("ready to add to cart:", beerToAdd.quantity, beer);
 }
 
 function removeQuantity(beer) {
   console.log(beer, "quantity should be decreased");
   //find beer in array
-  //decrease quantity by one
+  beerToAdd.quantity--;
+  console.log("ready to add to cart:", beerToAdd.quantity, beer);
 }
