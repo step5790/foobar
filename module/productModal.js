@@ -1,4 +1,4 @@
-import { registerCounter } from "./product-counter";
+import { createBeerObject, registerCounter } from "./product-counter";
 
 export function toggleModal(beer) {
   //console.log(this.dataset.name);
@@ -10,7 +10,10 @@ export function toggleModal(beer) {
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
   // changeBeerData(beersData);
+
+  createBeerObject(beer.name);
   registerCounterClick(beer.name);
+
   //to do
   console.log(beer);
   document.querySelector(".productModalHeading").textContent = beer.name;
