@@ -1,7 +1,7 @@
+"use strict";
+
 export function scrollProductlist() {
-  document
-    .querySelector(".scrollArrow2")
-    .addEventListener("click", scrollRight);
+  document.querySelector(".scrollArrow2").addEventListener("click", scrollRight);
   document.querySelector(".scrollArrow1").addEventListener("click", scrollLeft);
 }
 
