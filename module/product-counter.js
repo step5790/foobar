@@ -18,7 +18,7 @@ export function registerCounter(e) {
       console.log("can't add 0 beers to cart");
     }
   }
-  displayQuantity();
+  displayModalQuantity();
 }
 
 export function createBeerObject(beer) {
@@ -27,7 +27,7 @@ export function createBeerObject(beer) {
   newBeer.quantity = 1;
   beerToAdd = newBeer;
   console.log("ready to add to cart:", beerToAdd);
-  displayQuantity();
+  displayModalQuantity();
 }
 
 function addQuantity() {
@@ -37,16 +37,23 @@ function addQuantity() {
 }
 
 function removeQuantity() {
-  //find beer in array
+  //decrease quantity by one
   beerToAdd.quantity--;
   console.log("ready to add to cart:", beerToAdd.quantity, beerToAdd.beer.name);
 }
 
-export function displayQuantity() {
+export function displayModalQuantity() {
   document.querySelector("#modal .beerQuantity").dataset.quantity = beerToAdd.quantity;
   document.querySelector("#modal .beerQuantity").textContent = beerToAdd.quantity;
 }
 
 export function getBeerToAdd() {
   return beerToAdd;
+}
+
+// CART //
+
+export function displayCartQuantity(quantityIndicator, quantity) {
+  quantityIndicator.dataset.quantity = quantity;
+  quantityIndicator.textContent = quantity;
 }

@@ -1,6 +1,7 @@
 "use strict";
 
 import { calculateBasePrice } from "./beer-price";
+import { displayCartQuantity } from "./product-counter";
 
 const order = [];
 
@@ -65,5 +66,10 @@ function displayCartItem(obj) {
   copy.querySelector(".cartProductImage").alt = obj.beer.label;
   copy.querySelector(".cartName").textContent = obj.beer.name;
   copy.querySelector(".cartPrice").textContent = `${calculateBasePrice(obj.beer.alc)} DKK`;
+  const quantityIndicator = copy.querySelector(".beerQuantity");
+  displayCartQuantity(quantityIndicator, obj.quantity);
+  copy.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
+    button.addEventListener("click", (e) => registerCounter(e));
+  });
   parent.appendChild(copy);
 }
