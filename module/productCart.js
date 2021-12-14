@@ -1,5 +1,7 @@
 "use strict";
 
+import { calculateBasePrice } from "./beer-price";
+
 const order = [];
 
 export function registerCart() {
@@ -12,12 +14,18 @@ function toggleCart() {
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector(".exitCart").addEventListener("click", closeCart);
   document.querySelector("#productlist").classList.add("noScroll");
+  //display cart items
+  order.forEach((obj) => {
+    displayCartItem(obj);
+  });
+}
 
-  function closeCart() {
-    document.querySelector("#cart").classList.add("hidden");
-    document.querySelector("#pageMask").classList.add("hidden");
-    document.querySelector("#productlist").classList.remove("noScroll");
-  }
+function closeCart() {
+  document.querySelector("#cart").classList.add("hidden");
+  document.querySelector("#pageMask").classList.add("hidden");
+  document.querySelector("#productlist").classList.remove("noScroll");
+  //clear cart
+  document.querySelector(".cartItems").innerHTML = "";
 }
 
 export function addToCart(singleOrder) {
@@ -33,10 +41,6 @@ export function addToCart(singleOrder) {
     order.push(singleOrder);
   }
   console.log("updated order:", order);
-  //display cart items
-  order.forEach((obj) => {
-    displayCartItem(obj);
-  });
 }
 
 /* <div class="cartProduct">
@@ -54,12 +58,12 @@ export function addToCart(singleOrder) {
       </div> */
 
 function displayCartItem(obj) {
-  console.log(obj);
+  const parent = document.querySelector(".cartItems");
   const template = document.querySelector("#cartTemp").content;
   const copy = template.cloneNode(true);
   copy.querySelector(".cartProductImage").src = `assets/beer/${obj.beer.label}`;
   copy.querySelector(".cartProductImage").alt = obj.beer.label;
-  copy.querySelector(".cartName").textContent = obj.beer.label;
-  const parent = document.querySelector(".cartItems");
+  copy.querySelector(".cartName").textContent = obj.beer.name;
+  copy.querySelector(".cartPrice").textContent = `${calculateBasePrice(obj.beer.alc)} DKK`;
   parent.appendChild(copy);
 }

@@ -1,3 +1,4 @@
+import { calculateBasePrice } from "./beer-price";
 import { createBeerObject, getBeerToAdd, registerCounter } from "./product-counter";
 import { addToCart } from "./productCart";
 
@@ -7,7 +8,7 @@ export function toggleModal(beer) {
   copy.querySelector(".productModalHeading").textContent = beer.name;
   copy.querySelector(".modalCategoryText").textContent = beer.category;
   copy.querySelector(".modalAlcoholText").textContent = beer.alc;
-  copy.querySelector(".modalPprice").textContent = `${beer.alc * 10} DKK`;
+  copy.querySelector(".modalPprice").textContent = `${calculateBasePrice(beer.alc)} DKK`;
   copy.querySelector(".modalImpression").textContent = beer.description.overallImpression;
   copy.querySelector(".item-container-aroma p").textContent = beer.description.aroma;
   copy.querySelector(".item-container-appearance p").textContent = beer.description.appearance;

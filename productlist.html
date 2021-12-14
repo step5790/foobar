@@ -58,8 +58,12 @@
           <h2 class="cartHeading">Your order</h2>
           <img class="exitCart" src="assets/icons/close.svg" />
         </div>
-
         <hr class="cartDivider" />
+
+        <section class="cartItems">
+          <!-- cart item comes here -->
+        </section>
+
         <div class="cartTotalPriceContainer hidden">
           <h3 class="cartTotalPrice1">Total price</h3>
           <h3 class="cartTotalPrice2">40 DKK</h3>
@@ -152,11 +156,12 @@
         </div>
       </article>
     </template>
+
     <template id="cartTemp">
-      <div class="cartProduct">
+      <article class="cartProduct">
         <img class="cartProductImage" src="assets/beer/hollaback.png" alt="Hollaback Lager" />
         <div class="cartNameAmount">
-          <p class="cartName">Hollaback Lager</p>
+          <h3 class="cartName">Hollaback Lager</h3>
           <div class="adjustAmount">
             <img class="modalMinus" src="assets/icons/minus.svg" />
             <p class="beerQuantity">1</p>
@@ -165,7 +170,7 @@
         </div>
         <p class="cartPrice">40 DKK</p>
         <button class="modalRemoveCart"></button>
-      </div>
+      </article>
     </template>
 
     <div id="pageMask" class="hidden"></div>
