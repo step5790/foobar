@@ -1,0 +1,17 @@
+.thank-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 10rem;
+
+  img {
+    width: 10rem;
+  }
+
+  p {
+    text-align: center;
+  }
+}
