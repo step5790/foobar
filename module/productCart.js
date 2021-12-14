@@ -33,29 +33,33 @@ export function addToCart(singleOrder) {
   //check if beer is already in array
   if (order.some((el) => el.beer.name === singleOrder.beer.name)) {
     console.log(singleOrder.beer.name, "is already added");
-    //find beer in array
-    const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
-    order[indexOfBeer].quantity = order[indexOfBeer].quantity + singleOrder.quantity;
-    console.log("new quantity:", order[indexOfBeer].quantity);
+    increaseBeerQuantityInOrder(singleOrder);
   } else {
     order.push(singleOrder);
   }
   console.log("updated order:", order);
 }
 
-/* <div class="cartProduct">
-        <img class="cartProductImage" src="assets/beer/hollaback.png" alt="Hollaback Lager" />
-        <div class="cartNameAmount">
-          <p class="cartName">Hollaback Lager</p>
-          <div class="adjustAmount">
-            <img class="modalMinus" src="assets/icons/minus.svg" />
-            <p class="beerQuantity">1</p>
-            <img class="modalPlus" src="assets/icons/plus.svg" />
-          </div>
-        </div>
-        <p class="cartPrice">40 DKK</p>
-        <button class="modalRemoveCart"></button>
-      </div> */
+function increaseBeerQuantityInOrder(singleOrder) {
+  //find beer in array
+  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  order[indexOfBeer].quantity = order[indexOfBeer].quantity + singleOrder.quantity;
+  console.log("new quantity:", order[indexOfBeer].quantity);
+}
+
+function increaseBeerQuantityInCart(singleOrder) {
+  //find beer in array
+  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  order[indexOfBeer].quantity++;
+  console.log("new quantity:", order[indexOfBeer].quantity);
+}
+
+function decreaseBeerQuantityInOrder(singleOrder) {
+  //find beer in array
+  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  order[indexOfBeer].quantity--;
+  console.log("new quantity:", order[indexOfBeer].quantity);
+}
 
 function displayCartItem(obj) {
   const parent = document.querySelector(".cartItems");
@@ -79,5 +83,19 @@ function displayCartQuantity(quantityIndicator, quantity) {
 }
 
 function registerCartCounter(e, obj) {
-  console.log(e, obj);
+  const count = e.target.dataset.counter;
+  if (count === "plus") {
+    increaseBeerQuantityInCart(obj);
+  } else {
+    if (obj.quantity > 1) {
+      decreaseBeerQuantityInOrder(obj);
+    } else {
+      console.log("beer needs to be removed");
+      //TODO:
+      //remove beer from array
+      //remove the element from cart
+      // e.target.closest(".cartProduct").remove();
+    }
+  }
+  displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
 }
