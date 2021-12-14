@@ -1,4 +1,4 @@
-export function toggleModal(beersData) {
+export function toggleModal(beer) {
   //console.log(this.dataset.name);
   document.querySelector(".modalCategoryHeading").scrollIntoView();
 
@@ -7,26 +7,21 @@ export function toggleModal(beersData) {
   document.querySelector("#productlist").classList.add("noScroll");
   document.querySelector(".exitModal").addEventListener("click", closeModal);
 
-  // changeBeerData(beersData);
+  // changeBeerData(beer);
 
   //to do
-  console.log(beersData);
-  document.querySelector(".productModalHeading").textContent = beersData.name;
-  document.querySelector(".modalCategoryText").textContent = beersData.category;
-  document.querySelector(".modalAlcoholText").textContent = beersData.alc;
-  document.querySelector(".modalPprice").textContent = `${
-    beersData.alc * 10
-  } DKK`;
-  document.querySelector(".modalImpression").textContent =
-    beersData.description.overallImpression;
-  document.querySelector(".item-container-aroma p").textContent =
-    beersData.description.aroma;
-  document.querySelector(".item-container-appearance p").textContent =
-    beersData.description.appearance;
-  document.querySelector(".item-container-flavor p").textContent =
-    beersData.description.flavor;
-  document.querySelector(".item-container-mouthfeel p").textContent =
-    beersData.description.mouthfeel;
+  console.log(beer);
+  document.querySelector(".productModalHeading").textContent = beer.name;
+  document.querySelector(".modalCategoryText").textContent = beer.category;
+  document.querySelector(".modalAlcoholText").textContent = beer.alc;
+  document.querySelector(".modalPprice").textContent = `${beer.alc * 10} DKK`;
+  document.querySelector(".modalImpression").textContent = beer.description.overallImpression;
+  document.querySelector(".item-container-aroma p").textContent = beer.description.aroma;
+  document.querySelector(".item-container-appearance p").textContent = beer.description.appearance;
+  document.querySelector(".item-container-flavor p").textContent = beer.description.flavor;
+  document.querySelector(".item-container-mouthfeel p").textContent = beer.description.mouthfeel;
+  document.querySelector(".beerProductImage").src = `assets/beer/modal-${beer.label}`;
+  document.querySelector(".beerProductImage").alt = `modal-${beer.label}`;
 
   //change content with one beer
   //loop through the beers and find the matching - index of array
@@ -45,13 +40,13 @@ export function toggleModal(beersData) {
   }
 }
 
-function changeBeerData(beersData) {
-  console.log(beersData);
-  //document.querySelector(".productModalHeading").textContent = beersData[0].name;
+function changeBeerData(beer) {
+  console.log(beer);
+  //document.querySelector(".productModalHeading").textContent = beer[0].name;
 
-  //console.log(beersData[0].name);
+  //console.log(beer[0].name);
 
-  beersData.forEach((beer) => {
+  beer.forEach((beer) => {
     console.log(beer.name);
     /* if (beer.name === this.dataset.name) {
       console.log("found it");
