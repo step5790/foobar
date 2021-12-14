@@ -53,6 +53,21 @@
           <p class="aboutText">In the app you can see our current beer selection, and place your order inside FooBar. You can also choose to get a text message when your order is ready for picking-up at the bar.</p>
         </div>
       </section>
+      <aside id="cart" class="hidden">
+        <div class="cartHeadingContainer">
+          <h2 class="cartHeading">Your order</h2>
+          <img class="exitCart" src="assets/icons/close.svg" />
+        </div>
+
+        <hr class="cartDivider" />
+        <div class="cartTotalPriceContainer hidden">
+          <h3 class="cartTotalPrice1">Total price</h3>
+          <h3 class="cartTotalPrice2">40 DKK</h3>
+        </div>
+        <p class="cartEmptyFeedback">Your cart is empty.</p>
+
+        <button id="cartButton" class="productlistButton">To payment</button>
+      </aside>
     </main>
 
     <footer id="productListFooter">
@@ -137,12 +152,7 @@
         </div>
       </article>
     </template>
-
-    <div id="cart" class="hidden">
-      <div class="cartHeadingContainer">
-        <h2 class="cartHeading">Your order</h2>
-        <img class="exitCart" src="assets/icons/close.svg" />
-      </div>
+    <template>
       <div class="cartProduct">
         <img class="cartProductImage" src="assets/beer/hollaback.png" alt="Hollaback Lager" />
         <div class="cartNameAmount">
@@ -156,14 +166,7 @@
         <p class="cartPrice">40 DKK</p>
         <button class="modalRemoveCart"></button>
       </div>
-      <hr class="cartDivider" />
-      <div class="cartTotalPriceContainer">
-        <h3 class="cartTotalPrice1">Total price</h3>
-        <h3 class="cartTotalPrice2">40 DKK</h3>
-      </div>
-
-      <button id="cartButton" class="productlistButton">To payment</button>
-    </div>
+    </template>
 
     <div id="pageMask" class="hidden"></div>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
