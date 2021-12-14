@@ -86,14 +86,18 @@ function displayCartItem(obj) {
 
   //TODO: calculate price based on quantity
   //calculate total price
-
-  copy.querySelector(".cartPrice").textContent = `${calculateBasePrice(obj.beer.alc)} DKK`;
+  const subTotalText = copy.querySelector(".cartPrice");
+  displaySubTotal(subTotalText, obj);
   const quantityIndicator = copy.querySelector(".beerQuantity");
   displayCartQuantity(quantityIndicator, obj.quantity);
   copy.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
     button.addEventListener("click", (e) => registerCartCounter(e, obj));
   });
   parent.appendChild(copy);
+}
+
+function displaySubTotal(el, obj) {
+  el.textContent = `${calculateBasePrice(obj.beer.alc) * obj.quantity} DKK`;
 }
 
 function displayCartQuantity(quantityIndicator, quantity) {
@@ -117,6 +121,7 @@ function registerCartCounter(e, obj) {
     }
   }
   displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
+  displaySubTotal(e.target.closest(".cartProduct").querySelector(".cartPrice"), obj);
 }
 
 function addToLocalStorage() {
