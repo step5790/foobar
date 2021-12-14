@@ -43,8 +43,8 @@ function removeQuantity() {
 }
 
 export function displayQuantity() {
-  document.querySelector(".beerQuantity").dataset.quantity = beerToAdd.quantity;
-  document.querySelector(".beerQuantity").textContent = beerToAdd.quantity;
+  document.querySelector("#modal .beerQuantity").dataset.quantity = beerToAdd.quantity;
+  document.querySelector("#modal .beerQuantity").textContent = beerToAdd.quantity;
 }
 
 export function getBeerToAdd() {
