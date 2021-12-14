@@ -1,8 +1,8 @@
-import { createBeerObject, displayQuantity, getBeerToAdd, registerCounter } from "./product-counter";
+import { createBeerObject, getBeerToAdd, registerCounter } from "./product-counter";
 import { addToCart } from "./cart";
 
 export function toggleModal(beer) {
-  const template = document.querySelector("#modal").content;
+  const template = document.querySelector("#modalTemp").content;
   const copy = template.cloneNode(true);
   copy.querySelector(".productModalHeading").textContent = beer.name;
   copy.querySelector(".modalCategoryText").textContent = beer.category;
