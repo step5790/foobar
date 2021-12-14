@@ -106,17 +106,14 @@ function registerCartCounter(e, obj) {
 }
 
 function addToLocalStorage() {
-  console.log(order);
   //check if cart is empty
   if (order.length === 0) {
     console.log("cart is empty");
   } else {
+    localStorage.setItem("order", JSON.stringify(order));
+    console.log(JSON.parse(localStorage.getItem("order")));
   }
 }
-
-//TODO:
-//on load: check for localStorage item with the order
-//if exists: make order to that
 
 //click on "remove from cart button":
 //remove obj from order array
