@@ -1,4 +1,8 @@
-import { createBeerObject, displayQuantity, registerCounter } from "./product-counter";
+import {
+  createBeerObject,
+  displayQuantity,
+  registerCounter,
+} from "./product-counter";
 
 export function toggleModal(beer) {
   //console.log(this.dataset.name);
@@ -21,12 +25,19 @@ export function toggleModal(beer) {
   document.querySelector(".modalCategoryText").textContent = beer.category;
   document.querySelector(".modalAlcoholText").textContent = beer.alc;
   document.querySelector(".modalPprice").textContent = `${beer.alc * 10} DKK`;
-  document.querySelector(".modalImpression").textContent = beer.description.overallImpression;
-  document.querySelector(".item-container-aroma p").textContent = beer.description.aroma;
-  document.querySelector(".item-container-appearance p").textContent = beer.description.appearance;
-  document.querySelector(".item-container-flavor p").textContent = beer.description.flavor;
-  document.querySelector(".item-container-mouthfeel p").textContent = beer.description.mouthfeel;
-  document.querySelector(".beerProductImage").src = `assets/beer/modal-${beer.label}`;
+  document.querySelector(".modalImpression").textContent =
+    beer.description.overallImpression;
+  document.querySelector(".item-container-aroma p").textContent =
+    beer.description.aroma;
+  document.querySelector(".item-container-appearance p").textContent =
+    beer.description.appearance;
+  document.querySelector(".item-container-flavor p").textContent =
+    beer.description.flavor;
+  document.querySelector(".item-container-mouthfeel p").textContent =
+    beer.description.mouthfeel;
+  document.querySelector(
+    ".beerProductImage"
+  ).src = `/assets/beer/modal-${beer.label}`;
   document.querySelector(".beerProductImage").alt = `modal-${beer.label}`;
 
   //change content with one beer
@@ -61,7 +72,9 @@ function changeBeerData(beer) {
 }
 
 function registerCounterClick(beer) {
-  document.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
-    button.addEventListener("click", (e) => registerCounter(beer, e));
-  });
+  document
+    .querySelectorAll(`button[data-button="counter"]`)
+    .forEach((button) => {
+      button.addEventListener("click", (e) => registerCounter(beer, e));
+    });
 }
