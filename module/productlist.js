@@ -3,11 +3,13 @@
 import { toggleModal } from "./productModal";
 import { registerCart } from "./productCart";
 import { scrollProductlist } from "./scrollProductlist";
+import { showBeerDescription } from "./showBeerDescription";
 
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   fetchBeersData();
+  showBeerDescription();
 }
 
 function fetchBeersData() {
