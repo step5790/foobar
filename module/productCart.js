@@ -18,6 +18,7 @@ function toggleCart() {
   order.forEach((obj) => {
     displayCartItem(obj);
   });
+  document.querySelector("#cartButton").addEventListener("click", addToLocalStorage);
 }
 
 function closeCart() {
@@ -68,6 +69,10 @@ function displayCartItem(obj) {
   copy.querySelector(".cartProductImage").src = `assets/beer/${obj.beer.label}`;
   copy.querySelector(".cartProductImage").alt = obj.beer.label;
   copy.querySelector(".cartName").textContent = obj.beer.name;
+
+  //TODO: calculate price based on quantity
+  //calculate total price
+
   copy.querySelector(".cartPrice").textContent = `${calculateBasePrice(obj.beer.alc)} DKK`;
   const quantityIndicator = copy.querySelector(".beerQuantity");
   displayCartQuantity(quantityIndicator, obj.quantity);
@@ -99,3 +104,30 @@ function registerCartCounter(e, obj) {
   }
   displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
 }
+
+function addToLocalStorage() {
+  console.log(order);
+  //check if cart is empty
+  if (order.length === 0) {
+    console.log("cart is empty");
+  } else {
+    //map array by order names and quantities
+    const cleanedOrder = order.map(getNameAndQuantity);
+    console.log(cleanedOrder);
+  }
+}
+
+function getNameAndQuantity(orderObj) {
+  let newObject = {};
+  newObject.name = orderObj.beer.name;
+  newObject.quantity = orderObj.quantity;
+  return newObject;
+}
+
+//TODO:
+//on load: check for localStorage item with the order
+//if exists: make order to that
+
+//click on "remove from cart button":
+//remove obj from order array
+//remove element
