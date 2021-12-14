@@ -50,17 +50,10 @@ function showBeer(beer) {
   const copy = template.cloneNode(true);
 
   copy.querySelector(".beerName").textContent = `${beer.name}`;
-  let category = copy.querySelector(".beerCategory");
-  category.textContent = `${beer.category}`;
-  let price = copy.querySelector(".beerPrice");
-  price.textContent = `${beer.alc * 10} DKK`;
-  let beerImage = `${beer.label}`;
-
-  copy.querySelector(".beerGlass").src = `assets/beer/${beerImage}`;
-  copy.querySelector(".beerGlass").alt = beerImage;
-  // let beername = copy.querySelector("article");
-  // beername.dataset.name = beer.name;
-
+  copy.querySelector(".beerCategory").textContent = `${beer.category}`;
+  copy.querySelector(".beerPrice").textContent = `${beer.alc * 10} DKK`;
+  copy.querySelector(".beerGlass").src = `assets/beer/${beer.label}`;
+  copy.querySelector(".beerGlass").alt = beer.label;
   copy.querySelector("article#beer1").addEventListener("click", () => {
     toggleModal(beer);
   });
