@@ -1,4 +1,5 @@
-import { createBeerObject, displayQuantity, registerCounter } from "./product-counter";
+import { createBeerObject, displayQuantity, getBeerToAdd, registerCounter } from "./product-counter";
+import { addToCart } from "./cart";
 
 export function toggleModal(beer) {
   const template = document.querySelector("#modal").content;
@@ -17,6 +18,11 @@ export function toggleModal(beer) {
 
   copy.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
     button.addEventListener("click", (e) => registerCounter(e));
+  });
+  copy.querySelector(`button[data-button="addToCart"]`).addEventListener("click", () => {
+    const beerToAdd = getBeerToAdd();
+    console.log(beerToAdd);
+    addToCart(beerToAdd);
   });
 
   document.querySelector("main").appendChild(copy);
