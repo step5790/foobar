@@ -4,29 +4,6 @@
   color: colors.$font-primary;
 }
 
-.collapsible {
-  background-color: colors.$font-secondary;
-  color: colors.$font-primary;
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.5rem;
-  padding: 1.5rem;
-
-  &::after {
-    content: "";
-    display: block;
-    border-top: 1px solid colors.$font-primary;
-  }
-}
-
-.active,
-.collapsible:hover {
-  background-color: colors.$secondary;
-}
-
 .content {
   padding: 0 1.3rem;
   display: none;

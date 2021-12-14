@@ -4,7 +4,7 @@
   width: 80%;
   .content {
     padding: 0;
-    width: 114%;
+    width: 121%;
     background-color: colors.$secondary;
   }
   p {
@@ -15,5 +15,9 @@
     &:hover {
       background-color: colors.$secondary;
     }
+  }
+
+  .collapsible {
+    height: 1rem;
   }
 }
