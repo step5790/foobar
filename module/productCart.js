@@ -111,17 +111,7 @@ function addToLocalStorage() {
   if (order.length === 0) {
     console.log("cart is empty");
   } else {
-    //map array by order names and quantities
-    const cleanedOrder = order.map(getNameAndQuantity);
-    console.log(cleanedOrder);
   }
-}
-
-function getNameAndQuantity(orderObj) {
-  let newObject = {};
-  newObject.name = orderObj.beer.name;
-  newObject.quantity = orderObj.quantity;
-  return newObject;
 }
 
 //TODO:
