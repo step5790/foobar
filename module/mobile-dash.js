@@ -4,6 +4,7 @@ import { displayQues } from "./displayQues";
 import { displayTapLevels } from "./displayTapLevels";
 import { displayKegInventory } from "./displayKegInventory";
 import { displayBartenders } from "./displayBartenders";
+import { calculateSales } from "./calculateSales";
 import { collapsible } from "./mobile-data-collapsible";
 
 window.addEventListener("DOMContentLoaded", init);
@@ -28,11 +29,12 @@ function prepareAllData(jsonData) {
   displayTapLevels(jsonData);
   displayKegInventory(jsonData);
   displayBartenders(jsonData);
+  calculateSales(jsonData);
   collapsible();
 }
 
 if (window.matchMedia("(max-device-width: 414px)").matches) {
-  document.querySelector("body").style.display = "block";
+  document.querySelector(".dash-container").style.display = "block";
 } else {
-  document.querySelector("body").style.display = "none";
+  document.querySelector(".dash-container").style.display = "none";
 }

@@ -1,6 +1,8 @@
+@use "../base/colors";
+
 #dash-tap {
   & .item-container {
-    color: white;
+    color: colors.$font-primary;
     display: flex;
     flex-direction: column;
     margin: 0px 20px 0px 20px;
@@ -8,7 +10,7 @@
   }
 
   & .tap-name {
-    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
   }
 
@@ -17,14 +19,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 10px 10px 10px 10px;
-    padding: 0px 20px;
-    background-color: whitesmoke;
-    color: black;
+    margin: 20px 10px 10px 10px;
+    padding: 10px 20px;
+    background-color: colors.$font-primary;
+    color: colors.$font-secondary;
     border-radius: 6px;
     gap: 20px;
-    & img {
+
+    img {
       width: 50px;
+    }
+
+    .tap-percentage {
+      text-shadow: none;
+      font-size: 1.6rem;
     }
   }
 }

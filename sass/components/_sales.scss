@@ -1,0 +1,10 @@
+@use "../base/colors";
+
+.chart {
+  width: 100%;
+  background-color: colors.$secondary;
+}
+
+canvas {
+  margin-bottom: 50px;
+}

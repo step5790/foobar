@@ -1,49 +1,38 @@
-#dash-orders {
-  color: white;
-  width: 100%;
-}
+@use "../base/colors";
 
-.components {
-  -webkit-box-shadow: 4px 4px 8px -1px #4c30b4;
-  box-shadow: 4px 4px 8px -1px #4c30b4;
-  margin-bottom: 25px;
+#dash-orders {
+  color: colors.$font-primary;
 }
 
 .collapsible {
-  background-color: #1b0b52;
-  color: white;
+  background-color: colors.$font-secondary;
+  color: colors.$font-primary;
   cursor: pointer;
-  padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 22px;
+  font-size: 1.5rem;
+  padding: 1.5rem;
 
   &::after {
     content: "";
     display: block;
-    border-top: 1px solid white;
+    border-top: 1px solid colors.$font-primary;
   }
 }
 
 .active,
 .collapsible:hover {
-  background-color: #1b0b52;
+  background-color: colors.$secondary;
 }
 
 .content {
-  padding: 0 18px;
+  padding: 0 1.3rem;
   display: none;
   overflow: hidden;
-  background-color: #1b0b52;
-  //   border-radius: 0px 0px 10px 10px;
-  padding: 50px 0px 50px 0px;
+  background-color: colors.$secondary;
 }
-
-// .collapsible {
-//   border-radius: 10px 10px 10px 10px;
-// }
 
 .item-container {
   display: flex;
@@ -51,14 +40,15 @@
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
-  gap: 40px;
-  color: black;
+  gap: 1rem;
+  color: colors.$font-secondary;
+  margin-bottom: 1rem;
 }
 
 .item-1,
 .item-2 {
-  width: 120px;
-  height: 120px;
+  width: 8rem;
+  height: 8rem;
   border-radius: 100px;
   text-align: center;
   display: flex;
@@ -66,16 +56,20 @@
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
-  & h3,
-  h1 {
+  h3 {
     margin: 0;
+  }
+  h1 {
+    color: colors.$font-secondary;
+    text-shadow: none;
+    font-size: 2.4rem;
   }
 }
 
 .item-1 {
-  background-color: #aa40f8;
+  background-color: colors.$contrast-primary;
 }
 
 .item-2 {
-  background-color: #c8f42e;
+  background-color: colors.$contrast-secondary;
 }
