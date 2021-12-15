@@ -407,6 +407,18 @@ footer h1 {
   background: url("/assets/icons/removeCart.svg") no-repeat;
   background-size: cover;
   border: none;
+  --glow-color: none;
+  --glow-spread-color: none;
+  --enhanced-glow-color: none;
+  --btn-color: none;
+  font-size: 0;
+  padding: 0;
+  transition: none;
+  margin-top: 0;
+  cursor: pointer;
+  &:hover {
+    background-color: colors.$not-validated;
+  }
 }
 
 .cartDivider {

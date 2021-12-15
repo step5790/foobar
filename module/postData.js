@@ -10,20 +10,24 @@ export function postData(event) {
 
   const postData = JSON.stringify(cleanedOrder);
 
-  //   fetch("https://hangover3.herokuapp.com/order", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: postData,
-  //   })
-  //     .then((res) => res.json())
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
+  fetch("https://hangover3.herokuapp.com/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: postData,
+  })
+    .then((res) => res.json(), console.log("posted"))
+    .catch((err) => {
+      console.error(err);
+    });
 
-  //   console.log(postData);
-  //   window.location.href = "/thank-you.html";
+  console.log(postData);
+  setTimeout(openPage, 2500);
+}
+
+function openPage() {
+  window.location.href = "/thank-you.html";
 }
 
 function getNameAndQuantity(orderObj) {

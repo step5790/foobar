@@ -42,6 +42,11 @@ button {
   }
 }
 
+button#log-guest {
+  font-size: 0.9rem;
+  left: 28%;
+}
+
 button:hover {
   color: var(--btn-color);
   background-color: var(--glow-color);
