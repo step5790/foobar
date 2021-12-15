@@ -222,11 +222,20 @@ function removeElementFromCart(e) {
 }
 
 function openLogin() {
-  document.querySelector("#modal-login").classList.remove("hidden");
+  document.querySelector("#modal-login").style.display = "block";
+  document.getElementById("email").focus();
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector("#productlist").classList.add("noScroll");
 }
 
 function closeLogin() {
-  document.querySelector("#modal-login").classList.add("hidden");
+  document.querySelector("#modal-login").style.display = "none";
+  document.querySelector(".login-notfound").style.visibility = "hidden";
+
+  // document.querySelector("#modal-login").style.display = "none";
+  // document.querySelector(".requirements, .login-notfound").style.visibility =
+  //   "hidden";
+  document.getElementById("email").focus();
+  document.getElementById("email").value = "";
+  document.getElementById("password").value = "";
 }

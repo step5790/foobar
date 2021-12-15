@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", init);
 function init() {
   fetchBeersData();
   showBeerDescription();
+  document.querySelector("#modal-login").style.display = "none";
 }
 
 function fetchBeersData() {
@@ -52,7 +53,9 @@ function showBeer(beer) {
 
   copy.querySelector(".beerName").textContent = `${beer.name}`;
   copy.querySelector(".beerCategory").textContent = `${beer.category}`;
-  copy.querySelector(".beerPrice").textContent = `${calculateBasePrice(beer.alc)} DKK`;
+  copy.querySelector(".beerPrice").textContent = `${calculateBasePrice(
+    beer.alc
+  )} DKK`;
   copy.querySelector(".beerGlass").src = `assets/beer/${beer.label}`;
   copy.querySelector(".beerGlass").alt = beer.label;
   copy.querySelector("article#beer1").addEventListener("click", () => {
