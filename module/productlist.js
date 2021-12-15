@@ -65,13 +65,6 @@ function showBeer(beer) {
   copy.querySelector("article#beer1").addEventListener("click", () => {
     toggleModal(beer);
   });
-  //Round prices
-  /* let splitPrice = price.split(" ");
-  let onlyPrice = splitPrice[0];
-  let roundedPrice = Math.ceil(onlyPrice);
-  console.log(roundedPrice); */
-
-  //forEach.copy add id
 
   const parent = document.querySelector(".beersContainer");
   parent.appendChild(copy);
