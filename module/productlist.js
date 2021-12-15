@@ -2,7 +2,7 @@
 
 import { toggleModal } from "./productModal";
 import { registerCart } from "./productCart";
-import { scrollProductlist } from "./scrollProductlist";
+import { scrollProductlist, scrollInitial } from "./scrollProductlist";
 import { showBeerDescription } from "./showBeerDescription";
 import { calculateBasePrice } from "./beer-price";
 
@@ -93,6 +93,7 @@ function showBeer(beer) {
   parent.appendChild(copy);
 
   registerCart();
+  scrollInitial();
   scrollProductlist();
   // passModalData(beer);
 }
