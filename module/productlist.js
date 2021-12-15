@@ -19,9 +19,7 @@ async function init() {
   const newBeersOnTap = getBeersOnTap(dynamicData);
   //check if updated
   if (arraysEqual(beersOnTap, newBeersOnTap) === true) {
-    console.log("beers on tap did not update");
   } else {
-    console.log("beers on tap updated");
     const availableBeers = filterBeersOnTap(newBeersOnTap, beersData);
     receiveBeersData(availableBeers);
     beersOnTap = newBeersOnTap;
