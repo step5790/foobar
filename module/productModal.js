@@ -25,6 +25,7 @@ export function toggleModal(beer) {
     //clear object
     createBeerObject(beer);
     addToCart(beerToAdd);
+    displayOrderFeedback(beerToAdd.quantity);
   });
 
   document.querySelector("main").appendChild(copy);
@@ -53,4 +54,15 @@ function closeModal() {
   document.querySelector("#modal").remove();
   document.querySelector("#pageMask").classList.add("hidden");
   document.querySelector("#productlist").classList.remove("noScroll");
+}
+
+function displayOrderFeedback(quantity) {
+  const pElement = document.querySelector(".addToCartFeedback");
+  if (quantity === 1) {
+    pElement.textContent = `You added ${quantity} item in the cart.`;
+  } else {
+    pElement.textContent = `You added ${quantity} items in the cart.`;
+  }
+
+  pElement.classList.remove("hidden");
 }

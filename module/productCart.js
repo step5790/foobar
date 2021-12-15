@@ -186,7 +186,3 @@ function removeElementFromCart(e) {
   //find closest .cartPriduct element
   e.target.closest(".cartProduct").remove();
 }
-
-//click on "remove from cart button":
-//remove obj from order array
-//remove element
