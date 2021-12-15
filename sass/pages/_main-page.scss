@@ -1,0 +1,15 @@
+@use "../base/colors";
+
+.main {
+  background: colors.$base;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  /* height: 100%; */
+  margin: 20rem 0;
+  gap: 1rem;
+}
