@@ -16,10 +16,10 @@
 
   & .item-tap {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 10px 10px 10px;
+    margin: 20px 0px 10px 0px;
     padding: 10px 20px;
     background-color: colors.$font-primary;
     color: colors.$font-secondary;
@@ -28,6 +28,7 @@
 
     img {
       width: 50px;
+      float: left;
     }
 
     .tap-percentage {
