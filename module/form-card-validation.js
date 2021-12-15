@@ -1,24 +1,27 @@
 import { postData } from "./postData";
+import { populateOrderSummary } from "./order-summary";
 
 const searchParams = new URLSearchParams(window.location.search);
 const status = searchParams.get("status");
 
-if (status === "login") {
-  console.log(status);
-  runPostData();
-  document
-    .querySelector(".mutable-container-guest")
-    .classList.remove("display");
-  document.querySelector(".mutable-container-login").classList.add("display");
-  document.querySelector("#username").disabled = true;
-  document.querySelector("#email").disabled = true;
-} else if (status === "guest") {
-  console.log(status);
-  runPostData();
-  document
-    .querySelector(".mutable-container-login")
-    .classList.remove("display");
-  document.querySelector(".mutable-container-guest").classList.add("display");
+window.addEventListener("DOMContentLoaded", start);
+
+function start() {
+  //check if user has logged in or not
+  if (status === "login") {
+    console.log(status);
+    runPostData();
+    document.querySelector(".mutable-container-guest").classList.remove("display");
+    document.querySelector(".mutable-container-login").classList.add("display");
+    document.querySelector("#username").disabled = true;
+    document.querySelector("#email").disabled = true;
+  } else if (status === "guest") {
+    console.log(status);
+    runPostData();
+    document.querySelector(".mutable-container-login").classList.remove("display");
+    document.querySelector(".mutable-container-guest").classList.add("display");
+  }
+  populateOrderSummary();
 }
 
 function runPostData() {
@@ -51,8 +54,7 @@ let ccNumberInput = document.querySelector(".cc-number-input"),
     return output.join("");
   },
   unmask = (value) => value.replace(/[^\d]/g, ""),
-  checkSeparator = (position, interval) =>
-    Math.floor(position / (interval + 1)),
+  checkSeparator = (position, interval) => Math.floor(position / (interval + 1)),
   ccNumberInputKeyDownHandler = (e) => {
     let el = e.target;
     ccNumberInputOldValue = el.value;
@@ -67,14 +69,7 @@ let ccNumberInput = document.querySelector(".cc-number-input"),
       newValue = mask(newValue, 4, ccNumberSeparator);
 
       newCursorPosition =
-        ccNumberInputOldCursor -
-        checkSeparator(ccNumberInputOldCursor, 4) +
-        checkSeparator(
-          ccNumberInputOldCursor +
-            (newValue.length - ccNumberInputOldValue.length),
-          4
-        ) +
-        (unmask(newValue).length - unmask(ccNumberInputOldValue).length);
+        ccNumberInputOldCursor - checkSeparator(ccNumberInputOldCursor, 4) + checkSeparator(ccNumberInputOldCursor + (newValue.length - ccNumberInputOldValue.length), 4) + (unmask(newValue).length - unmask(ccNumberInputOldValue).length);
 
       el.value = newValue !== "" ? newValue : "";
     } else {
