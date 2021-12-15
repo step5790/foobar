@@ -8,21 +8,37 @@ import { calculateBasePrice } from "./beer-price";
 
 window.addEventListener("DOMContentLoaded", init);
 
-function init() {
-  fetchBeersData();
-  showBeerDescription();
+async function init() {
+  const url = "https://hangover3.herokuapp.com/";
+  //get dynamic data
+  const dynamicData = await fetchData(url);
+  //get beertypes
+  const beersData = await fetchData(`${url}beertypes`);
+  const beersOnTap = getBeersOnTap(dynamicData);
+  console.log(beersOnTap, beersData);
+  // showBeerDescription();
 }
 
-function fetchBeersData() {
-  const url = "https://hangover3.herokuapp.com/beertypes";
+async function fetchData(url) {
+  const res = await fetch(url);
+  const jsonData = await res.json();
+  return jsonData;
+}
 
-  fetch(url)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      receiveBeersData(data);
-    });
+function getBeersOnTap(data) {
+  const beersOnTap = [];
+  data.taps.forEach((tap) => {
+    console.log(tap.beer);
+    //add beers to array
+    beersOnTap.push(tap.beer);
+  });
+  //make new array with only unique names to array
+  const uniqueNames = removeDuplicates(beersOnTap);
+  return uniqueNames;
+}
+
+function removeDuplicates(arr) {
+  return arr.filter((value, index) => arr.indexOf(value) === index);
 }
 
 function receiveBeersData(beersData) {
