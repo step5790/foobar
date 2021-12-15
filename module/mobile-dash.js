@@ -18,7 +18,7 @@ async function init() {
     .then((response) => response.json())
     .then((jsonData) => {
       prepareAllData(jsonData);
-      setTimeout(init, 3000);
+      setTimeout(init, 1000);
     });
 }
 
