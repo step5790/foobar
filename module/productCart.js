@@ -1,6 +1,10 @@
 "use strict";
 
-import { calculateBasePrice, calculateSubTotal, calculateTotal } from "./beer-price";
+import {
+  calculateBasePrice,
+  calculateSubTotal,
+  calculateTotal,
+} from "./beer-price";
 
 let order = [];
 
@@ -14,14 +18,16 @@ export function registerCart() {
   document.querySelector("#close-modal").addEventListener("click", closeLogin);
 }
 
-function toggleCart() {
+export function toggleCart() {
   document.querySelector("#cart").classList.remove("hidden");
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector(".exitCart").addEventListener("click", closeCart);
   document.querySelector("#productlist").classList.add("noScroll");
   displayCartItems();
 
-  document.querySelector("#cartButton").addEventListener("click", updateLocalStorage);
+  document
+    .querySelector("#cartButton")
+    .addEventListener("click", updateLocalStorage);
 }
 
 function displayCartItems() {
@@ -48,7 +54,9 @@ function toggleTotal() {
     document.querySelector(".cartEmptyFeedback").classList.remove("hidden");
   } else {
     //show total
-    document.querySelector(".cartTotalPriceContainer").classList.remove("hidden");
+    document
+      .querySelector(".cartTotalPriceContainer")
+      .classList.remove("hidden");
     document.querySelector(".cartEmptyFeedback").classList.add("hidden");
   }
 }
@@ -77,21 +85,28 @@ export function addToCart(singleOrder) {
 
 function increaseBeerQuantityInOrder(singleOrder) {
   //find beer in array
-  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
-  order[indexOfBeer].quantity = order[indexOfBeer].quantity + singleOrder.quantity;
+  const indexOfBeer = order.findIndex(
+    (obj) => obj.beer.name === singleOrder.beer.name
+  );
+  order[indexOfBeer].quantity =
+    order[indexOfBeer].quantity + singleOrder.quantity;
   console.log("new quantity:", order[indexOfBeer].quantity);
 }
 
 function increaseBeerQuantityInCart(singleOrder) {
   //find beer in array
-  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  const indexOfBeer = order.findIndex(
+    (obj) => obj.beer.name === singleOrder.beer.name
+  );
   order[indexOfBeer].quantity++;
   console.log("new quantity:", order[indexOfBeer].quantity);
 }
 
 function decreaseBeerQuantityInCart(singleOrder) {
   //find beer in array
-  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  const indexOfBeer = order.findIndex(
+    (obj) => obj.beer.name === singleOrder.beer.name
+  );
   order[indexOfBeer].quantity--;
   console.log("new quantity:", order[indexOfBeer].quantity);
 }
@@ -125,7 +140,10 @@ function displayCartItem(obj) {
 }
 
 function displaySubTotal(el, obj) {
-  el.textContent = `${calculateSubTotal(calculateBasePrice(obj.beer.alc), obj)} DKK`;
+  el.textContent = `${calculateSubTotal(
+    calculateBasePrice(obj.beer.alc),
+    obj
+  )} DKK`;
 }
 
 function displayCartQuantity(quantityIndicator, quantity) {
@@ -155,8 +173,14 @@ function registerCartCounter(e, obj) {
       removeElementFromCart(e);
     }
   }
-  displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
-  displaySubTotal(e.target.closest(".cartProduct").querySelector(".cartPrice"), obj);
+  displayCartQuantity(
+    e.target.parentElement.querySelector(".beerQuantity"),
+    obj.quantity
+  );
+  displaySubTotal(
+    e.target.closest(".cartProduct").querySelector(".cartPrice"),
+    obj
+  );
   displayTotal(calculateTotal(order));
   toggleTotal();
   updateLocalStorage();
@@ -174,14 +198,19 @@ function updateLocalStorage() {
     }
   } else {
     localStorage.setItem("order", JSON.stringify(order));
-    console.log("updated order in localStorage:", JSON.parse(localStorage.getItem("order")));
+    console.log(
+      "updated order in localStorage:",
+      JSON.parse(localStorage.getItem("order"))
+    );
   }
 }
 
 function removeItemFromOrder(singleOrder) {
   console.log(singleOrder);
   //find beer in array
-  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  const indexOfBeer = order.findIndex(
+    (obj) => obj.beer.name === singleOrder.beer.name
+  );
   //remove beer from array
   order.splice(indexOfBeer, 1);
   console.log("New Order (haha): ", order);
