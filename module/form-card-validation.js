@@ -1,5 +1,5 @@
 import { postData } from "./postData";
-import { fetchData } from "./fetchData";
+// import { fetchData } from "./fetchData";
 
 const searchParams = new URLSearchParams(window.location.search);
 const status = searchParams.get("status");

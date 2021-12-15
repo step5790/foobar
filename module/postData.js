@@ -1,31 +1,34 @@
 export function postData(event) {
   event.preventDefault();
   console.log("ready to post");
-  var orders = JSON.parse(localStorage.getItem("orders"));
 
-  const postData = JSON.stringify(orders);
+  const order = JSON.parse(localStorage.getItem("order"));
 
-  fetch("https://hangover3.herokuapp.com/order", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: postData,
-  })
-    .then((res) => res.json())
-    .catch((err) => {
-      console.error(err);
-    });
+  //map array by order names and quantities
+  const cleanedOrder = order.map(getNameAndQuantity);
+  console.log(cleanedOrder);
 
-  console.log(postData);
-  window.location.href = "/thank-you.html";
+  const postData = JSON.stringify(cleanedOrder);
+
+  //   fetch("https://hangover3.herokuapp.com/order", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: postData,
+  //   })
+  //     .then((res) => res.json())
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+
+  //   console.log(postData);
+  //   window.location.href = "/thank-you.html";
 }
 
-// console.log(JSON.parse(orders));
-
-// const payload = [
-//   { name: "Row 26", amount: 2 },
-//   { name: "Row 26", amount: 2 },
-// ];
-
-// document.querySelector(".finish-payment").setAttribute("disabled", true);
+function getNameAndQuantity(orderObj) {
+  let newObject = {};
+  newObject.name = orderObj.beer.name;
+  newObject.amount = orderObj.quantity;
+  return newObject;
+}
