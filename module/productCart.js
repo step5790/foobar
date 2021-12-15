@@ -104,8 +104,17 @@ function displayCartItem(obj) {
   displaySubTotal(subTotalText, obj);
   const quantityIndicator = copy.querySelector(".beerQuantity");
   displayCartQuantity(quantityIndicator, obj.quantity);
+  //track counter interaction
   copy.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
     button.addEventListener("click", (e) => registerCartCounter(e, obj));
+  });
+  //track remove item -button
+  copy.querySelector(".modalRemoveCart").addEventListener("click", (e) => {
+    removeItemFromOrder(obj);
+    removeElementFromCart(e);
+    displayTotal(calculateTotal(order));
+    toggleTotal();
+    updateLocalStorage();
   });
   parent.appendChild(copy);
 }
@@ -145,6 +154,7 @@ function registerCartCounter(e, obj) {
   displaySubTotal(e.target.closest(".cartProduct").querySelector(".cartPrice"), obj);
   displayTotal(calculateTotal(order));
   toggleTotal();
+  updateLocalStorage();
 }
 
 function updateLocalStorage() {
@@ -164,8 +174,7 @@ function updateLocalStorage() {
 }
 
 function removeItemFromOrder(singleOrder) {
-  //TODO:
-
+  console.log(singleOrder);
   //find beer in array
   const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
   //remove beer from array
