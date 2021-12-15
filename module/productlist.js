@@ -21,11 +21,11 @@ function fetchBeersData() {
       return res.json();
     })
     .then(function (data) {
-      receiveBeerstData(data);
+      receiveBeersData(data);
     });
 }
 
-function receiveBeerstData(beersData) {
+function receiveBeersData(beersData) {
   beersData.forEach(showBeer);
 }
 
