@@ -1,6 +1,6 @@
 "use strict";
 
-import { calculateBasePrice } from "./beer-price";
+import { calculateBasePrice, calculateSubTotal } from "./beer-price";
 
 let order = [];
 
@@ -111,7 +111,7 @@ function displayCartItem(obj) {
 }
 
 function displaySubTotal(el, obj) {
-  el.textContent = `${calculateBasePrice(obj.beer.alc) * obj.quantity} DKK`;
+  el.textContent = `${calculateSubTotal(calculateBasePrice(obj.beer.alc), obj)} DKK`;
 }
 
 function displayCartQuantity(quantityIndicator, quantity) {
