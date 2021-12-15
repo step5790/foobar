@@ -3,14 +3,14 @@
 import { toggleModal } from "./productModal";
 import { registerCart } from "./productCart";
 import { scrollProductlist } from "./scrollProductlist";
-import { showBeerDescription } from "./showBeerDescription";
+// import { showBeerDescription } from "./showBeerDescription";
 import { calculateBasePrice } from "./beer-price";
 
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   fetchBeersData();
-  showBeerDescription();
+  // showBeerDescription();
   document.querySelector("#modal-login").style.display = "none";
 }
 
@@ -61,13 +61,6 @@ function showBeer(beer) {
   copy.querySelector("article#beer1").addEventListener("click", () => {
     toggleModal(beer);
   });
-  //Round prices
-  /* let splitPrice = price.split(" ");
-  let onlyPrice = splitPrice[0];
-  let roundedPrice = Math.ceil(onlyPrice);
-  console.log(roundedPrice); */
-
-  //forEach.copy add id
 
   const parent = document.querySelector(".beersContainer");
   parent.appendChild(copy);

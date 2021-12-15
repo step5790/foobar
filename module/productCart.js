@@ -12,16 +12,16 @@ export function registerCart() {
   const cart = document.querySelector(".cartButton");
   cart.addEventListener("click", toggleCart);
 
-  document
-    .querySelector("button#cartButton")
-    .addEventListener("click", openLogin);
+  document.querySelector("button#cartButton").addEventListener("click", () => {
+    openLogin();
+    closeCart();
+  });
   document.querySelector("#close-modal").addEventListener("click", closeLogin);
 }
 
 export function toggleCart() {
   document.querySelector("#cart").classList.remove("hidden");
   document.querySelector("#pageMask").classList.remove("hidden");
-  document.querySelector(".exitCart").addEventListener("click", closeCart);
   document.querySelector("#productlist").classList.add("noScroll");
   displayCartItems();
 
@@ -60,6 +60,8 @@ function toggleTotal() {
     document.querySelector(".cartEmptyFeedback").classList.add("hidden");
   }
 }
+document.querySelector(".exitCart").addEventListener("click", closeCart);
+document.querySelector("#pageMask").addEventListener("click", closeCart);
 
 function closeCart() {
   document.querySelector("#cart").classList.add("hidden");
@@ -224,7 +226,7 @@ function removeElementFromCart(e) {
 function openLogin() {
   document.querySelector("#modal-login").style.display = "block";
   document.getElementById("email").focus();
-  document.querySelector("#pageMask").classList.remove("hidden");
+  // document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector("#productlist").classList.add("noScroll");
 }
 

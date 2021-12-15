@@ -2,65 +2,6 @@
 @use "../base/fonts";
 
 //button
-.productlistButton {
-  --glow-color: rgb(217, 176, 255);
-  --glow-spread-color: rgba(191, 123, 255, 0.1 /* 0.781 */);
-  --enhanced-glow-color: rgb(231, 206, 255);
-  --btn-color: rgb(100, 61, 136);
-  outline: none;
-  border: 0.25em solid var(--glow-color);
-  padding: 1em 3em;
-  color: var(--glow-color);
-  font-size: 1rem;
-  font-family: /* $secondary-font */ "Lato", sans-serif;
-  font-weight: bold;
-  background-color: var(--btn-color);
-  border-radius: 1em;
-  outline: none;
-  box-shadow: 0 0 1em 0.25em var(--glow-color),
-    0 0 4em 1em var(--glow-spread-color),
-    inset 0 0 0.75em 0.25em var(--glow-color);
-  text-shadow: 0 0 0.5em var(--glow-color);
-  position: relative;
-  transition: all 0.3s;
-
-  //my changes
-  width: 5.5rem;
-  height: 1rem;
-  margin-top: 1rem;
-}
-
-.productlistButton::after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  top: 120%;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--glow-spread-color);
-  filter: blur(2em);
-  opacity: 0.7;
-  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
-}
-
-.productlistButton:hover {
-  color: var(--btn-color);
-  background-color: var(--glow-color);
-  box-shadow: 0 0 1em 0.25em var(--glow-color),
-    0 0 4em 2em var(--glow-spread-color),
-    inset 0 0 0.75em 0.25em var(--glow-color);
-}
-
-.productlistButton:active {
-  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
-    0 0 2.5em 2em var(--glow-spread-color),
-    inset 0 0 0.5em 0.25em var(--glow-color);
-}
-
-.hidden {
-  visibility: hidden;
-}
 
 .noScroll {
   overflow: hidden;
@@ -73,7 +14,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1001;
 }
 
 #productlist {
@@ -94,13 +35,14 @@
     url("assets/home-cover-new.jpg");
   background-size: cover;
   background-position-x: center;
-
+  height: 588px;
+  position: absolute;
+  top: 0;
   background-repeat: no-repeat;
 }
 
 .mainHeading {
   margin-left: 5%;
-  margin-right: 5%;
   width: 28%;
   margin-top: 20%;
 }
@@ -116,7 +58,7 @@
 #beerList {
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 4rem;
+  margin-top: 40.75rem;
 }
 
 .scrollArrowsContainer {
@@ -155,6 +97,7 @@
   overflow-x: hidden;
   gap: 4rem;
   align-items: flex-end;
+  cursor: grab;
 }
 
 .beer {
@@ -163,15 +106,20 @@
   flex-direction: column;
   align-items: center;
   margin-right: 100px;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 55px #e9ccff);
+  }
+
+  &:active {
+    filter: drop-shadow(0px 0px 55px #e9ccff);
+  }
 }
 
 .beer Figure {
   margin: 0;
   margin-bottom: 10px;
-}
-
-.beerGlass {
-  width: 100px;
 }
 
 .productlistBeerInfo {
@@ -181,14 +129,8 @@
   width: max-content;
 }
 
-.beerGlass:hover {
-  -webkit-filter: drop-shadow(0px 0px 55px #e9ccff);
-  filter: drop-shadow(0px 0px 55px #e9ccff);
-}
-
-.beerGlass:active {
-  -webkit-filter: drop-shadow(0px 0px 55px #e9ccff);
-  filter: drop-shadow(0px 0px 55px #e9ccff);
+.beerGlass {
+  width: 100px;
 }
 
 .beerName,
@@ -272,16 +214,15 @@ footer h1 {
 
 //modal
 #modal {
-  background-color: /* $base */ #0d0627;
+  background-color: colors.$base;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  z-index: 2;
-  max-height: 80vh;
+  grid-template-columns: 25rem 25rem;
+  z-index: 2000;
+  height: 80vh;
 }
 
 .textContainer::-webkit-scrollbar {
@@ -295,6 +236,7 @@ footer h1 {
 
 .productHeadingContainer {
   padding-top: 2rem;
+  height: 740px;
 }
 
 .productModalHeading {
@@ -303,12 +245,12 @@ footer h1 {
 }
 
 .textContainer {
-  padding-bottom: 2rem;
+  //padding-bottom: 2rem;
   padding-left: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 60vh;
+  height: 650px;
   overflow-y: scroll;
 }
 
@@ -332,8 +274,15 @@ footer h1 {
   margin-bottom: 2rem;
 }
 
+.modalImageContainer {
+  height: 740px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .beerProductImage {
-  width: 100%;
+  height: 740px;
+  margin-left: -2rem;
 }
 
 .exitModal {
@@ -442,6 +391,205 @@ footer h1 {
 .cartTotalPriceContainer {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 800px) {
+  .mainHeading {
+    width: 50%;
+  }
+
+  #beerList {
+    margin-top: 38.75rem;
+  }
+
+  .beersContainer {
+    gap: 2rem;
+  }
+
+  .logoSoMeContainer {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .logoSoMeContainer h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .logoSoMeContainer .fb {
+    margin-left: 150px;
+  }
+
+  .logoSoMeContainer .tw {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .formalitiesContainer {
+    margin-right: auto;
+  }
+
+  //product modal
+
+  /*   #modal {
+    display: none;
+  }
+
+  #cart {
+    display: none;
+  } */
+
+  #modal {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: fit-content;
+    top: 70%;
+    width: 80%;
+  }
+
+  .modalImageContainer {
+    order: -1;
+    height: 40rem;
+    width: 100%;
+  }
+
+  .beerProductImage {
+    margin: 0;
+    margin-top: -3rem;
+    height: auto;
+    width: 100%;
+  }
+
+  .productHeadingContainer {
+    margin-top: -10rem;
+    background-color: #0d0627;
+    height: fit-content;
+  }
+
+  .textContainer {
+    height: fit-content;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #heading {
+    background-size: 250%;
+    background-image: linear-gradient(
+        0deg,
+        #0d0627 10%,
+        rgba(13, 6, 39, 0) 120%
+      ),
+      url("/assets/home-cover-new.jpg");
+  }
+
+  .mainHeading {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 6em;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .welcomeText {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  #beerList {
+    margin-top: 40.75rem;
+  }
+
+  .scrollArrowsContainer {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .beersContainer {
+    gap: 0rem;
+    padding-left: 4rem;
+  }
+
+  .beer {
+    margin-right: 4rem;
+  }
+
+  .beerGlass {
+    width: 80px;
+  }
+
+  .secondaryHeading {
+    text-align: center;
+  }
+
+  .aboutText {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .logoSoMeContainer {
+    width: 20rem;
+  }
+
+  .logoSoMeContainer h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .logoSoMeContainer .fb {
+    margin-left: 70px;
+  }
+
+  .logoSoMeContainer .tw {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .formalitiesContainer {
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #beerList {
+    margin-top: 40.75rem;
+  }
+
+  .scrollArrowsContainer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .beersContainer {
+    display: grid;
+    width: 100%;
+    margin: 0;
+    grid-template-columns: 50% 50%;
+    gap: 0rem;
+    padding: 0;
+    cursor: default;
+  }
+
+  .beer {
+    width: auto;
+    margin-top: 4rem;
+    margin-right: 0;
+  }
+
+  .beerGlass {
+    width: 70px;
+  }
+
+  .scrollArrow1 {
+    display: none;
+  }
+
+  .scrollArrow2 {
+    display: none;
+  }
 }
 
 /* MIT License

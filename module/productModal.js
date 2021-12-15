@@ -1,6 +1,12 @@
+"use strict";
 import { calculateBasePrice } from "./beer-price";
-import { createBeerObject, getBeerToAdd, registerCounter } from "./product-counter";
+import {
+  createBeerObject,
+  getBeerToAdd,
+  registerCounter,
+} from "./product-counter";
 import { addToCart } from "./productCart";
+import { collapsible } from "./collapsible";
 
 export function toggleModal(beer) {
   const template = document.querySelector("#modalTemp").content;
@@ -8,25 +14,36 @@ export function toggleModal(beer) {
   copy.querySelector(".productModalHeading").textContent = beer.name;
   copy.querySelector(".modalCategoryText").textContent = beer.category;
   copy.querySelector(".modalAlcoholText").textContent = beer.alc;
-  copy.querySelector(".modalPprice").textContent = `${calculateBasePrice(beer.alc)} DKK`;
-  copy.querySelector(".modalImpression").textContent = beer.description.overallImpression;
-  copy.querySelector(".item-container-aroma p").textContent = beer.description.aroma;
-  copy.querySelector(".item-container-appearance p").textContent = beer.description.appearance;
-  copy.querySelector(".item-container-flavor p").textContent = beer.description.flavor;
-  copy.querySelector(".item-container-mouthfeel p").textContent = beer.description.mouthfeel;
-  copy.querySelector(".beerProductImage").src = `/assets/beer/modal-${beer.label}`;
+  copy.querySelector(".modalPprice").textContent = `${calculateBasePrice(
+    beer.alc
+  )} DKK`;
+  copy.querySelector(".modalImpression").textContent =
+    beer.description.overallImpression;
+  copy.querySelector(".item-container-aroma p").textContent =
+    beer.description.aroma;
+  copy.querySelector(".item-container-appearance p").textContent =
+    beer.description.appearance;
+  copy.querySelector(".item-container-flavor p").textContent =
+    beer.description.flavor;
+  copy.querySelector(".item-container-mouthfeel p").textContent =
+    beer.description.mouthfeel;
+  copy.querySelector(
+    ".beerProductImage"
+  ).src = `/assets/beer/modal-${beer.label}`;
   copy.querySelector(".beerProductImage").alt = `modal-${beer.label}`;
 
   copy.querySelectorAll(`button[data-button="counter"]`).forEach((button) => {
     button.addEventListener("click", (e) => registerCounter(e));
   });
-  copy.querySelector(`button[data-button="addToCart"]`).addEventListener("click", () => {
-    const beerToAdd = getBeerToAdd();
-    //clear object
-    createBeerObject(beer);
-    addToCart(beerToAdd);
-    displayOrderFeedback(beerToAdd.quantity);
-  });
+  copy
+    .querySelector(`button[data-button="addToCart"]`)
+    .addEventListener("click", () => {
+      const beerToAdd = getBeerToAdd();
+      //clear object
+      createBeerObject(beer);
+      addToCart(beerToAdd);
+      displayOrderFeedback(beerToAdd.quantity);
+    });
 
   document.querySelector("main").appendChild(copy);
 
@@ -36,12 +53,15 @@ export function toggleModal(beer) {
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector("#productlist").classList.add("noScroll");
   document.querySelector(".exitModal").addEventListener("click", closeModal);
+  document.querySelector("#pageMask").addEventListener("click", closeModal);
 
   createBeerObject(beer);
 
   //change content with one beer
   //loop through the beers and find the matching - index of array
   //change he content with the data from the index
+
+  collapsible();
 }
 
 function closeModal() {

@@ -5,7 +5,7 @@ import { displayTapLevels } from "./displayTapLevels";
 import { displayKegInventory } from "./displayKegInventory";
 import { displayBartenders } from "./displayBartenders";
 import { calculateSales } from "./calculateSales";
-import { collapsible } from "./mobile-data-collapsible";
+import { collapsible } from "./collapsible";
 
 window.addEventListener("DOMContentLoaded", init);
 

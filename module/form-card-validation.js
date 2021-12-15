@@ -1,5 +1,4 @@
 import { postData } from "./postData";
-import { toggleCart } from "./productCart";
 
 const searchParams = new URLSearchParams(window.location.search);
 const status = searchParams.get("status");
