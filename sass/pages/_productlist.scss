@@ -595,6 +595,13 @@ footer h1 {
   .formalitiesContainer {
     margin-right: auto;
   }
+
+  //cart
+  #cart {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
