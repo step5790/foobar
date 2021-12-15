@@ -94,11 +94,22 @@
   }
 }
 
-@media only screen and (max-width: 414) {
+@media only screen and (max-width: 600px) {
   .dash-container {
     display: block;
+    min-width: 414px;
   }
   .db-bar-view {
     display: none;
+  }
+
+  .db-info {
+    font-size: 0.9rem;
+    overflow: visible;
+    height: 55vw;
+  }
+
+  .components {
+    margin: 30px 25px 0px 0px;
   }
 }
