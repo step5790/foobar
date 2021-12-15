@@ -18,7 +18,7 @@ function toggleCart() {
   toggleTotal();
   displayCartItems();
 
-  document.querySelector("#cartButton").addEventListener("click", addToLocalStorage);
+  document.querySelector("#cartButton").addEventListener("click", updateLocalStorage);
 }
 
 function displayCartItems() {
@@ -36,7 +36,7 @@ function displayCartItems() {
 
 function toggleTotal() {
   //check if order and localStorage is empty
-  if (!localStorage.getItem("order") && order.length === 0) {
+  if (!localStorage.getItem("order") || order.length === 0) {
     console.log(order);
     console.log("cart is empty");
     //hide total
@@ -55,7 +55,7 @@ function closeCart() {
   document.querySelector("#productlist").classList.remove("noScroll");
   //clear cart
   document.querySelector(".cartItems").innerHTML = "";
-  addToLocalStorage();
+  updateLocalStorage();
 }
 
 export function addToCart(singleOrder) {
@@ -68,7 +68,7 @@ export function addToCart(singleOrder) {
     order.push(singleOrder);
   }
   console.log("updated order:", order);
-  addToLocalStorage();
+  updateLocalStorage();
 }
 
 function increaseBeerQuantityInOrder(singleOrder) {
@@ -121,7 +121,12 @@ function displayCartQuantity(quantityIndicator, quantity) {
 }
 
 function displayTotal(total) {
-  document.querySelector(".cartTotalPrice2").textContent = `${total} DKK`;
+  //check that there are items in cart
+  if (total > 0) {
+    document.querySelector(".cartTotalPrice2").textContent = `${total} DKK`;
+  } else {
+    toggleTotal();
+  }
 }
 
 function registerCartCounter(e, obj) {
@@ -133,10 +138,8 @@ function registerCartCounter(e, obj) {
       decreaseBeerQuantityInCart(obj);
     } else {
       console.log("beer needs to be removed");
-      //TODO:
-      //remove beer from array
-      //remove the element from cart
-      // e.target.closest(".cartProduct").remove();
+      removeItemFromOrder(obj);
+      removeElementFromCart(e);
     }
   }
   displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
@@ -144,14 +147,35 @@ function registerCartCounter(e, obj) {
   displayTotal(calculateTotal(order));
 }
 
-function addToLocalStorage() {
-  //check if cart is empty
+function updateLocalStorage() {
+  //check if order is empty
   if (order.length === 0) {
     console.log("cart is empty");
+    //check if exists in localStorage
+    if (localStorage.getItem("order")) {
+      console.log("clear order in localStorage");
+      //clear order in localStorage
+      localStorage.clear("order");
+    }
   } else {
     localStorage.setItem("order", JSON.stringify(order));
-    console.log("order in localStorage:", JSON.parse(localStorage.getItem("order")));
+    console.log("updated order in localStorage:", JSON.parse(localStorage.getItem("order")));
   }
+}
+
+function removeItemFromOrder(singleOrder) {
+  //TODO:
+
+  //find beer in array
+  const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
+  //remove beer from array
+  order.splice(indexOfBeer, 1);
+  console.log("New Order (haha): ", order);
+}
+
+function removeElementFromCart(e) {
+  //find closest .cartPriduct element
+  e.target.closest(".cartProduct").remove();
 }
 
 //click on "remove from cart button":
