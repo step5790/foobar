@@ -27,24 +27,7 @@ function fetchBeersData() {
 
 function receiveBeerstData(beersData) {
   beersData.forEach(showBeer);
-
-  // registerModal(beersData);
 }
-
-// function registerModal(beersData) {
-//   //console.log(beersData);
-//   // const beers = document.querySelectorAll(".beer");
-//   // for (const beer of beers) {
-//   //   beer.addEventListener("click", () => {
-//   //     toggleModal(beersData);
-//   //   });
-//   // }
-//   // **mine**
-//   // beersData.forEach((beer) => {
-//   //   document.querySelector(".modalCategoryText").textContent = beer.caregory;
-//   // });
-//   // toggleModal(beersData);
-// }
 
 function showBeer(beer) {
   const template = document.querySelector("#beerTemplate").content;
@@ -73,8 +56,3 @@ function showBeer(beer) {
   scrollProductlist();
   // passModalData(beer);
 }
-
-// function passModalData(beer) {
-//   document.querySelector(".modalCategoryText").textContent = `${beer.category}`;
-//   //console.log(beer);
-// }
