@@ -3,13 +3,13 @@
 import { createBeerObject, displayQuantity, registerCounter } from "./product-counter";
 
 export function toggleModal(beer) {
-  //console.log(this.dataset.name);
   document.querySelector(".modalCategoryHeading").scrollIntoView();
 
   document.querySelector("#modal").classList.remove("hidden");
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector("#productlist").classList.add("noScroll");
   document.querySelector(".exitModal").addEventListener("click", closeModal);
+  document.querySelector("#pageMask").addEventListener("click", closeModal);
 
   // changeBeerData(beersData);
 
@@ -17,7 +17,6 @@ export function toggleModal(beer) {
   displayQuantity();
   registerCounterClick(beer.name);
 
-  //to do
   console.log(beer);
   document.querySelector(".productModalHeading").textContent = beer.name;
   document.querySelector(".modalCategoryText").textContent = beer.category;
@@ -31,10 +30,6 @@ export function toggleModal(beer) {
   document.querySelector(".beerProductImage").src = `/assets/beer/modal-${beer.label}`;
   document.querySelector(".beerProductImage").alt = `modal-${beer.label}`;
 
-  //change content with one beer
-  //loop through the beers and find the matching - index of array
-  //change he content with the data from the index
-
   function closeModal() {
     var x, i;
     x = document.querySelectorAll(".beer-component .content");
@@ -46,20 +41,6 @@ export function toggleModal(beer) {
     document.querySelector("#pageMask").classList.add("hidden");
     document.querySelector("#productlist").classList.remove("noScroll");
   }
-}
-
-function changeBeerData(beer) {
-  console.log(beer);
-  //document.querySelector(".productModalHeading").textContent = beer[0].name;
-
-  //console.log(beer[0].name);
-
-  beer.forEach((beer) => {
-    console.log(beer.name);
-    /* if (beer.name === this.dataset.name) {
-      console.log("found it");
-    } */
-  });
 }
 
 function registerCounterClick(beer) {
