@@ -319,10 +319,6 @@ footer h1 {
 }
 
 @media only screen and (max-width: 800px) {
-  #productlist {
-    color: red;
-  }
-
   .mainHeading {
     width: 50%;
   }
@@ -363,6 +359,14 @@ footer h1 {
 
   //product modal
 
+  /*   #modal {
+    display: none;
+  }
+
+  #cart {
+    display: none;
+  } */
+
   #modal {
     display: flex;
     flex-direction: column;
@@ -397,10 +401,6 @@ footer h1 {
 }
 
 @media only screen and (max-width: 600px) {
-  #productlist {
-    color: green;
-  }
-
   #heading {
     background-size: 250%;
     background-image: linear-gradient(0deg, #0d0627 10%, rgba(13, 6, 39, 0) 120%), url("/assets/home-cover-new.jpg");
@@ -474,10 +474,6 @@ footer h1 {
 }
 
 @media only screen and (max-width: 500px) {
-  #productlist {
-    color: lightblue;
-  }
-
   #beerList {
     margin-top: 40.75rem;
   }
