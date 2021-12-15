@@ -10,6 +10,8 @@ window.addEventListener("DOMContentLoaded", init);
 
 let beersOnTap = [];
 
+document.querySelector("#modal-login").style.display = "none";
+
 async function init() {
   const url = "https://hangover3.herokuapp.com/";
   //get dynamic data
