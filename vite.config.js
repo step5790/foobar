@@ -10,6 +10,7 @@ module.exports = {
         sub1: resolve(__dirname, "form-login.html"),
         sub2: resolve(__dirname, "dashboard-desktop.html"),
         sub3: resolve(__dirname, "dashboard.html"),
+        sub4: resolve(__dirname, "thank-you.html"),
       },
     },
   },
