@@ -15,6 +15,7 @@ export function registerCart() {
   document.querySelector("button#cartButton").addEventListener("click", () => {
     openLogin();
     closeCart();
+    document.querySelector("#pageMask").classList.remove("hidden");
   });
   document.querySelector("#close-modal").addEventListener("click", closeLogin);
 }

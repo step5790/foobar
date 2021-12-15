@@ -222,7 +222,11 @@ footer h1 {
   display: grid;
   grid-template-columns: 25rem 25rem;
   z-index: 2000;
-  height: 80vh;
+  height: auto;
+
+  .productlistButton {
+    left: 4rem;
+  }
 }
 
 .textContainer::-webkit-scrollbar {
@@ -236,7 +240,7 @@ footer h1 {
 
 .productHeadingContainer {
   padding-top: 2rem;
-  height: 740px;
+  height: auto;
 }
 
 .productModalHeading {
@@ -406,6 +410,18 @@ footer h1 {
     gap: 2rem;
   }
 
+  #modal-login {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: fit-content !important;
+    width: 100% !important;
+    right: 0px !important;
+  }
+
+  button.productlistButton {
+    left: 0rem;
+  }
+
   .logoSoMeContainer {
     display: block;
     flex-direction: column;
@@ -432,22 +448,18 @@ footer h1 {
     margin-right: auto;
   }
 
-  //product modal
-
-  /*   #modal {
-    display: none;
+  .productImageContainer {
+    position: absolute;
+    width: 10rem;
+    right: 1rem;
   }
-
-  #cart {
-    display: none;
-  } */
 
   #modal {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: fit-content;
-    top: 70%;
+    height: 85%;
+    /* top: 53%; */
     width: 80%;
   }
 
@@ -459,13 +471,13 @@ footer h1 {
 
   .beerProductImage {
     margin: 0;
-    margin-top: -3rem;
+    margin-top: 6rem;
     height: auto;
     width: 100%;
   }
 
   .productHeadingContainer {
-    margin-top: -10rem;
+    // margin-top: -10rem;
     background-color: #0d0627;
     height: fit-content;
   }
