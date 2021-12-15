@@ -1,6 +1,8 @@
 .db-info {
   /* TABLE */
   font-size: 0.9rem;
+  overflow: scroll;
+  height: 84%;
   .list {
     border-collapse: collapse;
   }
@@ -90,5 +92,14 @@
     g.beer_front {
       visibility: hidden;
     }
+  }
+}
+
+@media only screen and (max-width: 414) {
+  .dash-container {
+    display: block;
+  }
+  .db-bar-view {
+    display: none;
   }
 }

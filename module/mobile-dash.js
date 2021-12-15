@@ -33,8 +33,10 @@ function prepareAllData(jsonData) {
   collapsible();
 }
 
-if (window.matchMedia("(max-device-width: 414px)").matches) {
-  document.querySelector(".dash-container").style.display = "block";
-} else {
-  document.querySelector(".dash-container").style.display = "none";
-}
+// if (window.matchMedia("(max-device-width: 414px)").matches) {
+//   document.querySelector(".dash-container").style.display = "block";
+//   document.querySelector(".db-bar-view").style.display = "none";
+// }
+// else {
+//   document.querySelector(".dash-container").style.display = "none";
+// }
