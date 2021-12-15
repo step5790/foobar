@@ -26,20 +26,20 @@ button {
   width: 5.5rem;
   height: 1rem;
   margin-top: 1rem;
-}
 
-button::after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  top: 120%;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--glow-spread-color);
-  filter: blur(2em);
-  opacity: 0.7;
-  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+  button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: 0.7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+  }
 }
 
 button:hover {
@@ -54,4 +54,96 @@ button:active {
   box-shadow: 0 0 0.6em 0.25em var(--glow-color),
     0 0 2.5em 2em var(--glow-spread-color),
     inset 0 0 0.5em 0.25em var(--glow-color);
+}
+
+.collapsible {
+  background-color: colors.$font-secondary;
+  color: colors.$font-primary;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  --glow-color: none;
+  --glow-spread-color: none;
+  --enhanced-glow-color: none;
+  --btn-color: none;
+  font-weight: normal;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  transition: none;
+  margin: 0;
+  height: 100%;
+
+  &::after {
+    content: "";
+    display: block;
+    border-top: 1px solid colors.$font-primary;
+  }
+}
+
+.active,
+.collapsible:hover {
+  background-color: colors.$secondary;
+}
+
+.modalPlus {
+  background: url("/assets/icons/plus.svg") no-repeat;
+  background-size: cover;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  --glow-color: none;
+  --glow-spread-color: NONE;
+  --enhanced-glow-color: NONE;
+  --btn-color: NONE;
+  padding: 0;
+  margin-top: 0;
+}
+
+.modalPlus:active {
+  scale: 0.95;
+}
+
+.modalMinus {
+  background: url("/assets/icons/minus.svg") no-repeat;
+  background-size: cover;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  --glow-color: none;
+  --glow-spread-color: NONE;
+  --enhanced-glow-color: NONE;
+  --btn-color: NONE;
+  padding: 0;
+  margin-top: 0;
+}
+
+.modalMinus:active {
+  scale: 0.95;
+}
+
+#cartButton {
+  margin-top: 4rem;
+  float: right;
+}
+
+.cartButton {
+  background: url("/assets/icons/removeCart.svg") no-repeat;
+  background-size: cover;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  --glow-color: none;
+  --glow-spread-color: NONE;
+  --enhanced-glow-color: NONE;
+  --btn-color: NONE;
+  padding: 0;
+  margin-top: 0;
+  cursor: pointer;
 }

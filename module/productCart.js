@@ -7,6 +7,11 @@ let order = [];
 export function registerCart() {
   const cart = document.querySelector(".cartButton");
   cart.addEventListener("click", toggleCart);
+
+  document
+    .querySelector("button#cartButton")
+    .addEventListener("click", openLogin);
+  document.querySelector("#close-modal").addEventListener("click", closeLogin);
 }
 
 function toggleCart() {
@@ -185,4 +190,14 @@ function removeItemFromOrder(singleOrder) {
 function removeElementFromCart(e) {
   //find closest .cartPriduct element
   e.target.closest(".cartProduct").remove();
+}
+
+function openLogin() {
+  document.querySelector("#modal-login").classList.remove("hidden");
+  document.querySelector("#pageMask").classList.remove("hidden");
+  document.querySelector("#productlist").classList.add("noScroll");
+}
+
+function closeLogin() {
+  document.querySelector("#modal-login").classList.add("hidden");
 }

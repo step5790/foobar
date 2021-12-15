@@ -1,15 +1,7 @@
-export function postData(e) {
-  e.preventDefault();
+export function postData(event) {
+  event.preventDefault();
   console.log("ready to post");
   var orders = JSON.parse(localStorage.getItem("orders"));
-  // console.log(JSON.parse(orders));
-
-  // const payload = [
-  //   { name: "Row 26", amount: 2 },
-  //   { name: "Row 26", amount: 2 },
-  // ];
-
-  // document.querySelector(".finish-payment").setAttribute("disabled", true);
 
   const postData = JSON.stringify(orders);
 
@@ -28,3 +20,12 @@ export function postData(e) {
   console.log(postData);
   window.location.href = "/thank-you.html";
 }
+
+// console.log(JSON.parse(orders));
+
+// const payload = [
+//   { name: "Row 26", amount: 2 },
+//   { name: "Row 26", amount: 2 },
+// ];
+
+// document.querySelector(".finish-payment").setAttribute("disabled", true);

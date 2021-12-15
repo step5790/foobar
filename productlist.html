@@ -174,9 +174,37 @@
       </article>
     </template>
 
+    <!-- **login** -->
+    <div class="modal-login hidden" id="modal-login">
+      <button type="button" id="close-modal">X</button>
+      <h1>Login</h1>
+      <form class="form">
+        <h3>Already have an account?</h3>
+
+        <div class="input-container">
+          <input id="email" name="email" type="email" placeholder=" " required autocomplete="off" />
+          <label for="email" class="placeholder">Email</label>
+          <div class="requirements">Must be a valid email address.</div>
+        </div>
+
+        <div class="input-container">
+          <input id="password" name="password" type="password" placeholder=" " required autocomplete="off" />
+          <label for="email" class="placeholder">Password</label>
+          <div class="requirements">Invalid password.</div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" name="form" id="sign-in" value="signin">Sign In</button>
+          <p>First time ordering in Foobar?</p>
+          <button type="submit" name="form" id="log-guest" value="guest">Shop as guest</button>
+        </div>
+      </form>
+    </div>
+
     <div id="pageMask" class="hidden"></div>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
     <script type="module" src="/module/productlist.js"></script>
+    <script type="module" src="/module/modal-login.js"></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
