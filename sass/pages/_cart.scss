@@ -1,0 +1,103 @@
+#cart {
+  background-color: /* $base */ #0d0627;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  height: fit-content;
+  width: 25rem;
+  z-index: 2000;
+}
+
+.cartHeadingContainer {
+  display: flex;
+}
+
+.exitCart {
+  width: 2rem;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.cartProductContainer {
+  height: fit-content;
+  max-height: 14rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cartProductContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.cartProductContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cartProduct {
+  display: flex;
+  align-items: center;
+}
+
+.cartProductImage {
+  width: 2rem;
+}
+
+.cartNameAmount {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  margin-left: 2rem;
+}
+
+.adjustAmount {
+  margin-top: 1rem;
+}
+
+.cartName {
+  font-size: 1.2rem;
+}
+
+.cartPrice {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+
+.modalRemoveCart {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 2rem;
+  background: url("/assets/icons/removeCart.svg") no-repeat;
+  background-size: cover;
+  border: none;
+}
+
+.cartDivider {
+  width: 100%;
+  border-top: 0.1rem solid white;
+  margin-bottom: 2rem;
+}
+
+.cartTotalPrice1,
+.cartTotalPrice2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.cartTotalPriceContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#cartButton {
+  margin-top: 4rem;
+  float: left;
+}
