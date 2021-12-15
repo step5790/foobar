@@ -1,6 +1,6 @@
 "use strict";
 
-import { calculateBasePrice, calculateSubTotal } from "./beer-price";
+import { calculateBasePrice, calculateSubTotal, calculateTotal } from "./beer-price";
 
 let order = [];
 
@@ -31,6 +31,7 @@ function displayCartItems() {
     //make order array into same as orderFromLocalStorage is
     order = orderFromLocalStorage;
   }
+  displayTotal(calculateTotal(order));
 }
 
 function toggleTotal() {
@@ -84,7 +85,7 @@ function increaseBeerQuantityInCart(singleOrder) {
   console.log("new quantity:", order[indexOfBeer].quantity);
 }
 
-function decreaseBeerQuantityInOrder(singleOrder) {
+function decreaseBeerQuantityInCart(singleOrder) {
   //find beer in array
   const indexOfBeer = order.findIndex((obj) => obj.beer.name === singleOrder.beer.name);
   order[indexOfBeer].quantity--;
@@ -119,13 +120,17 @@ function displayCartQuantity(quantityIndicator, quantity) {
   quantityIndicator.textContent = quantity;
 }
 
+function displayTotal(total) {
+  document.querySelector(".cartTotalPrice2").textContent = `${total} DKK`;
+}
+
 function registerCartCounter(e, obj) {
   const count = e.target.dataset.counter;
   if (count === "plus") {
     increaseBeerQuantityInCart(obj);
   } else {
     if (obj.quantity > 1) {
-      decreaseBeerQuantityInOrder(obj);
+      decreaseBeerQuantityInCart(obj);
     } else {
       console.log("beer needs to be removed");
       //TODO:
@@ -136,6 +141,7 @@ function registerCartCounter(e, obj) {
   }
   displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
   displaySubTotal(e.target.closest(".cartProduct").querySelector(".cartPrice"), obj);
+  displayTotal(calculateTotal(order));
 }
 
 function addToLocalStorage() {
