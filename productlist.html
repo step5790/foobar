@@ -28,23 +28,6 @@
           <div class="beersContainer dragscroll">
             <!-- <div class="productlistStart"></div> -->
 
-            <template id="beerTemplate">
-              <article id="beer1" class="beer">
-                <figure>
-                  <img
-                    class="beerGlass"
-                    src="assets/beer/hollaback.png"
-                    alt="hollaback lager"
-                  />
-                </figure>
-                <div class="productlistBeerInfo">
-                  <h3 class="beerName">Hollaback Lager</h3>
-                  <p class="beerCategory">Oktoberfest</p>
-                  <h3 class="beerPrice">80 DKK</h3>
-                </div>
-              </article>
-            </template>
-
             <!-- <div class="productlistEnd"></div> -->
           </div>
 
@@ -107,6 +90,20 @@
         <p class="formalities">Company Details</p>
       </div>
     </footer>
+
+    <template id="beerTemplate">
+      <article class="beer">
+        <figure>
+          <img class="beerGlass" src="assets/beer/hollaback.png" alt="hollaback lager" />
+        </figure>
+        <div class="productlistBeerInfo">
+          <h3 class="beerName">Hollaback Lager</h3>
+          <p class="beerCategory">Oktoberfest</p>
+          <h3 class="beerPrice">80 DKK</h3>
+        </div>
+      </article>
+    </template>
+
     <template id="modalTemp">
       <article id="modal">
         <div class="productHeadingContainer">
