@@ -357,6 +357,12 @@ footer h1 {
   height: fit-content;
   width: 25rem;
   z-index: 2;
+  background: rgb(27, 11, 82);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 11, 82, 1) 0%,
+    rgba(13, 6, 39, 1) 35%
+  );
 }
 
 .cartHeadingContainer {

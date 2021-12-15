@@ -27,6 +27,13 @@ body {
   color: #212529;
   background-color: #fff;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  background: rgb(27, 11, 82);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 11, 82, 1) 0%,
+    rgba(13, 6, 39, 1) 35%
+  );
 }
 
 *,
