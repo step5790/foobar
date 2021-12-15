@@ -14,8 +14,6 @@ function toggleCart() {
   document.querySelector("#pageMask").classList.remove("hidden");
   document.querySelector(".exitCart").addEventListener("click", closeCart);
   document.querySelector("#productlist").classList.add("noScroll");
-
-  toggleTotal();
   displayCartItems();
 
   document.querySelector("#cartButton").addEventListener("click", updateLocalStorage);
@@ -32,6 +30,7 @@ function displayCartItems() {
     order = orderFromLocalStorage;
   }
   displayTotal(calculateTotal(order));
+  toggleTotal();
 }
 
 function toggleTotal() {
@@ -145,6 +144,7 @@ function registerCartCounter(e, obj) {
   displayCartQuantity(e.target.parentElement.querySelector(".beerQuantity"), obj.quantity);
   displaySubTotal(e.target.closest(".cartProduct").querySelector(".cartPrice"), obj);
   displayTotal(calculateTotal(order));
+  toggleTotal();
 }
 
 function updateLocalStorage() {
