@@ -78,7 +78,7 @@ function showBeer(beer) {
   copy.querySelector(".beerPrice").textContent = `${calculateBasePrice(beer.alc)} DKK`;
   copy.querySelector(".beerGlass").src = `assets/beer/${beer.label}`;
   copy.querySelector(".beerGlass").alt = beer.label;
-  copy.querySelector("article#beer1").addEventListener("click", () => {
+  copy.querySelector("article.beer").addEventListener("click", () => {
     toggleModal(beer);
   });
   //Round prices
