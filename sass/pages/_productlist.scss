@@ -32,7 +32,7 @@
       rgba(13, 6, 39, 1) 10%,
       rgba(13, 6, 39, 0) 60%
     ),
-    url("assets/home-cover-new.jpg");
+    url("home-cover-new.jpg");
   background-size: cover;
   background-position-x: center;
   height: 588px;
@@ -359,7 +359,7 @@ footer h1 {
   height: 2rem;
   width: 2rem;
   margin-left: 2rem;
-  background: url("assets/icons/removeCart.svg") no-repeat;
+  background: url("icons/removeCart.svg") no-repeat;
   background-size: cover;
   border: none;
   --glow-color: none;
@@ -483,7 +483,7 @@ footer h1 {
         #0d0627 10%,
         rgba(13, 6, 39, 0) 120%
       ),
-      url("assets/home-cover-new.jpg");
+      url("home-cover-new.jpg");
   }
 
   .mainHeading {
