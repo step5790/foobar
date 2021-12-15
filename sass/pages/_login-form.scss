@@ -193,22 +193,22 @@ button#button-continue {
       }
     }
 
-    // input[type="text"],
-    // input[type="email"],
-    // input[type="tel"] {
-    //   &:invalid:not(:placeholder-shown) {
-    //     & ~ .requirements {
-    //       visibility: visible;
-    //     }
-    //   }
-    // }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      &:invalid:not(:placeholder-shown) {
+        & ~ .requirements {
+          visibility: visible;
+        }
+      }
+    }
 
-    // .requirements {
-    //   visibility: hidden;
-    //   color: colors.$not-validated;
-    //   font-size: 0.7rem;
-    //   text-align: right;
-    // }
+    .requirements {
+      visibility: hidden;
+      color: colors.$not-validated;
+      font-size: 0.7rem;
+      text-align: right;
+    }
   }
 
   .payment-container {
