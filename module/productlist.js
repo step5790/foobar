@@ -8,15 +8,37 @@ import { calculateBasePrice } from "./beer-price";
 
 window.addEventListener("DOMContentLoaded", init);
 
+let beersOnTap = [];
+
 async function init() {
   const url = "https://hangover3.herokuapp.com/";
   //get dynamic data
-  const dynamicData = await fetchData(url);
+  let dynamicData = await fetchData(url);
   //get beertypes
   const beersData = await fetchData(`${url}beertypes`);
-  const beersOnTap = getBeersOnTap(dynamicData);
-  console.log(beersOnTap, beersData);
-  // showBeerDescription();
+  const newBeersOnTap = getBeersOnTap(dynamicData);
+  //check if updated
+  if (arraysEqual(beersOnTap, newBeersOnTap) === true) {
+    console.log("beers on tap did not update");
+  } else {
+    console.log("beers on tap updated");
+    const availableBeers = filterBeersOnTap(newBeersOnTap, beersData);
+    receiveBeersData(availableBeers);
+    beersOnTap = newBeersOnTap;
+  }
+  //loop every 3 sec
+  setTimeout(init, 3000);
+  showBeerDescription();
+}
+
+function arraysEqual(a, b) {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
 }
 
 async function fetchData(url) {
@@ -28,13 +50,17 @@ async function fetchData(url) {
 function getBeersOnTap(data) {
   const beersOnTap = [];
   data.taps.forEach((tap) => {
-    console.log(tap.beer);
     //add beers to array
     beersOnTap.push(tap.beer);
   });
   //make new array with only unique names to array
   const uniqueNames = removeDuplicates(beersOnTap);
   return uniqueNames;
+}
+
+function filterBeersOnTap(beersOnTap, beersData) {
+  const availableBeers = beersData.filter((beer) => beersOnTap.includes(beer.name));
+  return availableBeers;
 }
 
 function removeDuplicates(arr) {
