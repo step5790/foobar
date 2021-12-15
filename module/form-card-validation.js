@@ -4,8 +4,6 @@ import { toggleCart } from "./productCart";
 const searchParams = new URLSearchParams(window.location.search);
 const status = searchParams.get("status");
 
-document.querySelector(".login-notfound").style.color = "red";
-
 if (status === "login") {
   console.log(status);
   runPostData();
