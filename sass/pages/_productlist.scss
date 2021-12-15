@@ -535,6 +535,7 @@ footer h1 {
     margin-left: 10%;
     margin-top: 6em;
     text-align: center;
+    font-size: 3rem;
   }
 
   .welcomeText {
@@ -543,7 +544,7 @@ footer h1 {
   }
 
   #beerList {
-    margin-top: 44.75rem;
+    margin-top: 40.75rem;
   }
 
   .scrollArrowsContainer {
@@ -566,6 +567,76 @@ footer h1 {
 
   .secondaryHeading {
     text-align: center;
+  }
+
+  .aboutText {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .logoSoMeContainer {
+    width: 20rem;
+  }
+
+  .logoSoMeContainer h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .logoSoMeContainer .fb {
+    margin-left: 70px;
+  }
+
+  .logoSoMeContainer .tw {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .formalitiesContainer {
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #productlist {
+    color: lightblue;
+  }
+
+  #beerList {
+    margin-top: 40.75rem;
+  }
+
+  .scrollArrowsContainer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .beersContainer {
+    display: grid;
+    width: 100%;
+    margin: 0;
+    grid-template-columns: 50% 50%;
+    gap: 0rem;
+    padding: 0;
+    cursor: default;
+  }
+
+  .beer {
+    width: auto;
+    margin-top: 4rem;
+    margin-right: 0;
+  }
+
+  .beerGlass {
+    width: 70px;
+  }
+
+  .scrollArrow1 {
+    display: none;
+  }
+
+  .scrollArrow2 {
+    display: none;
   }
 }
 
