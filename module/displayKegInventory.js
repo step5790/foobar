@@ -1,13 +1,9 @@
 export function displayKegInventory(kegData) {
-  console.log(kegData.storage);
-
   document.querySelector("#dash-keg .content").innerHTML = "";
 
   const allKeg = kegData.storage;
 
   allKeg.forEach((element) => {
-    console.log(element.name + ": " + element.amount);
-
     const clone = document
       .querySelector("template#keg-inventory")
       .content.cloneNode(true);

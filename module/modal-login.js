@@ -10,12 +10,10 @@ document.querySelector(".login-notfound").style.textAlign = "right";
 
 function logSubmit(event) {
   event.preventDefault();
-  console.log(document.activeElement.value);
 
   if (document.activeElement.value === "signin") {
     if (document.getElementById("email").value !== "diana@gmail.com") {
       document.querySelector(".login-notfound").style.visibility = "visible";
-      console.log("error");
     } else {
       document.querySelector(".login-notfound").style.visibility = "hidden";
 

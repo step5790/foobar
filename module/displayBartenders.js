@@ -10,23 +10,11 @@ import {
 } from "./peterCalculate";
 
 export function displayBartenders(bartenderData) {
-  console.log(bartenderData.bartenders);
-
   document.querySelector("#dash-bartender .content").innerHTML = "";
 
   const allBartender = bartenderData.bartenders;
 
   allBartender.forEach((element) => {
-    console.log(
-      element.name +
-        " " +
-        "Status: " +
-        element.statusDetail +
-        " " +
-        "| Serving customer: " +
-        element.servingCustomer
-    );
-
     const clone = document
       .querySelector("template#bartender")
       .content.cloneNode(true);

@@ -14,7 +14,6 @@ export function createQueue(queueData, svgs) {
     const difference = calculateDifference(queue, oldQueue);
     //check if queue is longer than 8
     if (queue > 8) {
-      console.log("queue is longer than 8 people");
       //TODO: add all single svgs
       //todo: add queue groups based on queue length
     } else {

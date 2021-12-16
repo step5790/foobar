@@ -23,8 +23,6 @@ async function init() {
 }
 
 function prepareAllData(jsonData) {
-  console.log(jsonData);
-
   displayQues(jsonData);
   displayTapLevels(jsonData);
   displayKegInventory(jsonData);

@@ -48,8 +48,6 @@ function displayCartItems() {
 function toggleTotal() {
   //check if order and localStorage is empty
   if (!localStorage.getItem("order") || order.length === 0) {
-    console.log(order);
-    console.log("cart is empty");
     //hide total
     document.querySelector(".cartTotalPriceContainer").classList.add("hidden");
     document.querySelector(".cartEmptyFeedback").classList.remove("hidden");
@@ -74,15 +72,12 @@ function closeCart() {
 }
 
 export function addToCart(singleOrder) {
-  console.log("add", singleOrder, "to cart");
   //check if beer is already in array
   if (order.some((el) => el.beer.name === singleOrder.beer.name)) {
-    console.log(singleOrder.beer.name, "is already added");
     increaseBeerQuantityInOrder(singleOrder);
   } else {
     order.push(singleOrder);
   }
-  console.log("updated order:", order);
   updateLocalStorage();
 }
 
@@ -93,7 +88,6 @@ function increaseBeerQuantityInOrder(singleOrder) {
   );
   order[indexOfBeer].quantity =
     order[indexOfBeer].quantity + singleOrder.quantity;
-  console.log("new quantity:", order[indexOfBeer].quantity);
 }
 
 function increaseBeerQuantityInCart(singleOrder) {
@@ -102,7 +96,6 @@ function increaseBeerQuantityInCart(singleOrder) {
     (obj) => obj.beer.name === singleOrder.beer.name
   );
   order[indexOfBeer].quantity++;
-  console.log("new quantity:", order[indexOfBeer].quantity);
 }
 
 function decreaseBeerQuantityInCart(singleOrder) {
@@ -111,7 +104,6 @@ function decreaseBeerQuantityInCart(singleOrder) {
     (obj) => obj.beer.name === singleOrder.beer.name
   );
   order[indexOfBeer].quantity--;
-  console.log("new quantity:", order[indexOfBeer].quantity);
 }
 
 function displayCartItem(obj) {
@@ -171,7 +163,6 @@ function registerCartCounter(e, obj) {
     if (obj.quantity > 1) {
       decreaseBeerQuantityInCart(obj);
     } else {
-      console.log("beer needs to be removed");
       removeItemFromOrder(obj);
       removeElementFromCart(e);
     }
@@ -192,31 +183,23 @@ function registerCartCounter(e, obj) {
 function updateLocalStorage() {
   //check if order is empty
   if (order.length === 0) {
-    console.log("cart is empty");
     //check if exists in localStorage
     if (localStorage.getItem("order")) {
-      console.log("clear order in localStorage");
       //clear order in localStorage
       localStorage.clear("order");
     }
   } else {
     localStorage.setItem("order", JSON.stringify(order));
-    console.log(
-      "updated order in localStorage:",
-      JSON.parse(localStorage.getItem("order"))
-    );
   }
 }
 
 function removeItemFromOrder(singleOrder) {
-  console.log(singleOrder);
   //find beer in array
   const indexOfBeer = order.findIndex(
     (obj) => obj.beer.name === singleOrder.beer.name
   );
   //remove beer from array
   order.splice(indexOfBeer, 1);
-  console.log("New Order (haha): ", order);
 }
 
 function removeElementFromCart(e) {
