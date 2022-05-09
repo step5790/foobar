@@ -113,49 +113,49 @@ export function calculateSales(tapData) {
     });
   }
 
-  function checkAllOrder(allOrder) {
-    allOrder.forEach((order) => {
-      const itemOrder = order.order;
+  // function checkAllOrder(allOrder) {
+  //   allOrder.forEach((order) => {
+  //     const itemOrder = order.order;
 
-      itemOrder.forEach((item) => {
-        console.log(item);
+  //     itemOrder.forEach((item) => {
+  //       console.log(item);
 
-        switch (item) {
-          case "El Hefe":
-            beerArray.elHefe += 1;
-            // elHefe++;
-            break;
-          case "Fairy Tale Ale":
-            beerArray.fairy += 1;
-            break;
-          case "GitHop":
-            beerArray.githop += 1;
-            break;
-          case "Hollaback Lager":
-            beerArray.hollaback += 1;
-            break;
-          case "Hoppily Ever After":
-            beerArray.hoppily += 1;
-            break;
-          case "Mowintime":
-            beerArray.mowintime += 1;
-            break;
-          case "Row 26":
-            beerArray.row26 += 1;
-            break;
-          case "Ruined Childhood":
-            beerArray.ruined += 1;
-            break;
-          case "Sleighride":
-            beerArray.sleighride += 1;
-            break;
-          case "Steampunk":
-            beerArray.steampunk += 1;
-            break;
-        }
-      });
-    });
-  }
+  //       switch (item) {
+  //         case "El Hefe":
+  //           beerArray.elHefe += 1;
+  //           // elHefe++;
+  //           break;
+  //         case "Fairy Tale Ale":
+  //           beerArray.fairy += 1;
+  //           break;
+  //         case "GitHop":
+  //           beerArray.githop += 1;
+  //           break;
+  //         case "Hollaback Lager":
+  //           beerArray.hollaback += 1;
+  //           break;
+  //         case "Hoppily Ever After":
+  //           beerArray.hoppily += 1;
+  //           break;
+  //         case "Mowintime":
+  //           beerArray.mowintime += 1;
+  //           break;
+  //         case "Row 26":
+  //           beerArray.row26 += 1;
+  //           break;
+  //         case "Ruined Childhood":
+  //           beerArray.ruined += 1;
+  //           break;
+  //         case "Sleighride":
+  //           beerArray.sleighride += 1;
+  //           break;
+  //         case "Steampunk":
+  //           beerArray.steampunk += 1;
+  //           break;
+  //       }
+  //     });
+  //   });
+  // }
 
   console.log("elHefe " + beerArray.elHefe);
   console.log("fairy " + beerArray.fairy);

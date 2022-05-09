@@ -30,8 +30,9 @@ function prepareAllData(jsonData) {
   displayKegInventory(jsonData);
   displayBartenders(jsonData);
   calculateSales(jsonData);
-  collapsible();
 }
+
+collapsible();
 
 // if (window.matchMedia("(max-device-width: 414px)").matches) {
 //   document.querySelector(".dash-container").style.display = "block";
